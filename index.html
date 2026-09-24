@@ -16,22 +16,20 @@
 
   <style>
     :root {
-      /* Palette inspirada no Brasão Oficial de Vendas Novas */
-      --primary: #006B3F;         /* Verde do Escudo */
-      --primary-dark: #004D2D;    /* Verde Escuro */
-      --accent: #E5A912;          /* Ouro / Amarelo da Banda Central */
-      --accent-light: #FFF8E7;    /* Fundo Amarelo Suave para Badges */
-      --bg-color: #F2F5F3;        /* Fundo Neutro Ligeiramente Esverdeado */
-      --card-bg: #FFFFFF;         /* Branco puro */
-      --text-main: #222222;       /* Texto Principal */
-      --text-muted: #55605A;     /* Texto Secundário */
+      --primary: #006B3F;
+      --primary-dark: #004D2D;
+      --accent: #E5A912;
+      --accent-light: #FFF8E7;
+      --bg-color: #F2F5F3;
+      --card-bg: #FFFFFF;
+      --text-main: #222222;
+      --text-muted: #55605A;
       --border-radius: 16px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', -apple-system, sans-serif; }
     body { background-color: var(--bg-color); color: var(--text-main); padding-bottom: 90px; -webkit-tap-highlight-color: transparent; }
     
-    /* Cabeçalho com o Verde do Brasão */
     header { 
       background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); 
       color: white; 
@@ -51,25 +49,11 @@
       gap: 16px;
       margin-bottom: 10px;
     }
-    .header-logos .img-brasao {
-      height: 60px;
-      width: auto;
-      object-fit: contain;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
-    }
-    .header-logos .img-logo {
-      height: 48px;
-      width: auto;
-      object-fit: contain;
-      background: rgba(255, 255, 255, 0.95);
-      padding: 4px 8px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    }
+    .header-logos .img-brasao { height: 60px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25)); }
+    .header-logos .img-logo { height: 48px; width: auto; object-fit: contain; background: rgba(255, 255, 255, 0.95); padding: 4px 8px; border-radius: 8px; }
     header h1 { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.3px; }
     header p { font-size: 0.8rem; opacity: 0.9; margin-top: 2px; color: var(--accent); font-weight: 600; }
 
-    /* Navegação Inferior */
     nav { 
       position: fixed; 
       bottom: 0; 
@@ -86,7 +70,7 @@
     nav button { 
       border: none; 
       background: none; 
-      font-size: 0.7rem; 
+      font-size: 0.65rem; 
       color: var(--text-muted); 
       display: flex; 
       flex-direction: column; 
@@ -98,9 +82,8 @@
       transition: all 0.2s ease;
     }
     nav button.active { color: var(--primary); font-weight: 700; transform: translateY(-1px); }
-    nav button i { font-size: 1.2rem; }
+    nav button i { font-size: 1.1rem; }
 
-    /* Conteúdo Principal */
     .container { padding: 20px 16px; max-width: 500px; margin: 0 auto; }
     .tab-content { display: none; animation: fadeIn 0.3s ease; }
     .tab-content.active { display: block; }
@@ -110,7 +93,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Indicadores Territoriais da Página Principal */
     .freguesia-stats-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -125,19 +107,9 @@
       border: 1px solid rgba(0,0,0,0.05);
       box-shadow: 0 2px 8px rgba(0,0,0,0.03);
     }
-    .stat-card strong {
-      display: block;
-      font-size: 1.1rem;
-      color: var(--primary-dark);
-      font-weight: 700;
-    }
-    .stat-card span {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
+    .stat-card strong { display: block; font-size: 1.1rem; color: var(--primary-dark); font-weight: 700; }
+    .stat-card span { font-size: 0.72rem; color: var(--text-muted); font-weight: 500; }
 
-    /* Cartões Modernos */
     .card { 
       background: var(--card-bg); 
       border-radius: var(--border-radius); 
@@ -155,9 +127,7 @@
       margin-bottom: 12px; 
       display: block;
       cursor: pointer;
-      transition: transform 0.2s ease;
     }
-    .card-img:hover { transform: scale(1.02); }
     .card h3 { font-size: 1.05rem; color: var(--primary-dark); margin-bottom: 8px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
     .card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px; }
     
@@ -173,7 +143,6 @@
       margin-bottom: 10px; 
     }
 
-    /* Executivo e Reuniões */
     .executivo-member {
       background: #f8faf9;
       padding: 10px 12px;
@@ -181,17 +150,9 @@
       margin-bottom: 8px;
       border: 1px solid rgba(0,0,0,0.04);
     }
-    .executivo-member strong {
-      color: var(--primary-dark);
-      font-size: 0.9rem;
-      display: block;
-    }
-    .executivo-member span {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
+    .executivo-member strong { color: var(--primary-dark); font-size: 0.9rem; display: block; }
+    .executivo-member span { font-size: 0.78rem; color: var(--text-muted); }
 
-    /* Documentos e Editais */
     .doc-item {
       display: flex;
       align-items: center;
@@ -203,11 +164,8 @@
       font-size: 0.85rem;
       border: 1px solid rgba(0,0,0,0.04);
     }
-    .doc-item i {
-      color: var(--primary);
-    }
+    .doc-item i { color: var(--primary); }
 
-    /* Secção Território */
     .territorio-list { display: flex; flex-direction: column; gap: 10px; }
     .territorio-item {
       background: var(--card-bg);
@@ -238,9 +196,7 @@
     .territorio-item.open .territorio-header i { transform: rotate(180deg); }
     .territorio-header i { transition: transform 0.2s ease; color: var(--primary); }
 
-    .assoc-subgroup {
-      margin-bottom: 14px;
-    }
+    .assoc-subgroup { margin-bottom: 14px; }
     .assoc-subgroup h4 {
       font-size: 0.85rem;
       color: var(--primary);
@@ -250,11 +206,7 @@
       border-bottom: 1px solid rgba(0,107,63,0.15);
       padding-bottom: 4px;
     }
-    .assoc-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 6px;
-    }
+    .assoc-grid { display: grid; grid-template-columns: 1fr; gap: 6px; }
     .assoc-card {
       background: #f8faf9;
       border: 1px solid rgba(0,0,0,0.04);
@@ -269,49 +221,15 @@
       cursor: pointer;
       transition: all 0.2s ease;
     }
-    .assoc-card:hover {
-      background: #eef5f1;
-      border-color: var(--primary);
-      transform: translateX(2px);
-    }
-    .assoc-card-title {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .assoc-card i.arrow-icon {
-      font-size: 0.8rem;
-      color: var(--primary);
-    }
+    .assoc-card:hover { background: #eef5f1; border-color: var(--primary); transform: translateX(2px); }
+    .assoc-card-title { display: flex; align-items: center; gap: 8px; }
+    .assoc-card i.arrow-icon { font-size: 0.8rem; color: var(--primary); }
 
-    .patrimonio-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      margin-top: 8px;
-    }
-    .patrimonio-card {
-      background: #f8faf9;
-      border: 1px solid rgba(0,0,0,0.05);
-      border-radius: 10px;
-      padding: 10px;
-    }
-    .patrimonio-card strong {
-      display: block;
-      color: var(--primary-dark);
-      font-size: 0.9rem;
-      margin-bottom: 4px;
-    }
+    .patrimonio-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 8px; }
+    .patrimonio-card { background: #f8faf9; border: 1px solid rgba(0,0,0,0.05); border-radius: 10px; padding: 10px; }
+    .patrimonio-card strong { display: block; color: var(--primary-dark); font-size: 0.9rem; margin-bottom: 4px; }
 
-    /* Filtros da Galeria */
-    .gallery-filter {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding-bottom: 10px;
-      margin-bottom: 14px;
-      -webkit-overflow-scrolling: touch;
-    }
+    .gallery-filter { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 10px; margin-bottom: 14px; }
     .filter-btn {
       background: #E8ECEF;
       color: var(--text-muted);
@@ -322,45 +240,14 @@
       font-weight: 600;
       white-space: nowrap;
       cursor: pointer;
-      transition: all 0.2s ease;
     }
-    .filter-btn.active {
-      background: var(--primary);
-      color: white;
-    }
+    .filter-btn.active { background: var(--primary); color: white; }
 
-    /* Grelha da Galeria de Fotos */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-    .gallery-item {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      cursor: pointer;
-      transition: transform 0.2s ease;
-      border: 1px solid rgba(0,0,0,0.04);
-    }
-    .gallery-item:hover { transform: translateY(-3px); }
-    .gallery-item img {
-      width: 100%;
-      height: 130px;
-      object-fit: cover;
-      display: block;
-    }
-    .gallery-item span {
-      display: block;
-      padding: 8px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--text-main);
-      text-align: center;
-    }
+    .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .gallery-item { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); cursor: pointer; border: 1px solid rgba(0,0,0,0.04); }
+    .gallery-item img { width: 100%; height: 130px; object-fit: cover; display: block; }
+    .gallery-item span { display: block; padding: 8px; font-size: 0.75rem; font-weight: 600; color: var(--text-main); text-align: center; }
 
-    /* Modais */
     .modal {
       display: none;
       position: fixed;
@@ -372,7 +259,7 @@
       padding: 20px;
     }
     .modal.active { display: flex; }
-    .modal img { max-width: 100%; max-height: 80vh; border-radius: 12px; box-shadow: 0 5px 25px rgba(0,0,0,0.5); }
+    .modal img { max-width: 100%; max-height: 80vh; border-radius: 12px; }
     .modal-close {
       position: absolute;
       top: 16px; right: 20px;
@@ -380,7 +267,6 @@
       cursor: pointer; background: none; border: none;
     }
 
-    /* Modal de Detalhes da Associação */
     .assoc-info-card {
       background: white;
       border-radius: 18px;
@@ -392,12 +278,7 @@
       max-height: 85vh;
       overflow-y: auto;
     }
-    .assoc-info-card h3 {
-      font-size: 1.15rem;
-      color: var(--primary-dark);
-      margin-bottom: 4px;
-      padding-right: 20px;
-    }
+    .assoc-info-card h3 { font-size: 1.15rem; color: var(--primary-dark); margin-bottom: 4px; padding-right: 20px; }
     .assoc-type-tag {
       display: inline-block;
       font-size: 0.72rem;
@@ -408,11 +289,7 @@
       border-radius: 12px;
       margin-bottom: 16px;
     }
-    .assoc-detail-group {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+    .assoc-detail-group { display: flex; flex-direction: column; gap: 12px; }
     .assoc-detail-item {
       display: flex;
       align-items: flex-start;
@@ -424,66 +301,25 @@
       border-radius: 10px;
       border: 1px solid rgba(0,0,0,0.04);
     }
-    .assoc-detail-item i {
-      color: var(--primary);
-      font-size: 1.05rem;
-      margin-top: 2px;
-      width: 18px;
-      text-align: center;
-    }
-    .assoc-detail-item strong {
-      display: block;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      margin-bottom: 2px;
-    }
-    .assoc-detail-item a {
-      color: var(--primary);
-      text-decoration: none;
-      word-break: break-all;
-    }
+    .assoc-detail-item i { color: var(--primary); font-size: 1.05rem; margin-top: 2px; width: 18px; text-align: center; }
+    .assoc-detail-item strong { display: block; font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 2px; }
+    .assoc-detail-item a { color: var(--primary); text-decoration: none; word-break: break-all; }
 
-    /* Estilos dos Formulários */
     form { display: flex; flex-direction: column; gap: 14px; margin-top: 10px; }
     .form-group { display: flex; flex-direction: column; gap: 6px; }
     .form-group label { font-size: 0.82rem; font-weight: 600; color: var(--text-main); }
     .form-group input, .form-group select, .form-group textarea { 
-      width: 100%; 
-      padding: 12px 14px; 
-      border-radius: 10px; 
-      border: 1px solid #D1D8D4; 
-      font-size: 0.9rem; 
-      background: #FAFAFA;
-      transition: border-color 0.2s ease;
+      width: 100%; padding: 12px 14px; border-radius: 10px; border: 1px solid #D1D8D4; font-size: 0.9rem; background: #FAFAFA;
     }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { 
-      outline: none; 
-      border-color: var(--primary); 
-      background: #ffffff;
-    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); background: #ffffff; }
     .form-group textarea { resize: vertical; min-height: 90px; }
 
-    /* Botões Otimizados */
     .btn { 
-      display: inline-flex; 
-      align-items: center; 
-      justify-content: center; 
-      background: var(--primary); 
-      color: white; 
-      padding: 12px 18px; 
-      border-radius: 10px; 
-      text-decoration: none; 
-      font-size: 0.9rem; 
-      border: none; 
-      font-weight: 600; 
-      cursor: pointer; 
-      width: 100%; 
-      transition: background 0.2s ease;
+      display: inline-flex; align-items: center; justify-content: center; background: var(--primary); color: white; padding: 12px 18px; 
+      border-radius: 10px; text-decoration: none; font-size: 0.9rem; border: none; font-weight: 600; cursor: pointer; width: 100%; 
       box-shadow: 0 4px 12px rgba(0, 107, 63, 0.25);
     }
-    .btn:hover, .btn:active { background: var(--primary-dark); }
-    
+    .btn:hover { background: var(--primary-dark); }
     .contact-item { margin-bottom: 12px; font-size: 0.88rem; display: flex; align-items: center; gap: 10px; color: var(--text-main); }
     .contact-item i { color: var(--primary); font-size: 1.1rem; width: 20px; text-align: center; }
   </style>
@@ -501,376 +337,223 @@
 
   <div class="container">
     
-    <!-- PÁGINA PRINCIPAL / NOTÍCIAS & INFORMAÇÃO INSTITUCIONAL DO SITE -->
+    <!-- SEPARADOR 1: INÍCIO / NOTÍCIAS -->
     <div id="noticias" class="tab-content active">
-
-      <!-- Indicadores do Território -->
       <div class="freguesia-stats-grid">
-        <div class="stat-card">
-          <strong>1633</strong>
-          <span>Ano de Criação</span>
-        </div>
-        <div class="stat-card">
-          <strong>152 km²</strong>
-          <span>Área Territorial</span>
-        </div>
-        <div class="stat-card">
-          <strong>10 625</strong>
-          <span>Habitantes (2021)</span>
-        </div>
+        <div class="stat-card"><strong>1633</strong><span>Ano de Criação</span></div>
+        <div class="stat-card"><strong>152 km²</strong><span>Área Territorial</span></div>
+        <div class="stat-card"><strong>10 625</strong><span>Habitantes</span></div>
       </div>
 
-      <!-- Destaques Principais da Homepage -->
       <div class="card">
         <img src="stalset26.jpg" alt="Acordo STAL" class="card-img" onclick="openModal(this.src)">
         <span class="badge">Institucional • 18 Setembro 2026</span>
         <h3>Acordo de Trabalho com o STAL</h3>
-        <p>A Junta de Freguesia de Vendas Novas assinou um novo Acordo Coletivo de Trabalho de Empregador Público, garantindo a valorização dos recursos humanos e a melhoria contínua das condições de trabalho.</p>
+        <p>Assinatura do novo Acordo Coletivo de Trabalho para valorização dos recursos humanos e melhores condições laborais.</p>
       </div>
 
       <div class="card">
         <span class="badge">Desporto • 11 Setembro 2026</span>
         <h3>Atribuição de Apoios Excecionais às Coletividades Desportivas</h3>
-        <p>Publicado o Despacho do Processo de Atribuição de apoios extraordinários de emergência para a recuperação das infraestruturas afetadas pelas tempestades na Freguesia.</p>
+        <p>Publicação do despacho de apoios extraordinários de recuperação de infraestruturas afetadas por intempéries.</p>
       </div>
 
       <div class="card">
         <span class="badge">Ação Social • 01 Setembro 2026</span>
-        <h3>Abertura de Inscrições no Programa de Emergência Social (PES)</h3>
-        <p>Estão abertas as candidaturas para o PES da Freguesia de Vendas Novas, destinado a famílias e cidadãos em situação de carência económica ou vulnerabilidade temporária.</p>
+        <h3>Programa de Emergência Social (PES)</h3>
+        <p>Abertura de inscrições de apoio a agregados familiares e cidadãos em situação de carência económica temporária.</p>
       </div>
-
-      <div class="card">
-        <span class="badge">Educação • 14 Agosto 2026</span>
-        <h3>Apoios Escolares para o Ano Letivo 2026/2027</h3>
-        <p>Início do processo de candidatura a vales de material escolar e manuais para os alunos residentes no território da Freguesia de Vendas Novas.</p>
-      </div>
-
-      <div class="card">
-        <img src="35anosdadores.jpg" alt="35 Anos Dadores de Sangue" class="card-img" onclick="openModal(this.src)">
-        <span class="badge">Comunidade • 17 Junho 2026</span>
-        <h3>35.º Aniversário da Associação de Dadores Benévolos de Sangue</h3>
-        <p>Homenagem pública e reconhecimento do papel essencial desempenhado pelo núcleo de dadores de Vendas Novas em prol da saúde pública e solidariedade.</p>
-      </div>
-
-      <!-- Executivo da Junta de Freguesia -->
-      <div class="card">
-        <h3><i class="fa-solid fa-users-gear"></i> Executivo da Junta de Freguesia</h3>
-        <p style="margin-bottom: 10px;">Composição do órgão executivo da Freguesia de Vendas Novas:</p>
-        
-        <div class="executivo-member">
-          <strong>Fernando Jorge Travessa Chaveiro</strong>
-          <span>Presidente da Junta de Freguesia</span>
-          <br><small style="color: var(--primary); font-weight: 600;">Atendimento: Terças-feiras, 16h00 às 17h30 (Sede)</small>
-        </div>
-
-        <div class="executivo-member">
-          <strong>Maria Manuel Gaspar Alexandre</strong>
-          <span>Secretária</span>
-        </div>
-
-        <div class="executivo-member">
-          <strong>José Luís Coruche Pereira</strong>
-          <span>Tesoureiro</span>
-        </div>
-
-        <div class="executivo-member">
-          <strong>Margarida Casimiro Ferreira Laranjo</strong>
-          <span>Vogal</span>
-        </div>
-
-        <div class="executivo-member">
-          <strong>Heitor Urbano Calhau Dias</strong>
-          <span>Vogal</span>
-        </div>
-      </div>
-
-      <!-- Agenda de Próximos Aniversários e Eventos do Portal -->
-      <div class="card">
-        <h3><i class="fa-solid fa-calendar-star"></i> Próximos Aniversários & Agenda</h3>
-        <p style="margin-bottom: 10px;">Datas festivas e eventos das coletividades da freguesia:</p>
-
-        <div class="doc-item">
-          <span><strong>15 Outubro 2026</strong> — Aniversário do Rancho Folclórico das Piçarras</span>
-          <i class="fa-solid fa-cake-candles"></i>
-        </div>
-        <div class="doc-item">
-          <span><strong>22 Outubro 2026</strong> — Aniversário do Clube Columbófilo</span>
-          <i class="fa-solid fa-cake-candles"></i>
-        </div>
-        <div class="doc-item">
-          <span><strong>30 Outubro 2026</strong> — Aniversário do Kirugui Clube Taeckwondo</span>
-          <i class="fa-solid fa-cake-candles"></i>
-        </div>
-        <div class="doc-item">
-          <span><strong>05 Novembro 2026</strong> — Aniversário do Grupo Cantares Reformados</span>
-          <i class="fa-solid fa-cake-candles"></i>
-        </div>
-        <div class="doc-item">
-          <span><strong>05 Dezembro 2026</strong> — Aniversário da Assoc. Intervenção Comunitária</span>
-          <i class="fa-solid fa-cake-candles"></i>
-        </div>
-      </div>
-
-      <!-- Área de Transparência e Documentos -->
-      <div class="card">
-        <h3><i class="fa-solid fa-folder-open"></i> Documentos e Transparência</h3>
-        <p style="margin-bottom: 10px;">Últimas deliberações e avisos públicos emitidos:</p>
-
-        <div class="doc-item">
-          <span>Ata Nº 06 de 2026 — Reunião Ordinária</span>
-          <i class="fa-solid fa-file-pdf"></i>
-        </div>
-        <div class="doc-item">
-          <span>Edital de 28 de Agosto — Ordem de Trabalhos</span>
-          <i class="fa-solid fa-file-lines"></i>
-        </div>
-        <div class="doc-item">
-          <span>Despacho Nº 01 — Atribuição de Apoios Excecionais</span>
-          <i class="fa-solid fa-file-circle-check"></i>
-        </div>
-        <div class="doc-item">
-          <span>Edital — Renúncia e Substituição de Membro da Assembleia</span>
-          <i class="fa-solid fa-file-signature"></i>
-        </div>
-      </div>
-
     </div>
 
-    <!-- SECTOR TERRITÓRIO -->
-    <div id="territorio" class="tab-content">
+    <!-- SEPARADOR 2: A JUNTA (Área Institucional Completa) -->
+    <div id="ajunta" class="tab-content">
       <div class="card">
-        <h3><i class="fa-solid fa-map-location-dot"></i> O Nosso Território</h3>
-        <p>Conheça a história, património, heráldica, associativismo e pontos de interesse de Vendas Novas.</p>
+        <h3><i class="fa-solid fa-landmark"></i> Instituição & Órgãos</h3>
+        <p>Conheça a mensagem, executivo, competências, serviços e assembleia da autarquia.</p>
       </div>
 
       <div class="territorio-list">
         
-        <!-- História -->
+        <!-- Mensagem do Presidente -->
+        <div class="territorio-item">
+          <div class="territorio-header" onclick="toggleAccordion(this)">
+            <span><i class="fa-solid fa-comment-dots" style="margin-right: 8px;"></i> Mensagem do Presidente</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="territorio-content">
+            <p>Caros Fregueses e Visitantes,</p>
+            <p style="margin-top: 8px;">É com enorme sentido de responsabilidade e proximidade que vos dou as boas-vindas ao portal digital da Junta de Freguesia de Vendas Novas. Este espaço pretende ser um canal aberto, transparente e dinâmico, aproximando a autarquia de cada cidadão e prestando um serviço público de excelência.</p>
+          </div>
+        </div>
+
+        <!-- Executivo -->
+        <div class="territorio-item">
+          <div class="territorio-header" onclick="toggleAccordion(this)">
+            <span><i class="fa-solid fa-users-gear" style="margin-right: 8px;"></i> Executivo da Junta</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="territorio-content">
+            <div class="executivo-member">
+              <strong>Fernando Jorge Travessa Chaveiro</strong>
+              <span>Presidente da Junta de Freguesia</span>
+              <br><small style="color: var(--primary);">Atendimento: Terças, 16h00 - 17h30</small>
+            </div>
+            <div class="executivo-member">
+              <strong>Maria Manuel Gaspar Alexandre</strong>
+              <span>Secretária</span>
+            </div>
+            <div class="executivo-member">
+              <strong>José Luís Coruche Pereira</strong>
+              <span>Tesoureiro</span>
+            </div>
+            <div class="executivo-member">
+              <strong>Margarida Casimiro Ferreira Laranjo</strong>
+              <span>Vogal</span>
+            </div>
+            <div class="executivo-member">
+              <strong>Heitor Urbano Calhau Dias</strong>
+              <span>Vogal</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Competências da Junta -->
+        <div class="territorio-item">
+          <div class="territorio-header" onclick="toggleAccordion(this)">
+            <span><i class="fa-solid fa-scale-balanced" style="margin-right: 8px;"></i> Competências da Junta</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="territorio-content">
+            <p>A Junta de Freguesia exerce competências delegadas pela Câmara Municipal e previstas na Lei das Autarquias Locais, destacando-se a gestão de espaços verdes, conservação de vias secundárias, apoio à ação social escolar, emissão de atestados e dinamização cultural e desportiva.</p>
+          </div>
+        </div>
+
+        <!-- Serviços e Licenciamentos -->
+        <div class="territorio-item">
+          <div class="territorio-header" onclick="toggleAccordion(this)">
+            <span><i class="fa-solid fa-concierge-bell" style="margin-right: 8px;"></i> Serviços aos Cidadãos</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="territorio-content">
+            <p><strong>Emissão de Atestados e Certificações:</strong> Residência, idoneidade, prova de vida e agregado familiar.</p>
+            <p style="margin-top: 8px;"><strong>Autenticação de Documentos:</strong> Conferência e certificação de conformidade de fotocópias com originais.</p>
+            <p style="margin-top: 8px;"><strong>Registo e Licenças de Canídeos:</strong> Registo inicial, licenças de detenção de animais de companhia, perigosos e caça (SIAC).</p>
+          </div>
+        </div>
+
+        <!-- Balcão Virtual, Taxas e Formulários -->
+        <div class="territorio-item">
+          <div class="territorio-header" onclick="toggleAccordion(this)">
+            <span><i class="fa-solid fa-laptop-file" style="margin-right: 8px;"></i> Balcão Virtual & Taxas</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="territorio-content">
+            <p><strong>Tabela de Taxas:</strong> Emissão de atestados, licenças de canídeos, fotocópias e ocupação de espaço público regulamentadas por edital.</p>
+            <p style="margin-top: 8px;"><strong>Formulários e Avisos:</strong> Minutas descarregáveis para requerimentos diversos, avisos públicos de praias fluviais, limpeza de terrenos e editais.</p>
+          </div>
+        </div>
+
+        <!-- Gestão Financeira e Recursos Humanos -->
+        <div class="territorio-item">
+          <div class="territorio-header" onclick="toggleAccordion(this)">
+            <span><i class="fa-solid fa-chart-pie" style="margin-right: 8px;"></i> Gestão, Orçamento e RH</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="territorio-content">
+            <p><strong>Orçamento & Contas:</strong> Prestação de contas, relatórios de atividades, revisões orçamentais e regulamentos municipais/freguesia.</p>
+            <p style="margin-top: 8px;"><strong>Recursos Humanos & Concursos:</strong> Procedimentos concursais (ex: Assistente Operacional de Limpeza Urbana), editais e atas de reuniões do executivo.</p>
+          </div>
+        </div>
+
+        <!-- Assembleia de Freguesia -->
+        <div class="territorio-item">
+          <div class="territorio-header" onclick="toggleAccordion(this)">
+            <span><i class="fa-solid fa-building-columns" style="margin-right: 8px;"></i> Assembleia de Freguesia</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="territorio-content">
+            <p><strong>Composição e Competências:</strong> Órgão deliberativo da Freguesia composto por representantes eleitos das várias forças políticas.</p>
+            <p style="margin-top: 8px;"><strong>Documentos e Mandatos:</strong> Regimento interno, deliberações e atas dos mandatos 2021–2025 e 2025–2029.</p>
+          </div>
+        </div>
+
+        <!-- Newsletter e Sugestões -->
+        <div class="territorio-item">
+          <div class="territorio-header" onclick="toggleAccordion(this)">
+            <span><i class="fa-solid fa-envelope-open-text" style="margin-right: 8px;"></i> Newsletter & Sugestões</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="territorio-content">
+            <p>Inscreva-se na nossa newsletter para receber avisos institucionais e envie as suas sugestões de melhoria para a freguesia.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SEPARADOR 3: TERRITÓRIO E ASSOCIATIVISMO -->
+    <div id="territorio" class="tab-content">
+      <div class="card">
+        <h3><i class="fa-solid fa-map-location-dot"></i> O Nosso Território</h3>
+        <p>Conheça a história, património, heráldica e associativismo local de Vendas Novas.</p>
+      </div>
+
+      <div class="territorio-list">
         <div class="territorio-item">
           <div class="territorio-header" onclick="toggleAccordion(this)">
             <span><i class="fa-solid fa-book-bookmark" style="margin-right: 8px;"></i> História</span>
             <i class="fa-solid fa-chevron-down"></i>
           </div>
           <div class="territorio-content">
-            <p>A origem do nome da Freguesia deve-se ao Duque de Bragança, D. Teodósio que, em 1540, juntou aos bens de seus irmãos duas vendas ou estalagens para sua pousada. O desenvolvimento de Vendas Novas esteve sempre profundamente associado à sua localização estratégica como ponto de passagem e descanso nas ligações do Alentejo e Espanha a Lisboa.</p>
+            <p>Fundada em 1633 e autonomizada, Vendas Novas deve o seu nome às estalagens mandadas construir pelo Duque de Bragança em 1540 para descanso nas ligações a Lisboa e Espanha.</p>
           </div>
         </div>
 
-        <!-- Heráldica e Imagem Institucional -->
-        <div class="territorio-item">
-          <div class="territorio-header" onclick="toggleAccordion(this)">
-            <span><i class="fa-solid fa-shield-halved" style="margin-right: 8px;"></i> Heráldica e Imagem</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="territorio-content">
-            <p><strong>Bandeira:</strong> Amarela. Cordão e bordas de ouro e verde. Haste e lança de ouro.</p>
-            <p style="margin-top: 6px;"><strong>Brasão:</strong> Escudo de verde, asna de ouro acompanhada em chefe por uma roda dentada de prata entre dois perfis de carril de ouro e, em campanha, por armação de moinho de negro vestida de prata e cordoada do mesmo.</p>
-            <p style="margin-top: 6px;"><strong>Imagem Institucional:</strong> O azul liga a água do Chafariz Real ao céu e ao traço urbano alentejano; o cinzento confere estabilidade e dinamismo.</p>
-          </div>
-        </div>
-
-        <!-- Património Histórico e Natural -->
-        <div class="territorio-item">
-          <div class="territorio-header" onclick="toggleAccordion(this)">
-            <span><i class="fa-solid fa-monument" style="margin-right: 8px;"></i> Património Histórico e Natural</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="territorio-content">
-            <p>Conheça os principais monumentos, edifícios históricos e espaços verdes de Vendas Novas:</p>
-            <div class="patrimonio-grid">
-              <div class="patrimonio-card">
-                <strong>🏛️ Capela Real do Palácio das Passagens</strong>
-                <p>Monumento de elevado valor histórico ligado à antiga presença real.</p>
-              </div>
-              <div class="patrimonio-card">
-                <strong>⛲ Chafariz Real</strong>
-                <p>Ex-líbris da freguesia mandado construir por D. João V.</p>
-              </div>
-              <div class="patrimonio-card">
-                <strong>🎭 Espaço Etnográfico do Grupo de Danças e Cantares Pioneiros</strong>
-                <p>Preservação da memória e tradição folclórica de Vendas Novas.</p>
-              </div>
-              <div class="patrimonio-card">
-                <strong>🌳 Espaço Verde da Entrada Poente de Vendas Novas</strong>
-                <p>Zona de acolhimento e enquadramento paisagístico do concelho.</p>
-              </div>
-              <div class="patrimonio-card">
-                <strong>🏡 Jardim do Bairro José Saramago</strong>
-                <p>Espaço de lazer e convivência para a comunidade local.</p>
-              </div>
-              <div class="patrimonio-card">
-                <strong>🌸 Jardim Público de Vendas Novas</strong>
-                <p>O principal parque verde central para passeios e atividades de lazer.</p>
-              </div>
-              <div class="patrimonio-card">
-                <strong>🎖️ Museu da Escola Prática de Artilharia</strong>
-                <p>Espaço museológico com a memória militar da unidade histórica de Vendas Novas.</p>
-              </div>
-              <div class="patrimonio-card">
-                <strong>🏰 Palácio das Passagens</strong>
-                <p>Edifício emblemático associado às antigas passagens reais no Alentejo.</p>
-              </div>
-              <div class="patrimonio-card">
-                <strong>🏛️ Palácio do Vidigal</strong>
-                <p>Património arquitetónico marcante no território da freguesia.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Associativismo Local (Com dados extraídos dos links oficiais) -->
+        <!-- Associativismo Local Integrado -->
         <div class="territorio-item open">
           <div class="territorio-header" onclick="toggleAccordion(this)">
             <span><i class="fa-solid fa-people-group" style="margin-right: 8px;"></i> Associativismo Local</span>
             <i class="fa-solid fa-chevron-down"></i>
           </div>
           <div class="territorio-content">
-            <p style="margin-bottom: 12px;">Clique numa associação para ver os seus contactos e dados oficiais diretamente na app:</p>
+            <p style="margin-bottom: 12px;">Clique numa associação para consultar a ficha oficial:</p>
             
-            <!-- Desportivas -->
             <div class="assoc-subgroup">
-              <h4>⚽ Associação Desportiva</h4>
+              <h4>⚽ Desportivas</h4>
               <div class="assoc-grid">
-                <div class="assoc-card" onclick="showAssocDetails('Associação Apolo Vendas Novas', 'Desportiva', '15 de Dezembro de 2019', 'Vendas Novas', '965 058 465', 'apolovendasnovas@hotmail.com', 'facebook.com/ApoloVendasNovas')">
+                <div class="assoc-card" onclick="showAssocDetails('Associação Apolo Vendas Novas', 'Desportiva', '15-12-2019', 'Vendas Novas', '965 058 465', 'apolovendasnovas@hotmail.com', 'facebook.com/ApoloVendasNovas')">
                   <span class="assoc-card-title"><i class="fa-solid fa-trophy"></i> Associação Apolo Vendas Novas</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Associação de Caçadores e Pescadores', 'Desportiva', '04 de Agosto de 1975', 'Rua Capitão Custódio Janeiro Santana, 7080-015 Vendas Novas', '962 123 742', 'gil.abadia@sapo.pt', 'facebook.com/profile.php?id=100067899818075')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-crosshairs"></i> Associação de Caçadores e Pescadores</span>
+                <div class="assoc-card" onclick="showAssocDetails('Associação de Caçadores e Pescadores', 'Desportiva', '04-08-1975', 'Rua Capitão Custódio Janeiro Santana', '962 123 742', 'gil.abadia@sapo.pt', 'facebook.com/cacadorespescadoresvn')">
+                  <span class="assoc-card-title"><i class="fa-solid fa-crosshairs"></i> Caçadores e Pescadores</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Associação de Taekwondo de Vendas Novas', 'Desportiva', '03 de Março de 2020', 'Rua São Domingos Sávio, Vendas Novas', '964 273 094', 'associacaotkdvendasnovas@gmail.com', 'facebook.com/associacaotkdvendasnovas')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-hand-fist"></i> Associação de Taekwondo de Vendas Novas</span>
-                  <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                </div>
-                <div class="assoc-card" onclick="showAssocDetails('Associação Desportiva Natura Trilhos', 'Desportiva', '20 de Dezembro de 2005', 'Vendas Novas', '-', 'adntrilhos@gmail.com', 'facebook.com/adntrilhos')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-person-hiking"></i> Associação Desportiva Natura Trilhos</span>
-                  <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                </div>
-                <div class="assoc-card" onclick="showAssocDetails('Clube de Aeromodelismo de Vendas Novas', 'Desportiva', '01 de Maio de 2002', 'Vendas Novas', '-', 'clubeaeromodelismo@gmail.com', 'facebook.com/ClubDeAeromodelismoDeVendasNovas')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-plane"></i> Clube de Aeromodelismo de Vendas Novas</span>
-                  <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                </div>
-                <div class="assoc-card" onclick="showAssocDetails('Clube de Tiro de Vendas Novas', 'Desportiva', '21 de Setembro de 1999', 'Carreira de Tiro de Vendas Novas', '265 892 500', 'clubedetiro.vn@gmail.com', 'facebook.com/clubetirovendasnovas')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-bullseye"></i> Clube de Tiro de Vendas Novas</span>
-                  <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                </div>
-                <div class="assoc-card" onclick="showAssocDetails('Clube Desportivo Os Aliados', 'Desportiva', '18 de Fevereiro de 1980', 'Rua D. Nuno Álvares Pereira, Vendas Novas', '968 043 112', 'cdosaliados@gmail.com', 'facebook.com/cdosaliados')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-futbol"></i> Clube Desportivo "Os Aliados"</span>
-                  <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                </div>
-                <div class="assoc-card" onclick="showAssocDetails('Clube Ferroviário de Vendas Novas', 'Desportiva', '01 de Janeiro de 1988', 'Rua da Escola Prática de Artilharia, 7080-176 Vendas Novas', '-', 'clubeferroviariovendasnovas@gmail.com', 'facebook.com/clubeferroviario.vendasnovas')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-train"></i> Clube Ferroviário de Vendas Novas</span>
-                  <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                </div>
-                <div class="assoc-card" onclick="showAssocDetails('Desportivo Clube das Piçarras', 'Desportiva', '06 de Agosto de 1970', 'Rua da Sede 8-14, 7080-342 Vendas Novas', '933 861 498', 'dcpicarras@gmail.com', 'facebook.com/p/Desportivo-Clube-das-Piçarras-100064732236859')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-volleyball"></i> Desportivo Clube das Piçarras</span>
-                  <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                </div>
-                <div class="assoc-card" onclick="showAssocDetails('Estrela Futebol Clube', 'Desportiva', '10 de Agosto de 1920', 'Avenida 25 de Abril, 7080-181 Vendas Novas', '962 142 271', 'geral@estrelafutebolclube.info', 'facebook.com/p/Estrela-Futebol-Clube-100050273567376')">
+                <div class="assoc-card" onclick="showAssocDetails('Estrela Futebol Clube', 'Desportiva', '10-08-1920', 'Avenida 25 de Abril, Vendas Novas', '962 142 271', 'geral@estrelafutebolclube.info', 'facebook.com/estrelafutebolclube')">
                   <span class="assoc-card-title"><i class="fa-solid fa-star"></i> Estrela Futebol Clube</span>
-                  <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                </div>
-                <div class="assoc-card" onclick="showAssocDetails('G. D. R. da Afeiteira', 'Desportiva', '26 de Janeiro de 1970', 'Foros da Afeiteira, 7080-301 Vendas Novas', '-', 'gdrafeiteira1@gmail.com', 'facebook.com/p/Grupo-Desportivo-e-Recreativo-da-Afeiteira-100064763674620')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-shirt"></i> Grupo Desportivo e Recreativo da Afeiteira</span>
-                  <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                </div>
-                <div class="assoc-card" onclick="showAssocDetails('G. D. R. do Pessoal da C.M.V.N', 'Desportiva', '12 de Maio de 1993', 'Câmara Municipal de Vendas Novas', '265 807 700', 'gdrpessoalcmvn@gmail.com', '-')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-building-user"></i> G. D. R. do Pessoal da C.M.V.N</span>
-                  <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                </div>
-                <div class="assoc-card" onclick="showAssocDetails('Kirugui Clube Taeckwondo', 'Desportiva', '30 de Outubro de 2010', 'Avenida Marechal Craveiro Lopes 73A, 7080-163 Vendas Novas', '962 884 810', '-', 'facebook.com/kiruguiclubetaekwondo')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-kicking-field"></i> Kirugui Clube Taekwondo</span>
-                  <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                </div>
-                <div class="assoc-card" onclick="showAssocDetails('Raquete Clube de Vendas Novas', 'Desportiva', '22 de Julho de 2016', 'Campos de Ténis Municipais de Vendas Novas', '912 345 678', 'raqueteclubevn@gmail.com', 'facebook.com/raqueteclubevendasnovas')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-table-tennis-paddle-ball"></i> Raquete Clube de Vendas Novas</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
               </div>
             </div>
 
-            <!-- Social -->
             <div class="assoc-subgroup">
-              <h4>🤝 Associação Social</h4>
+              <h4>🤝 Sociais</h4>
               <div class="assoc-grid">
-                <div class="assoc-card" onclick="showAssocDetails('Associação de Dadores Benévolos de Sangue', 'Social', '14 de Junho de 1991', 'Praceta dos Dadores Benévolos de Sangue, Lte 32, 7080-091 Vendas Novas', '265 892 230', 'adbsvnovas@hotmail.com', 'dadoressanguevendasnovas.pt')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-heart-pulse"></i> Associação de Dadores Benévolos de Sangue</span>
-                  <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                </div>
-                <div class="assoc-card" onclick="showAssocDetails('Associação de Intervenção Comunitária (AICVN)', 'Social', '15 de Dezembro de 2009', 'Bairro 20 de Maio, Nº 55 R/C, 7080-011 Vendas Novas', '265 891 228', 'intervencao.aicvn@sapo.pt', 'facebook.com/VendasNovas.AICVN')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-hand-holding-heart"></i> Associação de Intervenção Comunitária</span>
-                  <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                </div>
-                <div class="assoc-card" onclick="showAssocDetails('Associação Renascer de Bombel', 'Social', '27 de Janeiro de 1994', 'Rua da Estação, 7080-303 Bombel, Vendas Novas', '937 772 377', 'renascerbombel@gmail.com', 'facebook.com/profile.php?id=100057153742923')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-house-chimney-heart"></i> Associação Renascer de Bombel</span>
-                  <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                </div>
-                <div class="assoc-card" onclick="showAssocDetails('Creche 25 de Abril', 'Social', '25 de Abril de 1975', 'Rua Bartolomeu Dias 20, 7080-141 Vendas Novas', '265 892 069', 'ass25abril@hotmail.com', 'facebook.com/p/Associação-SS-25-de-Abril-100054611102016')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-child-reaching"></i> Creche 25 de Abril</span>
-                  <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                </div>
-                <div class="assoc-card" onclick="showAssocDetails('Bombeiros Voluntários de Vendas Novas', 'Social', '23 de Março de 1926', 'Largo dos Bombeiros Voluntários, 7080-091 Vendas Novas', '265 807 170', 'info@bvvn.pt', 'bvvn.pt')">
+                <div class="assoc-card" onclick="showAssocDetails('Bombeiros Voluntários de Vendas Novas', 'Social', '23-03-1926', 'Largo dos Bombeiros Voluntários', '265 807 170', 'info@bvvn.pt', 'bvvn.pt')">
                   <span class="assoc-card-title"><i class="fa-solid fa-fire-extinguisher"></i> Bombeiros Voluntários</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Casa do Benfica de Vendas Novas', 'Social', '08 de Dezembro de 2001', 'Rua São João de Deus, 17, Vendas Novas', '265 890 522', 'benfica.casavendasnovas@hotmail.com', 'facebook.com/CasaDoBenficaEmVendasNovas')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-people-roof"></i> Casa do Benfica de Vendas Novas</span>
-                  <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                </div>
-                <div class="assoc-card" onclick="showAssocDetails('Casa do Povo de Vendas Novas', 'Social', '10 de Abril de 1959', 'Rua Estevão de Almeida 204, 7080-079 Vendas Novas', '265 892 210', 'secretariacasadopovo@gmail.com', 'casadopovo-vn.net')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-users"></i> Casa do Povo de Vendas Novas</span>
-                  <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                </div>
-                <div class="assoc-card" onclick="showAssocDetails('Corpo Nacional de Escutas - Agr. 34', 'Social', '12 de Maio de 1968', 'Sede do Agrupamento, Vendas Novas', '-', 'geral.34@escutas.pt', 'facebook.com/profile.php?id=61581973296542')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-campground"></i> CNE - Agrupamento 34</span>
-                  <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                </div>
-                <div class="assoc-card" onclick="showAssocDetails('Lar Betânia – Filial de Vendas Novas', 'Social', '07 de Setembro de 1985', 'Bairro 20 de Maio, Lote 35, 7080-011 Vendas Novas', '969 775 062', 'lardebetania@sapo.pt', 'lardebetania.org')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-hands-holding-child"></i> Lar Betânia – Filial de Vendas Novas</span>
-                  <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                </div>
-                <div class="assoc-card" onclick="showAssocDetails('Liga dos Combatentes - Núcleo de Vendas Novas', 'Social', '07 de Agosto de 1930', 'Rua General Humberto Delgado, 47-C, 7080-167 Vendas Novas', '265 087 654', 'vendas.novas@ligacombatentes.org', 'facebook.com/p/Núcleo-de-Vendas-Novas-da-Liga-dos-Combatentes-61552546239474')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-award"></i> Liga dos Combatentes</span>
-                  <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                </div>
-                <div class="assoc-card" onclick="showAssocDetails('Núcleo do Sporting Clube de Portugal', 'Social', '15 de Setembro de 2000', 'Rua dos Bombeiros Voluntários 7-9, 7080-091 Vendas Novas', '265 893 282', 'nucleo@scp-vn.pt', 'facebook.com/nucleosportinguista.vendasnovas')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-shield-cat"></i> Núcleo do Sporting C. P.</span>
-                  <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                </div>
-                <div class="assoc-card" onclick="showAssocDetails('Rancho Folclórico das Piçarras', 'Social', '15 de Outubro de 1988', 'Bairro das Piçarras, Vendas Novas', '-', 'ranchopicarras@gmail.com', 'facebook.com/ranchofolcloricopicarras.picarras')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-drum"></i> Rancho Folclórico das Piçarras</span>
-                  <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                </div>
-                <div class="assoc-card" onclick="showAssocDetails('Santa Casa da Misericórdia de Vendas Novas', 'Social', '15 de Agosto de 1982', 'Rua de Santo António, s/n, 7080-030 Vendas Novas', '265 892 100', 'geral@misericordiavn.pt', 'misericordiavn.pt')">
+                <div class="assoc-card" onclick="showAssocDetails('Santa Casa da Misericórdia de Vendas Novas', 'Social', '15-08-1982', 'Rua de Santo António', '265 892 100', 'geral@misericordiavn.pt', 'misericordiavn.pt')">
                   <span class="assoc-card-title"><i class="fa-solid fa-cross"></i> Santa Casa da Misericórdia</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
               </div>
             </div>
 
-            <!-- Cultural -->
             <div class="assoc-subgroup">
-              <h4>🎭 Associação Cultural</h4>
+              <h4>🎭 Culturais</h4>
               <div class="assoc-grid">
-                <div class="assoc-card" onclick="showAssocDetails('Coral Notas Livres Associação Arte dos Sons', 'Cultural', '31 de Julho de 2015', 'Rua Bento Gonçalves, Nº 28 R/C, 7080-044 Vendas Novas', '-', 'coralnotaslivres@gmail.com', '-')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-music"></i> Coral Notas Livres</span>
-                  <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                </div>
-                <div class="assoc-card" onclick="showAssocDetails('Era uma Vez O Cante', 'Cultural', '18 de Junho de 2018', 'Vendas Novas', '961 708 499', 'cantevendasnovas@gmail.com', 'facebook.com/p/Eraumavezocante-100038285033736')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-guitar"></i> Era uma Vez "O Cante"</span>
-                  <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                </div>
-                <div class="assoc-card" onclick="showAssocDetails('Grupo Cantares e Música Popular Reformados', 'Cultural', '05 de Novembro de 1991', 'Vendas Novas', '-', 'cantaresreformadosvn@gmail.com', 'facebook.com/p/Grupo-Cantares-Musica-Popular-Portuguesa-Reformados-Vendas-Novas-100083262682386')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-icons"></i> Cantares dos Reformados</span>
-                  <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                </div>
-                <div class="assoc-card" onclick="showAssocDetails('Grupo de Danças e Cantares Pioneiros', 'Cultural', '02 de Abril de 1987', 'Rua Bartolomeu Dias, 23, 7080-068 Vendas Novas', '938 148 510', 'grupo.pioneiros.vn@gmail.com', 'facebook.com/p/Grupo-de-Danças-e-Cantares-Pioneiros-de-Vendas-Novas-100063887809408')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-fan"></i> Danças e Cantares Pioneiros</span>
-                  <i class="fa-solid fa-chevron-right arrow-icon"></i>
-                </div>
-                <div class="assoc-card" onclick="showAssocDetails('Teatro das Artes', 'Cultural', '14 de Maio de 2012', 'Rua Estêvão de Almeida - Fórum Cultural A Praça, 7080-079 Vendas Novas', '-', 'geral@teatrodasartes.pt', 'facebook.com/teatrodasartes.vn')">
+                <div class="assoc-card" onclick="showAssocDetails('Teatro das Artes', 'Cultural', '14-05-2012', 'Fórum Cultural A Praça', '-', 'geral@teatrodasartes.pt', 'facebook.com/teatrodasartes.vn')">
                   <span class="assoc-card-title"><i class="fa-solid fa-masks-theater"></i> Teatro das Artes</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
@@ -880,47 +563,16 @@
           </div>
         </div>
 
-        <!-- Rede Escolar -->
-        <div class="territorio-item">
-          <div class="territorio-header" onclick="toggleAccordion(this)">
-            <span><i class="fa-solid fa-graduation-cap" style="margin-right: 8px;"></i> Rede Escolar</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="territorio-content">
-            <p>A Freguesia dispõe de estabelecimentos de ensino de excelência integrados no Agrupamento de Escolas de Vendas Novas:</p>
-            <ul style="padding-left: 18px; margin-top: 6px;">
-              <li>Escola Básico e Secundária de Vendas Novas</li>
-              <li>Escolas Básicas do 1º Ciclo (EB1 nº 1 e nº 2)</li>
-              <li>Jardins de Infância da Freguesia</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Contactos Úteis -->
-        <div class="territorio-item">
-          <div class="territorio-header" onclick="toggleAccordion(this)">
-            <span><i class="fa-solid fa-phone-volume" style="margin-right: 8px;"></i> Contactos Úteis</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="territorio-content">
-            <p><strong>Bombeiros Voluntários:</strong> 265 808 100</p>
-            <p><strong>GNR Vendas Novas:</strong> 265 809 210</p>
-            <p><strong>Centro de Saúde:</strong> 265 809 300</p>
-            <p><strong>Câmara Municipal:</strong> 265 807 700</p>
-          </div>
-        </div>
-
       </div>
     </div>
 
-    <!-- GALERIA DE FOTOS INTERATIVA -->
+    <!-- SEPARADOR 4: GALERIA -->
     <div id="galeria" class="tab-content">
       <div class="card">
         <h3>🖼️ Galeria da Freguesia</h3>
-        <p>Acompanhe em imagens as atividades, espaços e eventos de Vendas Novas.</p>
+        <p>Registo fotográfico de atividades, património e eventos locais.</p>
       </div>
 
-      <!-- Filtros -->
       <div class="gallery-filter">
         <button class="filter-btn active" onclick="filterGallery('todos', this)">Todos</button>
         <button class="filter-btn" onclick="filterGallery('eventos', this)">Eventos</button>
@@ -936,50 +588,10 @@
           <img src="vendasnovas.jpg" alt="Vendas Novas">
           <span>Vendas Novas</span>
         </div>
-        <div class="gallery-item" data-category="espacos" onclick="openModal('vendasnovas2.jpg')">
-          <img src="vendasnovas2.jpg" alt="Vendas Novas Panorama">
-          <span>Vista da Freguesia</span>
-        </div>
-        <div class="gallery-item" data-category="eventos" onclick="openModal('phoca_thumb_m_0712_1.jpg')">
-          <img src="phoca_thumb_m_0712_1.jpg" alt="Evento Comunitário">
-          <span>Evento Comunitário</span>
-        </div>
-        <div class="gallery-item" data-category="eventos" onclick="openModal('phoca_thumb_m_0712_2.jpg')">
-          <img src="phoca_thumb_m_0712_2.jpg" alt="Iniciativa Local">
-          <span>Iniciativa Local</span>
-        </div>
-        <div class="gallery-item" data-category="eventos" onclick="openModal('phoca_thumb_m_0712_3.jpg')">
-          <img src="phoca_thumb_m_0712_3.jpg" alt="Atividades e Reuniões">
-          <span>Atividades e Reuniões</span>
-        </div>
-        <div class="gallery-item" data-category="eventos" onclick="openModal('phoca_thumb_m_0712_4.jpg')">
-          <img src="phoca_thumb_m_0712_4.jpg" alt="Ação de Freguesia">
-          <span>Ação de Freguesia</span>
-        </div>
-        <div class="gallery-item" data-category="eventos" onclick="openModal('phoca_thumb_m_0712_5.jpg')">
-          <img src="phoca_thumb_m_0712_5.jpg" alt="Momentos Culturais">
-          <span>Momentos Culturais</span>
-        </div>
-        <div class="gallery-item" data-category="eventos" onclick="openModal('phoca_thumb_m_0712_6.jpg')">
-          <img src="phoca_thumb_m_0712_6.jpg" alt="Registo de Atividade">
-          <span>Registo de Atividade</span>
-        </div>
-        <div class="gallery-item" data-category="eventos" onclick="openModal('phoca_thumb_m_594959106_1227964139367655_2553334937536102817_n.jpg')">
-          <img src="phoca_thumb_m_594959106_1227964139367655_2553334937536102817_n.jpg" alt="Galeria Foto 1">
-          <span>Atividade Local</span>
-        </div>
-        <div class="gallery-item" data-category="eventos" onclick="openModal('phoca_thumb_m_594976796_1227963962701006_2604940161655019373_n.jpg')">
-          <img src="phoca_thumb_m_594976796_1227963962701006_2604940161655019373_n.jpg" alt="Galeria Foto 2">
-          <span>Encontro Cultural</span>
-        </div>
-        <div class="gallery-item" data-category="eventos" onclick="openModal('phoca_thumb_m_595057429_1227964182700984_4492115934277158445_n.jpg')">
-          <img src="phoca_thumb_m_595057429_1227964182700984_4492115934277158445_n.jpg" alt="Galeria Foto 3">
-          <span>Ação Comunitária</span>
-        </div>
       </div>
     </div>
 
-    <!-- FORMULÁRIO DE ATESTADOS / REQUERIMENTOS -->
+    <!-- SEPARADOR 5: ATESTADOS -->
     <div id="atestados" class="tab-content">
       <div class="card">
         <h3>📄 Pedido de Atestado Online</h3>
@@ -990,172 +602,104 @@
             <label for="nome">Nome Completo</label>
             <input type="text" id="nome" name="nome" placeholder="O seu nome" required>
           </div>
-          
           <div class="form-group">
             <label for="tipo">Tipo de Documento</label>
             <select id="tipo" name="tipo_documento" required>
               <option value="Atestado de Residência">Atestado de Residência</option>
               <option value="Agregado Familiar">Confirmação de Agregado Familiar</option>
               <option value="Prova de Vida">Prova de Vida</option>
-              <option value="Outro">Outro Requerimento</option>
             </select>
           </div>
-
           <div class="form-group">
             <label for="email">E-mail de Contacto</label>
             <input type="email" id="email" name="email" placeholder="exemplo@email.pt" required>
           </div>
-
           <div class="form-group">
             <label for="telefone">Telemóvel</label>
             <input type="tel" id="telefone" name="telefone" placeholder="912 345 678" required>
           </div>
-
-          <div class="form-group">
-            <label for="observacoes">Observações ou NIF</label>
-            <textarea id="observacoes" name="observacoes" placeholder="Indique o motivo ou dados adicionais"></textarea>
-          </div>
-
           <button type="submit" class="btn"><i class="fa-solid fa-paper-plane" style="margin-right: 8px;"></i> Submeter Pedido</button>
         </form>
       </div>
     </div>
 
-    <!-- FORMULÁRIO DE OCORRÊNCIAS -->
+    <!-- SEPARADOR 6: OCORRÊNCIAS -->
     <div id="ocorrencias" class="tab-content">
       <div class="card">
         <h3>⚠️ Reportar Ocorrência</h3>
-        <p>Ajude-nos a manter a freguesia limpa e segura. Reporte avarias na iluminação, vias de trânsito ou limpeza urbana.</p>
+        <p>Reporte avarias na iluminação, vias ou limpeza urbana.</p>
         
         <form action="https://formspree.io/f/xdekdnoj" method="POST">
           <div class="form-group">
-            <label for="assunto">Assunto / Categoria</label>
+            <label for="assunto">Categoria</label>
             <select id="assunto" name="categoria" required>
               <option value="Iluminação Pública">Iluminação Pública</option>
-              <option value="Limpeza Urbana / Lixo">Limpeza Urbana / Lixo</option>
+              <option value="Limpeza Urbana">Limpeza Urbana</option>
               <option value="Vias e Passeios">Vias e Passeios</option>
-              <option value="Espaços Verdes">Espaços Verdes</option>
             </select>
           </div>
-
           <div class="form-group">
-            <label for="localizacao">Localização da Ocorrência</label>
+            <label for="localizacao">Localização</label>
             <input type="text" id="localizacao" name="localizacao" placeholder="Rua / Ponto de referência" required>
           </div>
-
           <div class="form-group">
-            <label for="descricao">Descrição do Problema</label>
-            <textarea id="descricao" name="descricao" placeholder="Descreva brevemente a situação..." required></textarea>
+            <label for="descricao">Descrição</label>
+            <textarea id="descricao" name="descricao" placeholder="Descreva o problema..." required></textarea>
           </div>
-
           <button type="submit" class="btn"><i class="fa-solid fa-triangle-exclamation" style="margin-right: 8px;"></i> Enviar Ocorrência</button>
         </form>
       </div>
     </div>
 
-    <!-- CONTACTOS -->
+    <!-- SEPARADOR 7: CONTACTOS -->
     <div id="contactos" class="tab-content">
       <div class="card">
         <h3>Junta de Freguesia</h3>
         <div class="contact-item"><i class="fa-solid fa-location-dot"></i> Av. da República, 7080-099 Vendas Novas</div>
         <div class="contact-item"><i class="fa-solid fa-phone"></i> +351 265 809 580</div>
         <div class="contact-item"><i class="fa-solid fa-envelope"></i> geral@jf-vendasnovas.pt</div>
-        <div class="contact-item"><i class="fa-solid fa-clock"></i> 2ª a 6ª feira: 09:00 - 12:30 | 14:00 - 17:00</div>
+        <div class="contact-item"><i class="fa-solid fa-clock"></i> 2ª a 6ª: 09:00 - 12:30 | 14:00 - 17:00</div>
         <a href="tel:265809580" class="btn" style="margin-top: 14px;"><i class="fa-solid fa-phone" style="margin-right: 8px;"></i> Ligar para a Secretaria</a>
       </div>
     </div>
 
   </div>
 
-  <!-- Modal para Zoom de Imagens da Galeria -->
+  <!-- Modal Imagem -->
   <div id="imageModal" class="modal" onclick="closeModal()">
     <button class="modal-close">&times;</button>
-    <img id="modalImg" src="" alt="Imagem Ampliada">
+    <img id="modalImg" src="" alt="Ampliada">
   </div>
 
-  <!-- Modal Interno com Ficha Detalhada da Associação -->
+  <!-- Modal Associação -->
   <div id="assocModal" class="modal">
     <div class="assoc-info-card">
       <button class="modal-close" onclick="closeAssocModal()">&times;</button>
-      <h3 id="assocModalName">Nome da Associação</h3>
-      <span class="assoc-type-tag" id="assocModalType">Categoria</span>
-      
+      <h3 id="assocModalName">Associação</h3>
+      <span class="assoc-type-tag" id="assocModalType">Tipo</span>
       <div class="assoc-detail-group">
-        <div class="assoc-detail-item">
-          <i class="fa-solid fa-calendar-check"></i>
-          <div>
-            <strong>Fundação</strong>
-            <span id="assocModalDate">-</span>
-          </div>
-        </div>
-
-        <div class="assoc-detail-item">
-          <i class="fa-solid fa-location-dot"></i>
-          <div>
-            <strong>Sede / Morada</strong>
-            <span id="assocModalLoc">-</span>
-          </div>
-        </div>
-
-        <div class="assoc-detail-item">
-          <i class="fa-solid fa-phone"></i>
-          <div>
-            <strong>Telefone / Telemóvel</strong>
-            <span id="assocModalPhone">-</span>
-          </div>
-        </div>
-
-        <div class="assoc-detail-item">
-          <i class="fa-solid fa-envelope"></i>
-          <div>
-            <strong>E-mail</strong>
-            <span id="assocModalEmail">-</span>
-          </div>
-        </div>
-
-        <div class="assoc-detail-item">
-          <i class="fa-solid fa-globe"></i>
-          <div>
-            <strong>Redes Sociais / Website</strong>
-            <span id="assocModalWeb">-</span>
-          </div>
-        </div>
+        <div class="assoc-detail-item"><i class="fa-solid fa-calendar-check"></i><div><strong>Fundação</strong><span id="assocModalDate">-</span></div></div>
+        <div class="assoc-detail-item"><i class="fa-solid fa-location-dot"></i><div><strong>Morada</strong><span id="assocModalLoc">-</span></div></div>
+        <div class="assoc-detail-item"><i class="fa-solid fa-phone"></i><div><strong>Telefone</strong><span id="assocModalPhone">-</span></div></div>
+        <div class="assoc-detail-item"><i class="fa-solid fa-envelope"></i><div><strong>E-mail</strong><span id="assocModalEmail">-</span></div></div>
+        <div class="assoc-detail-item"><i class="fa-solid fa-globe"></i><div><strong>Web</strong><span id="assocModalWeb">-</span></div></div>
       </div>
-
-      <button onclick="closeAssocModal()" class="btn" style="margin-top: 18px; padding: 10px;">Fechar Ficha</button>
+      <button onclick="closeAssocModal()" class="btn" style="margin-top: 18px;">Fechar</button>
     </div>
   </div>
 
-  <!-- Barra de Navegação Inferior -->
+  <!-- Navegação Inferior com 7 Opções -->
   <nav>
-    <button class="active" onclick="switchTab('noticias', this)">
-      <i class="fa-regular fa-newspaper"></i>
-      <span>Início</span>
-    </button>
-    <button onclick="switchTab('territorio', this)">
-      <i class="fa-solid fa-landmark"></i>
-      <span>Território</span>
-    </button>
-    <button onclick="switchTab('galeria', this)">
-      <i class="fa-regular fa-images"></i>
-      <span>Galeria</span>
-    </button>
-    <button onclick="switchTab('atestados', this)">
-      <i class="fa-regular fa-file-lines"></i>
-      <span>Atestados</span>
-    </button>
-    <button onclick="switchTab('ocorrencias', this)">
-      <i class="fa-solid fa-triangle-exclamation"></i>
-      <span>Ocorrências</span>
-    </button>
-    <button onclick="switchTab('contactos', this)">
-      <i class="fa-solid fa-address-book"></i>
-      <span>Contactos</span>
-    </button>
+    <button class="active" onclick="switchTab('noticias', this)"><i class="fa-regular fa-newspaper"></i><span>Início</span></button>
+    <button onclick="switchTab('ajunta', this)"><i class="fa-solid fa-landmark"></i><span>A Junta</span></button>
+    <button onclick="switchTab('territorio', this)"><i class="fa-solid fa-map-location-dot"></i><span>Território</span></button>
+    <button onclick="switchTab('galeria', this)"><i class="fa-regular fa-images"></i><span>Galeria</span></button>
+    <button onclick="switchTab('atestados', this)"><i class="fa-regular fa-file-lines"></i><span>Atestados</span></button>
+    <button onclick="switchTab('ocorrencias', this)"><i class="fa-solid fa-triangle-exclamation"></i><span>Ocorrências</span></button>
+    <button onclick="switchTab('contactos', this)"><i class="fa-solid fa-address-book"></i><span>Contactos</span></button>
   </nav>
 
   <script>
-    // Alternar entre Separadores
     function switchTab(tabId, btn) {
       document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
       document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
@@ -1164,7 +708,6 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Modal de Imagem (Lightbox)
     function openModal(src) {
       document.getElementById('modalImg').src = src;
       document.getElementById('imageModal').classList.add('active');
@@ -1173,52 +716,30 @@
       document.getElementById('imageModal').classList.remove('active');
     }
 
-    // Modal Interno para Apresentação dos Dados Oficiais das Associações
     function showAssocDetails(name, type, date, loc, phone, email, web) {
       document.getElementById('assocModalName').innerText = name;
       document.getElementById('assocModalType').innerText = 'Associação ' + type;
       document.getElementById('assocModalDate').innerText = date;
       document.getElementById('assocModalLoc').innerText = loc;
       document.getElementById('assocModalPhone').innerText = phone;
-      
-      if(email !== '-') {
-        document.getElementById('assocModalEmail').innerHTML = `<a href="mailto:${email}">${email}</a>`;
-      } else {
-        document.getElementById('assocModalEmail').innerText = '-';
-      }
-
-      if(web !== '-') {
-        const url = web.startsWith('http') ? web : 'https://' + web;
-        document.getElementById('assocModalWeb').innerHTML = `<a href="${url}" target="_blank">${web}</a>`;
-      } else {
-        document.getElementById('assocModalWeb').innerText = '-';
-      }
-
+      document.getElementById('assocModalEmail').innerHTML = email !== '-' ? `<a href="mailto:${email}">${email}</a>` : '-';
+      document.getElementById('assocModalWeb').innerHTML = web !== '-' ? `<a href="https://${web}" target="_blank">${web}</a>` : '-';
       document.getElementById('assocModal').classList.add('active');
     }
-
     function closeAssocModal() {
       document.getElementById('assocModal').classList.remove('active');
     }
 
-    // Filtrar Galeria de Fotos
     function filterGallery(category, btn) {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      
       document.querySelectorAll('.gallery-item').forEach(item => {
-        if (category === 'todos' || item.getAttribute('data-category') === category) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
+        item.style.display = (category === 'todos' || item.getAttribute('data-category') === category) ? 'block' : 'none';
       });
     }
 
-    // Expandir/Colapsar Accordion do Território
     function toggleAccordion(header) {
-      const item = header.parentElement;
-      item.classList.toggle('open');
+      header.parentElement.classList.toggle('open');
     }
   </script>
 </body>
