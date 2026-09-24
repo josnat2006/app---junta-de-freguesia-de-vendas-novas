@@ -3,38 +3,165 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="apple-touch-icon" href="icon.png">
   <title>Junta de Freguesia de Vendas Novas</title>
   <meta name="theme-color" content="#0056b3">
-  <link rel="manifest" href="data:application/json,{%22name%22:%22JF%20Vendas%20Novas%22,%22short_name%22:%22JFVendasNovas%22,%22start_url%22:%22.%22,%22display%22:%22standalone%22,%22background_color%22:%22#ffffff%22,%22theme_color%22:%22#0056b3%22}">
+  
+  <!-- Ícones PWA e iOS -->
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="manifest" href="data:application/json,{%22name%22:%22JF%20Vendas%20Novas%22,%22short_name%22:%22JFVendasNovas%22,%22start_url%22:%22.%22,%22display%22:%22standalone%22,%22background_color%22:%22#ffffff%22,%22theme_color%22:%22#0056b3%22,%22icons%22:[{%22src%22:%22icon.png%22,%22sizes%22:%22512x512%22,%22type%22:%22image/png%22}]}">
+  
+  <!-- Fonte Google Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background-color: #f4f6f9; color: #333; padding-bottom: 70px; }
-    header { background: #0056b3; color: white; padding: 16px; text-align: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
-    header h1 { font-size: 1.2rem; font-weight: 700; }
-    header p { font-size: 0.8rem; opacity: 0.9; }
-    nav { position: fixed; bottom: 0; width: 100%; background: white; display: flex; justify-content: space-around; padding: 10px 0; border-top: 1px solid #e0e0e0; box-shadow: 0 -2px 10px rgba(0,0,0,0.05); }
-    nav button { border: none; background: none; font-size: 0.75rem; color: #666; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; flex: 1; }
-    nav button.active { color: #0056b3; font-weight: bold; }
-    .container { padding: 16px; max-width: 600px; margin: 0 auto; }
-    .tab-content { display: none; }
+    :root {
+      --primary: #0056b3;
+      --primary-dark: #003d80;
+      --accent: #28a745;
+      --bg-color: #f4f6f9;
+      --card-bg: #ffffff;
+      --text-main: #2c3e50;
+      --text-muted: #6c757d;
+      --border-radius: 16px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', -apple-system, sans-serif; }
+    body { background-color: var(--bg-color); color: var(--text-main); padding-bottom: 80px; -webkit-tap-highlight-color: transparent; }
+    
+    /* Cabeçalho Elegante */
+    header { 
+      background: linear-gradient(135deg, #0056b3 0%, #002e66 100%); 
+      color: white; 
+      padding: 24px 20px 20px; 
+      text-align: center; 
+      position: sticky; 
+      top: 0; 
+      z-index: 100; 
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+    header img { width: 50px; height: 50px; margin-bottom: 8px; border-radius: 10px; background: white; padding: 2px; }
+    header h1 { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.3px; }
+    header p { font-size: 0.8rem; opacity: 0.85; margin-top: 2px; }
+
+    /* Navegação Inferior */
+    nav { 
+      position: fixed; 
+      bottom: 0; 
+      width: 100%; 
+      background: rgba(255, 255, 255, 0.95); 
+      backdrop-filter: blur(10px);
+      display: flex; 
+      justify-content: space-around; 
+      padding: 10px 0 14px; 
+      border-top: 1px solid rgba(0,0,0,0.06); 
+      box-shadow: 0 -4px 25px rgba(0,0,0,0.06);
+      z-index: 1000;
+    }
+    nav button { 
+      border: none; 
+      background: none; 
+      font-size: 0.72rem; 
+      color: var(--text-muted); 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      gap: 5px; 
+      cursor: pointer; 
+      flex: 1; 
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    nav button.active { color: var(--primary); font-weight: 700; transform: translateY(-1px); }
+    nav button .icon { font-size: 1.3rem; }
+
+    /* Conteúdo Principal */
+    .container { padding: 20px 16px; max-width: 500px; margin: 0 auto; }
+    .tab-content { display: none; animation: fadeIn 0.3s ease; }
     .tab-content.active { display: block; }
-    .card { background: white; border-radius: 12px; padding: 16px; margin-bottom: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border-left: 4px solid #0056b3; }
-    .card h3 { font-size: 1rem; color: #0056b3; margin-bottom: 6px; }
-    .card p { font-size: 0.85rem; color: #555; line-height: 1.4; }
-    .badge { display: inline-block; background: #e3f2fd; color: #0d47a1; font-size: 0.7rem; padding: 3px 8px; border-radius: 12px; font-weight: 600; margin-bottom: 8px; }
-    .btn { display: inline-block; background: #0056b3; color: white; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; border: none; font-weight: 600; margin-top: 8px; text-align: center; width: 100%; }
-    .contact-item { margin-bottom: 12px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Cartões Modernos */
+    .card { 
+      background: var(--card-bg); 
+      border-radius: var(--border-radius); 
+      padding: 20px; 
+      margin-bottom: 16px; 
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03); 
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+    .card h3 { font-size: 1.05rem; color: var(--primary-dark); margin-bottom: 8px; font-weight: 600; }
+    .card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px; }
+    
+    .badge { 
+      display: inline-block; 
+      background: #e8f1ec; 
+      color: var(--primary); 
+      font-size: 0.72rem; 
+      padding: 4px 10px; 
+      border-radius: 20px; 
+      font-weight: 600; 
+      margin-bottom: 10px; 
+    }
+
+    /* Estilos dos Formulários */
+    form { display: flex; flex-direction: column; gap: 14px; margin-top: 10px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label { font-size: 0.82rem; font-weight: 600; color: var(--text-main); }
+    .form-group input, .form-group select, .form-group textarea { 
+      width: 100%; 
+      padding: 12px 14px; 
+      border-radius: 10px; 
+      border: 1px solid #dcdfe6; 
+      font-size: 0.9rem; 
+      background: #fafafa;
+      transition: border-color 0.2s ease;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { 
+      outline: none; 
+      border-color: var(--primary); 
+      background: #ffffff;
+    }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+
+    /* Botões */
+    .btn { 
+      display: inline-flex; 
+      align-items: center; 
+      justify-content: center; 
+      background: var(--primary); 
+      color: white; 
+      padding: 12px 18px; 
+      border-radius: 10px; 
+      text-decoration: none; 
+      font-size: 0.9rem; 
+      border: none; 
+      font-weight: 600; 
+      cursor: pointer; 
+      width: 100%; 
+      transition: background 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0,86,179,0.2);
+    }
+    .btn:hover, .btn:active { background: var(--primary-dark); }
+    
+    .contact-item { margin-bottom: 12px; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; color: var(--text-main); }
   </style>
 </head>
 <body>
 
   <header>
+    <img src="icon.png" alt="Brasão JF Vendas Novas" onerror="this.style.display='none'">
     <h1>Junta de Freguesia de Vendas Novas</h1>
     <p>Serviços e Informação ao Cidadão</p>
   </header>
 
   <div class="container">
+    
     <!-- NOTÍCIAS -->
     <div id="noticias" class="tab-content active">
       <div class="card">
@@ -43,55 +170,84 @@
         <p>A Junta de Freguesia de Vendas Novas assinou um novo acordo de valorização dos recursos humanos e melhoria das condições de trabalho.</p>
       </div>
       <div class="card">
-        <span class="badge">Desporto</span>
-        <h3>Apoios Excepcionais às Coletividades</h3>
-        <p>Atribuição de apoios financeiros destinados às associações desportivas locais para reparação dos danos provocados pelas recentes tempestades.</p>
-      </div>
-      <div class="card">
         <span class="badge">Ação Social</span>
-        <h3>Programa de Emergência Social</h3>
-        <p>Abertas as inscrições e renovações para apoio a famílias da freguesia em situação de vulnerabilidade.</p>
-      </div>
-      <div class="card">
-        <span class="badge">Educação</span>
-        <h3>Apoio Escolar 2026/2027</h3>
-        <p>Candidaturas abertas para atribuição de bolsas e apoios a estudantes residentes na freguesia.</p>
+        <h3>Programa de Apoio à Comunidade</h3>
+        <p>Abertas as inscrições para apoio a famílias da freguesia em situação de vulnerabilidade.</p>
       </div>
     </div>
 
-    <!-- AGENDA -->
-    <div id="agenda" class="tab-content">
+    <!-- FORMULÁRIO DE ATESTADOS / REQUERIMENTOS -->
+    <div id="atestados" class="tab-content">
       <div class="card">
-        <span class="badge">15 Outubro 2026</span>
-        <h3>Aniversário do Rancho Folclórico das Piçarras</h3>
-        <p>Celebração do aniversário com atuações culturais na sede da associação.</p>
-      </div>
-      <div class="card">
-        <span class="badge">22 Outubro 2026</span>
-        <h3>Aniversário do Clube Columbófilo</h3>
-        <p>Sessão solene e convívio comemorativo.</p>
-      </div>
-      <div class="card">
-        <span class="badge">30 Outubro 2026</span>
-        <h3>Aniversário Kirugui Clube Taekwondo</h3>
-        <p>Demonstração pública de artes marciais e entrega de medalhas.</p>
+        <h3>📄 Pedido de Atestado Online</h3>
+        <p>Preencha os seus dados para submeter um pedido de atestado de residência ou prova de vida.</p>
+        
+        <!-- Formulário integrado (substitua o action pelo seu Formspree ID se pretender) -->
+        <form action="https://formspree.io/f/xbjnqpyv" method="POST">
+          <div class="form-group">
+            <label for="nome">Nome Completo</label>
+            <input type="text" id="nome" name="nome" placeholder="O seu nome" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="tipo">Tipo de Documento</label>
+            <select id="tipo" name="tipo_documento" required>
+              <option value="Atestado de Residência">Atestado de Residência</option>
+              <option value="Agregado Familiar">Confirmação de Agregado Familiar</option>
+              <option value="Prova de Vida">Prova de Vida</option>
+              <option value="Outro">Outro Requerimento</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail de Contacto</label>
+            <input type="email" id="email" name="email" placeholder="exemplo@email.pt" required>
+          </div>
+
+          <div class="form-group">
+            <label for="telefone">Telemóvel</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="912 345 678" required>
+          </div>
+
+          <div class="form-group">
+            <label for="observacoes">Observações ou NIF</label>
+            <textarea id="observacoes" name="observacoes" placeholder="Indique o motivo ou dados adicionais"></textarea>
+          </div>
+
+          <button type="submit" class="btn">Submeter Pedido</button>
+        </form>
       </div>
     </div>
 
-    <!-- SERVIÇOS / BALCÃO VIRTUAL -->
-    <div id="servicos" class="tab-content">
+    <!-- FORMULÁRIO DE OCORRÊNCIAS -->
+    <div id="ocorrencias" class="tab-content">
       <div class="card">
-        <h3>Atestados e Certidões</h3>
-        <p>Requira atestados de residência, agregado familiar e prova de vida sem ter de se deslocar à Junta.</p>
-        <a href="mailto:geral@jf-vendasnovas.pt?subject=Pedido%20de%20Atestado" class="btn">Pedir Documento</a>
-      </div>
-      <div class="card">
-        <h3>Licenciamento de Canídeos</h3>
-        <p>Consulte a documentação necessária para o registo e licenciamento de animais de companhia.</p>
-      </div>
-      <div class="card">
-        <h3>Documentos e Editais</h3>
-        <p>Aceda às Atas das reuniões de Junta, Editais e Relatórios de Contas públicos.</p>
+        <h3>⚠️ Reportar Ocorrência</h3>
+        <p>Ajude-nos a manter a freguesia limpa e segura. Reporte avarias na iluminação, vias de trânsito ou limpeza urbana.</p>
+        
+        <form action="https://formspree.io/f/xbjnqpyv" method="POST">
+          <div class="form-group">
+            <label for="assunto">Assunto / Categoria</label>
+            <select id="assunto" name="categoria" required>
+              <option value="Iluminação Pública">Iluminação Pública</option>
+              <option value="Limpeza Urbana / Lixo">Limpeza Urbana / Lixo</option>
+              <option value="Vias e Passeios">Vias e Passeios</option>
+              <option value="Espaços Verdes">Espaços Verdes</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="localizacao">Localização da Ocorrência</label>
+            <input type="text" id="localizacao" name="localizacao" placeholder="Rua / Ponto de referência" required>
+          </div>
+
+          <div class="form-group">
+            <label for="descricao">Descrição do Problema</label>
+            <textarea id="descricao" name="descricao" placeholder="Descreva brevemente a situação..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn">Enviar Ocorrência</button>
+        </form>
       </div>
     </div>
 
@@ -103,16 +259,29 @@
         <div class="contact-item">📞 +351 265 809 580</div>
         <div class="contact-item">✉️ geral@jf-vendasnovas.pt</div>
         <div class="contact-item">🕒 2ª a 6ª feira: 09:00 - 12:30 | 14:00 - 17:00</div>
-        <a href="tel:265809580" class="btn">Ligar para a Junta</a>
+        <a href="tel:265809580" class="btn" style="margin-top: 10px;">Ligar para a Secretaria</a>
       </div>
     </div>
+
   </div>
 
   <nav>
-    <button class="active" onclick="switchTab('noticias', this)">📰 Notícias</button>
-    <button onclick="switchTab('agenda', this)">📅 Agenda</button>
-    <button onclick="switchTab('servicos', this)">💻 Balcão</button>
-    <button onclick="switchTab('contactos', this)">📞 Contactos</button>
+    <button class="active" onclick="switchTab('noticias', this)">
+      <span class="icon">📰</span>
+      <span>Notícias</span>
+    </button>
+    <button onclick="switchTab('atestados', this)">
+      <span class="icon">📄</span>
+      <span>Atestados</span>
+    </button>
+    <button onclick="switchTab('ocorrencias', this)">
+      <span class="icon">⚠️</span>
+      <span>Ocorrências</span>
+    </button>
+    <button onclick="switchTab('contactos', this)">
+      <span class="icon">📞</span>
+      <span>Contactos</span>
+    </button>
   </nav>
 
   <script>
@@ -121,12 +290,7 @@
       document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
       document.getElementById(tabId).classList.add('active');
       btn.classList.add('active');
-    }
-
-    if ('serviceWorker' in navigator) {
-      const swCode = `self.addEventListener('fetch', function(e) {});`;
-      const blob = new Blob([swCode], { type: 'text/javascript' });
-      navigator.serviceWorker.register(URL.createObjectURL(blob));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
 </body>
