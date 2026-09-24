@@ -198,13 +198,29 @@
       background: #f8faf9;
       border: 1px solid rgba(0,0,0,0.04);
       border-radius: 8px;
-      padding: 8px 12px;
+      padding: 10px 12px;
       font-size: 0.85rem;
       font-weight: 500;
       color: var(--text-main);
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .assoc-card:hover {
+      background: #eef5f1;
+      border-color: var(--primary);
+      transform: translateX(2px);
+    }
+    .assoc-card-title {
+      display: flex;
+      align-items: center;
       gap: 8px;
+    }
+    .assoc-card i.ext-icon {
+      font-size: 0.75rem;
+      color: var(--text-muted);
     }
 
     .patrimonio-grid {
@@ -473,34 +489,75 @@
           </div>
         </div>
 
-        <!-- Associativismo Atualizado -->
+        <!-- Associativismo com Links Oficiais -->
         <div class="territorio-item open">
           <div class="territorio-header" onclick="toggleAccordion(this)">
             <span><i class="fa-solid fa-people-group" style="margin-right: 8px;"></i> Associativismo Local</span>
             <i class="fa-solid fa-chevron-down"></i>
           </div>
           <div class="territorio-content">
-            <p style="margin-bottom: 12px;">Conheça as associações e clubes ativas no concelho de Vendas Novas:</p>
+            <p style="margin-bottom: 12px;">Clique numa associação para consultar a sua ficha oficial no portal da Junta de Freguesia:</p>
             
             <!-- Desportivas -->
             <div class="assoc-subgroup">
               <h4>⚽ Associação Desportiva</h4>
               <div class="assoc-grid">
-                <div class="assoc-card"><i class="fa-solid fa-trophy"></i> Associação Apolo Vendas Novas</div>
-                <div class="assoc-card"><i class="fa-solid fa-crosshairs"></i> Associação de Caçadores e Pescadores</div>
-                <div class="assoc-card"><i class="fa-solid fa-hand-fist"></i> Associação de Taekwondo de Vendas Novas</div>
-                <div class="assoc-card"><i class="fa-solid fa-person-hiking"></i> Associação Desportiva Natura Trilhos</div>
-                <div class="assoc-card"><i class="fa-solid fa-plane"></i> Clube de Aeromodelismo de Vendas Novas</div>
-                <div class="assoc-card"><i class="fa-solid fa-bullseye"></i> Clube de Tiro de Vendas Novas</div>
-                <div class="assoc-card"><i class="fa-solid fa-futbol"></i> Clube Desportivo "Os Aliados"</div>
-                <div class="assoc-card"><i class="fa-solid fa-train"></i> Clube Ferroviário de Vendas Novas</div>
-                <div class="assoc-card"><i class="fa-solid fa-dove"></i> Clube Columbófilo de Vendas Novas</div>
-                <div class="assoc-card"><i class="fa-solid fa-volleyball"></i> Desportivo Clube das Piçarras</div>
-                <div class="assoc-card"><i class="fa-solid fa-star"></i> Estrela Futebol Clube</div>
-                <div class="assoc-card"><i class="fa-solid fa-shirt"></i> Grupo Desportivo e Recreativo da Afeiteira</div>
-                <div class="assoc-card"><i class="fa-solid fa-building-user"></i> Grupo Desportivo do Pessoal da C.M.V.N</div>
-                <div class="assoc-card"><i class="fa-solid fa-kicking-field"></i> Kirugui Clube Taekwondo</div>
-                <div class="assoc-card"><i class="fa-solid fa-table-tennis-paddle-ball"></i> Raquete Clube de Vendas Novas</div>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/160-desportiva/2723-associacao-apolo-vendas-novas" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-trophy"></i> Associação Apolo Vendas Novas</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/160-desportiva/2733-associacao-de-cacadores-e-pescadores-de-vendas-novas" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-crosshairs"></i> Associação de Caçadores e Pescadores de Vendas Novas</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/160-desportiva/2735-associacao-de-taekwondo-de-vendas-novas" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-hand-fist"></i> Associação de Taekwondo de Vendas Novas</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/132-clubes-e-coletividades/2736-associacao-desportiva-natura-trilhos" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-person-hiking"></i> Associação Desportiva Natura Trilhos</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/160-desportiva/2718-clube-de-aeromodelismo-de-vendas-novas" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-plane"></i> Clube de Aeromodelismo de Vendas Novas</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/160-desportiva/2719-clube-de-tiro-de-vendas-novas" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-bullseye"></i> Clube de Tiro de Vendas Novas</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/160-desportiva/2717-clube-desportivo-os-aliados-de-vendas-novas" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-futbol"></i> Clube Desportivo "Os Aliados de Vendas Novas"</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/160-desportiva/2720-clube-ferroviario-de-vendas-novas" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-train"></i> Clube Ferroviário de Vendas Novas</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/160-desportiva/2729-desportivo-clube-das-picarras" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-volleyball"></i> Desportivo Clube das Piçarras</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/2711-estrela-futebol-clube" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-star"></i> Estrela Futebol Clube</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/160-desportiva/2732-grupo-desportivo-e-recreativo-da-afeiteira" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-shirt"></i> Grupo Desportivo e Recreativo da Afeiteira</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/160-desportiva/2731-grupo-desportivo-e-recreativo-do-pessoal-da-c-m-v-n" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-building-user"></i> Grupo Desportivo e Recreativo do Pessoal da C.M.V.N</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/160-desportiva/2753-kirugui-clube-taekwondo" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-kicking-field"></i> Kirugui Clube Taekwondo</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/160-desportiva/2760-raquete-clube-de-vendas-novas" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-table-tennis-paddle-ball"></i> Raquete Clube de Vendas Novas</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
               </div>
             </div>
 
@@ -508,18 +565,58 @@
             <div class="assoc-subgroup">
               <h4>🤝 Associação Social</h4>
               <div class="assoc-grid">
-                <div class="assoc-card"><i class="fa-solid fa-heart-pulse"></i> Associação de Dadores Benévolos de Sangue</div>
-                <div class="assoc-card"><i class="fa-solid fa-hand-holding-heart"></i> Associação de Intervenção Comunitária (AICVN)</div>
-                <div class="assoc-card"><i class="fa-solid fa-house-chimney-heart"></i> Associação Solidariedade Social "Renascer de Bombel"</div>
-                <div class="assoc-card"><i class="fa-solid fa-child-reaching"></i> Associação Solidariedade Social Creche 25 de Abril</div>
-                <div class="assoc-card"><i class="fa-solid fa-fire-extinguisher"></i> Bombeiros Voluntários de Vendas Novas</div>
-                <div class="assoc-card"><i class="fa-solid fa-people-roof"></i> Casa do Benfica de Vendas Novas</div>
-                <div class="assoc-card"><i class="fa-solid fa-users"></i> Casa do Povo de Vendas Novas</div>
-                <div class="assoc-card"><i class="fa-solid fa-campground"></i> Corpo Nacional de Escutas - Agrupamento 34</div>
-                <div class="assoc-card"><i class="fa-solid fa-hands-holding-child"></i> Lar Betânia - Filial de Vendas Novas</div>
-                <div class="assoc-card"><i class="fa-solid fa-award"></i> Núcleo da Liga dos Combatentes</div>
-                <div class="assoc-card"><i class="fa-solid fa-shield-cat"></i> Núcleo do Sporting Clube de Portugal</div>
-                <div class="assoc-card"><i class="fa-solid fa-cross"></i> Santa Casa da Misericórdia de Vendas Novas</div>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/162-social/2727-associacao-de-dadores-benevolos-de-sangue-de-vendas-novas" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-heart-pulse"></i> Associação de Dadores Benévolos de Sangue de Vendas Novas</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/162-social/2728-associacao-de-intervencao-comunitaria-de-vendas-novas" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-hand-holding-heart"></i> Associação de Intervenção Comunitária de Vendas Novas</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/162-social/2725-associacao-solidariedade-social-renascer-de-bombel" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-house-chimney-heart"></i> Associação Solidariedade Social “Renascer de Bombel”</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/162-social/2726-associacao-solidariedade-social-creche-25-de-abril" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-child-reaching"></i> Associação Solidariedade Social Creche 25 de Abril</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/162-social/2737-bombeiros-voluntarios-de-vendas-novas" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-fire-extinguisher"></i> Bombeiros Voluntários de Vendas Novas</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/162-social/2714-casa-do-benfica-de-vendas-novas" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-people-roof"></i> Casa do Benfica de Vendas Novas</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/162-social/2715-casa-do-povo-de-vendas-novas" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-users"></i> Casa do Povo de Vendas Novas</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/162-social/2724-corpo-nacional-de-escutas-agrupamento-34-vendas-novas" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-campground"></i> Corpo Nacional de Escutas - Agrupamento 34 Vendas Novas</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/162-social/2756-lar-betania-filial-de-vendas-novas" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-hands-holding-child"></i> Lar Betânia – Filial de Vendas Novas</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/162-social/2757-nucleo-de-vendas-novas-da-liga-dos-combatentes" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-award"></i> Núcleo de Vendas Novas da Liga dos Combatentes</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/162-social/2758-nucleo-do-sporting-clube-de-portugal-de-vendas-novas" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-shield-cat"></i> Núcleo do Sporting Clube de Portugal de Vendas Novas</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/162-social/2759-rancho-folclorico-das-picarras" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-drum"></i> Rancho Folclórico das Piçarras</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/162-social/2761-santa-casa-da-misericordia-de-vendas-novas" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-cross"></i> Santa Casa da Misericórdia de Vendas Novas</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
               </div>
             </div>
 
@@ -527,12 +624,26 @@
             <div class="assoc-subgroup">
               <h4>🎭 Associação Cultural</h4>
               <div class="assoc-grid">
-                <div class="assoc-card"><i class="fa-solid fa-music"></i> Coral Notas Livres - Associação Arte dos Sons</div>
-                <div class="assoc-card"><i class="fa-solid fa-guitar"></i> Era uma Vez "O Cante"</div>
-                <div class="assoc-card"><i class="fa-solid fa-icons"></i> Grupo de Cantares e Música Popular Reformados</div>
-                <div class="assoc-card"><i class="fa-solid fa-fan"></i> Grupo de Danças e Cantares Pioneiros de Vendas Novas</div>
-                <div class="assoc-card"><i class="fa-solid fa-drum"></i> Rancho Folclórico das Piçarras</div>
-                <div class="assoc-card"><i class="fa-solid fa-masks-theater"></i> Teatro das Artes</div>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/161-cultural/2721-coral-notas-livres-associacao-arte-dos-sons" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-music"></i> Coral Notas Livres Associação Arte dos Sons</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/161-cultural/2730-era-uma-vez-o-cante" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-guitar"></i> Era uma Vez "O Cante"</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/161-cultural/2754-grupo-de-cantares-e-musica-popular-portuguesa-reformados-de-vendas-novas" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-icons"></i> Grupo de Cantares e Música Popular Portuguesa Reformados de Vendas Novas</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/161-cultural/2755-grupo-de-dancas-e-cantares-pioneiros-de-vendas-novas" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-fan"></i> Grupo de Danças e Cantares Pioneiros de Vendas Novas</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
+                <a href="https://www.jf-vendasnovas.pt/territorio/associativismo/2722-teatro-das-artes" target="_blank" class="assoc-card">
+                  <span class="assoc-card-title"><i class="fa-solid fa-masks-theater"></i> Teatro das Artes</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ext-icon"></i>
+                </a>
               </div>
             </div>
 
