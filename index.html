@@ -86,19 +86,19 @@
     nav button { 
       border: none; 
       background: none; 
-      font-size: 0.72rem; 
+      font-size: 0.7rem; 
       color: var(--text-muted); 
       display: flex; 
       flex-direction: column; 
       align-items: center; 
-      gap: 4px; 
+      gap: 3px; 
       cursor: pointer; 
       flex: 1; 
       font-weight: 500;
       transition: all 0.2s ease;
     }
     nav button.active { color: var(--primary); font-weight: 700; transform: translateY(-1px); }
-    nav button i { font-size: 1.25rem; }
+    nav button i { font-size: 1.2rem; }
 
     /* Conteúdo Principal */
     .container { padding: 20px 16px; max-width: 500px; margin: 0 auto; }
@@ -131,7 +131,7 @@
       transition: transform 0.2s ease;
     }
     .card-img:hover { transform: scale(1.02); }
-    .card h3 { font-size: 1.05rem; color: var(--primary-dark); margin-bottom: 8px; font-weight: 600; }
+    .card h3 { font-size: 1.05rem; color: var(--primary-dark); margin-bottom: 8px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
     .card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px; }
     
     .badge { 
@@ -145,6 +145,37 @@
       font-weight: 700; 
       margin-bottom: 10px; 
     }
+
+    /* Secção Território (Accordion / Menu Interno) */
+    .territorio-list { display: flex; flex-direction: column; gap: 10px; }
+    .territorio-item {
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.06);
+      overflow: hidden;
+    }
+    .territorio-header {
+      padding: 14px 16px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--primary-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      background: #fafafa;
+    }
+    .territorio-content {
+      display: none;
+      padding: 14px 16px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      border-top: 1px solid rgba(0,0,0,0.04);
+    }
+    .territorio-item.open .territorio-content { display: block; }
+    .territorio-item.open .territorio-header i { transform: rotate(180deg); }
+    .territorio-header i { transition: transform 0.2s ease; color: var(--primary); }
 
     /* Filtros da Galeria */
     .gallery-filter {
@@ -243,7 +274,7 @@
     }
     .form-group textarea { resize: vertical; min-height: 90px; }
 
-    /* Botões Otimizados com as Cores Oficiais */
+    /* Botões Otimizados */
     .btn { 
       display: inline-flex; 
       align-items: center; 
@@ -263,7 +294,7 @@
     }
     .btn:hover, .btn:active { background: var(--primary-dark); }
     
-    .contact-item { margin-bottom: 12px; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; color: var(--text-main); }
+    .contact-item { margin-bottom: 12px; font-size: 0.88rem; display: flex; align-items: center; gap: 10px; color: var(--text-main); }
     .contact-item i { color: var(--primary); font-size: 1.1rem; width: 20px; text-align: center; }
   </style>
 </head>
@@ -308,6 +339,130 @@
         <span class="badge">Eventos</span>
         <h3>Arraial da Freguesia</h3>
         <p>Festejos populares com música, gastronomia e animação para toda a família.</p>
+      </div>
+    </div>
+
+    <!-- SECTOR TERRITÓRIO (NOVO) -->
+    <div id="territorio" class="tab-content">
+      <div class="card">
+        <h3><i class="fa-solid fa-map-location-dot"></i> O Nosso Território</h3>
+        <p>Conheça a história, património, heráldica, associativismo e pontos de interesse de Vendas Novas.</p>
+      </div>
+
+      <div class="territorio-list">
+        
+        <!-- História -->
+        <div class="territorio-item">
+          <div class="territorio-header" onclick="toggleAccordion(this)">
+            <span><i class="fa-solid fa-book-bookmark" style="margin-right: 8px;"></i> História</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="territorio-content">
+            <p>A origem do nome da Freguesia deve-se ao Duque de Bragança, D. Teodósio que, em 1540, juntou aos bens de seus irmãos duas vendas ou estalagens para sua pousada. O desenvolvimento de Vendas Novas esteve sempre profundamente associado à sua localização estratégica como ponto de passagem e descanso nas ligações do Alentejo e Espanha a Lisboa.</p>
+          </div>
+        </div>
+
+        <!-- Heráldica e Imagem Institucional -->
+        <div class="territorio-item">
+          <div class="territorio-header" onclick="toggleAccordion(this)">
+            <span><i class="fa-solid fa-shield-halved" style="margin-right: 8px;"></i> Heráldica e Imagem</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="territorio-content">
+            <p><strong>Bandeira:</strong> Amarela. Cordão e bordas de ouro e verde. Haste e lança de ouro.</p>
+            <p style="margin-top: 6px;"><strong>Brasão:</strong> Escudo de verde, asna de ouro acompanhada em chefe por uma roda dentada de prata entre dois perfis de carril de ouro e, em campanha, por armação de moinho de negro vestida de prata e cordoada do mesmo.</p>
+            <p style="margin-top: 6px;"><strong>Imagem Institucional:</strong> O azul liga a água do Chafariz Real ao céu e ao traço urbano alentejano; o cinzento confere estabilidade e dinamismo.</p>
+          </div>
+        </div>
+
+        <!-- Património -->
+        <div class="territorio-item">
+          <div class="territorio-header" onclick="toggleAccordion(this)">
+            <span><i class="fa-solid fa-monument" style="margin-right: 8px;"></i> Património</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="territorio-content">
+            <p>Vendas Novas guarda um património histórico e monumental rico:</p>
+            <ul style="padding-left: 18px; margin-top: 6px;">
+              <li><strong>Chafariz Real:</strong> Monumento icónico mandado construir por D. João V.</li>
+              <li><strong>Palácio Real / Regimento de Artilharia:</strong> Antiga residência real em Vendas Novas.</li>
+              <li><strong>Capela Real:</strong> Elemento histórico do centro urbano.</li>
+              <li><strong>Moinhos de Vento:</strong> Testemunhos do passado agrícola da região.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Associativismo -->
+        <div class="territorio-item">
+          <div class="territorio-header" onclick="toggleAccordion(this)">
+            <span><i class="fa-solid fa-people-group" style="margin-right: 8px;"></i> Associativismo</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="territorio-content">
+            <p>O movimento associativo é o coração cultural e social da freguesia:</p>
+            <ul style="padding-left: 18px; margin-top: 6px;">
+              <li>Associação de Dadores Benévolos de Sangue de Vendas Novas</li>
+              <li>Associação Apolo Vendas Novas</li>
+              <li>Associação de Caçadores e Pescadores de Vendas Novas</li>
+              <li>Clubes desportivos, juvenis e grupos folclóricos locais.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Rede Escolar -->
+        <div class="territorio-item">
+          <div class="territorio-header" onclick="toggleAccordion(this)">
+            <span><i class="fa-solid fa-graduation-cap" style="margin-right: 8px;"></i> Rede Escolar</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="territorio-content">
+            <p>A Freguesia dispõe de estabelecimentos de ensino de excelência integrados no Agrupamento de Escolas de Vendas Novas:</p>
+            <ul style="padding-left: 18px; margin-top: 6px;">
+              <li>Escola Básico e Secundária de Vendas Novas</li>
+              <li>Escolas Básicas do 1º Cordo (EB1 nº 1 e nº 2)</li>
+              <li>Jardins de Infância da Freguesia</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Contactos Úteis -->
+        <div class="territorio-item">
+          <div class="territorio-header" onclick="toggleAccordion(this)">
+            <span><i class="fa-solid fa-phone-volume" style="margin-right: 8px;"></i> Contactos Úteis</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="territorio-content">
+            <p><strong>Bombeiros Voluntários:</strong> 265 808 100</p>
+            <p><strong>GNR Vendas Novas:</strong> 265 809 210</p>
+            <p><strong>Centro de Saúde:</strong> 265 809 300</p>
+            <p><strong>Câmara Municipal:</strong> 265 807 700</p>
+          </div>
+        </div>
+
+        <!-- Agenda & Eventos -->
+        <div class="territorio-item">
+          <div class="territorio-header" onclick="toggleAccordion(this)">
+            <span><i class="fa-solid fa-calendar-days" style="margin-right: 8px;"></i> Agenda de Eventos</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="territorio-content">
+            <p>Acompanhe os eventos culturais, desportivos e comunitários em Vendas Novas ao longo de todo o ano.</p>
+            <a href="https://www.jf-vendasnovas.pt/territorio/agenda/year.listevents/2026/09/24/-?catids=" target="_blank" class="btn" style="margin-top: 10px; font-size: 0.8rem; padding: 8px 12px;">Consultar Agenda Oficial <i class="fa-solid fa-arrow-up-right-from-square" style="margin-left: 6px;"></i></a>
+          </div>
+        </div>
+
+        <!-- Mapa de Localizações -->
+        <div class="territorio-item">
+          <div class="territorio-header" onclick="toggleAccordion(this)">
+            <span><i class="fa-solid fa-map-pin" style="margin-right: 8px;"></i> Mapa e Pontos de Interesse</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="territorio-content">
+            <p>Encontre equipamentos públicos, monumentos, parques e serviços na freguesia.</p>
+            <a href="https://www.jf-vendasnovas.pt/territorio/mapa/locations?layout=locations" target="_blank" class="btn" style="margin-top: 10px; font-size: 0.8rem; padding: 8px 12px;">Abrir Mapa no Navegador <i class="fa-solid fa-location-arrow" style="margin-left: 6px;"></i></a>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -471,11 +626,15 @@
     <img id="modalImg" src="" alt="Imagem Ampliada">
   </div>
 
-  <!-- Barra de Navegação Inferior -->
+  <!-- Barra de Navegação Inferior Atualizada -->
   <nav>
     <button class="active" onclick="switchTab('noticias', this)">
       <i class="fa-regular fa-newspaper"></i>
       <span>Notícias</span>
+    </button>
+    <button onclick="switchTab('territorio', this)">
+      <i class="fa-solid fa-landmark"></i>
+      <span>Território</span>
     </button>
     <button onclick="switchTab('galeria', this)">
       <i class="fa-regular fa-images"></i>
@@ -526,6 +685,12 @@
           item.style.display = 'none';
         }
       });
+    }
+
+    // Expandir/Colapsar Accordion do Território
+    function toggleAccordion(header) {
+      const item = header.parentElement;
+      item.classList.toggle('open');
     }
   </script>
 </body>
