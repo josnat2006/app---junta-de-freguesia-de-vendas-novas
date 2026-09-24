@@ -223,6 +223,36 @@
     .territorio-item.open .territorio-header i { transform: rotate(180deg); }
     .territorio-header i { transition: transform 0.2s ease; color: var(--primary); }
 
+    /* Estilos para a lista de Associações (Modais Internos) */
+    .associacao-card {
+      background: #f8faf9;
+      border: 1px solid rgba(0,0,0,0.05);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .associacao-card:hover {
+      background: #f0f4f2;
+    }
+    .associacao-info strong {
+      font-size: 0.9rem;
+      color: var(--primary-dark);
+      display: block;
+    }
+    .associacao-info span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .associacao-card i {
+      color: var(--primary);
+      font-size: 0.9rem;
+    }
+
     .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .gallery-item { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); cursor: pointer; border: 1px solid rgba(0,0,0,0.04); }
     .gallery-item img { width: 100%; height: 130px; object-fit: cover; display: block; }
@@ -235,6 +265,28 @@
     .modal.active { display: flex; }
     .modal img { max-width: 100%; max-height: 80vh; border-radius: 12px; }
     .modal-close { position: absolute; top: 16px; right: 20px; color: var(--text-muted); font-size: 1.8rem; cursor: pointer; background: none; border: none; }
+
+    /* Modal específico para Associações / Detalhes Internos */
+    .assoc-modal {
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6); z-index: 2000; justify-content: center; align-items: flex-end;
+    }
+    .assoc-modal.active { display: flex; }
+    .assoc-modal-content {
+      background: white; width: 100%; max-width: 500px; max-height: 85vh; border-top-left-radius: 20px; border-top-right-radius: 20px;
+      padding: 24px 20px; overflow-y: auto; box-shadow: 0 -4px 25px rgba(0,0,0,0.15); animation: slideUp 0.3s ease;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+    .assoc-modal-header {
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid #eee; padding-bottom: 10px;
+    }
+    .assoc-modal-header h3 { color: var(--primary-dark); font-size: 1.1rem; }
+    .assoc-close-btn { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-muted); }
+    .assoc-detail-item { font-size: 0.85rem; margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px; color: var(--text-main); }
+    .assoc-detail-item i { color: var(--primary); margin-top: 3px; }
 
     form { display: flex; flex-direction: column; gap: 14px; margin-top: 10px; }
     .form-group { display: flex; flex-direction: column; gap: 6px; }
@@ -404,11 +456,11 @@
       </div>
     </div>
 
-    <!-- SEPARADOR 3: TERRITÓRIO -->
+    <!-- SEPARADOR 3: TERRITÓRIO E ASSOCIAÇÕES (Com Modais Internos) -->
     <div id="territorio" class="tab-content">
       <div class="card">
         <h3><i class="fa-solid fa-map-location-dot"></i> O Nosso Território</h3>
-        <p>Conheça a história, os marcos identitários e a riqueza geográfica da freguesia de Vendas Novas.</p>
+        <p>Conheça a história, os marcos identitários e o tecido associativo da freguesia de Vendas Novas.</p>
       </div>
 
       <div class="territorio-list">
@@ -431,6 +483,43 @@
             <p>Destacam-se o imponente <strong>Palácio das Salgadas</strong>, o histórico <strong>Chafariz Real</strong> e a forte tradição associada à Escola Prática de Artilharia e à excelência gastronómica da famosa Bifana de Vendas Novas.</p>
           </div>
         </div>
+
+        <!-- Secção de Associações com Modais Internos -->
+        <div class="territorio-item">
+          <div class="territorio-header" onclick="toggleAccordion(this)">
+            <span><i class="fa-solid fa-handshake" style="margin-right: 8px;"></i> Tecido Associativo (Toque para Detalhes)</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="territorio-content">
+            <p style="margin-bottom: 12px; font-size: 0.82rem;">Clique em qualquer associação para consultar os contactos, valências e redes sociais diretamente na aplicação:</p>
+            
+            <div class="associacao-card" onclick="openAssocModal('O Vendas Novas', 'Desporto', 'Clube histórico dedicado à prática de futebol e formação de jovens atletas na região.', 'Complexo Desportivo Municipal, Vendas Novas', '+351 265 000 000', 'geral@ovendasnovas.pt', 'facebook.com/ovendasnovas')">
+              <div class="associacao-info">
+                <strong>O Vendas Novas</strong>
+                <span>Desporto • Futebol e Formação</span>
+              </div>
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+
+            <div class="associacao-card" onclick="openAssocModal('Associação Humanitária dos Bombeiros Voluntários de Vendas Novas', 'Proteção Civil & Social', 'Entidade de socorro, emergência médica pré-hospitalar e combate a incêndios.', 'Av. da República, Vendas Novas', '+351 265 892 122', 'bombeirosvendasnovas@gmail.com', 'facebook.com/bombeirosvendasnovas')">
+              <div class="associacao-info">
+                <strong>Bombeiros Voluntários</strong>
+                <span>Social • Proteção e Socorro</span>
+              </div>
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+
+            <div class="associacao-card" onclick="openAssocModal('Rancho Folclórico de Vendas Novas', 'Cultura', 'Preservação e difusão dos usos, costumes, cantares e danças tradicionais do Alentejo.', 'Sede Social, Vendas Novas', '+351 265 000 111', 'ranchovendasnovas@sapo.pt', 'facebook.com/ranchovendasnovas')">
+              <div class="associacao-info">
+                <strong>Rancho Folclórico</strong>
+                <span>Cultura • Etnografia e Tradição</span>
+              </div>
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -495,9 +584,23 @@
 
   </div>
 
+  <!-- Modal Geral para Imagens -->
   <div id="imageModal" class="modal" onclick="closeModal()">
     <button class="modal-close">&times;</button>
     <img id="modalImg" src="" alt="Ampliada">
+  </div>
+
+  <!-- Modal Interno para Detalhes de Associações -->
+  <div id="assocModal" class="assoc-modal" onclick="closeAssocModalOutside(event)">
+    <div class="assoc-modal-content">
+      <div class="assoc-modal-header">
+        <h3 id="assocModalTitle">Nome da Associação</h3>
+        <button class="assoc-close-btn" onclick="closeAssocModal()">&times;</button>
+      </div>
+      <div id="assocModalBody">
+        <!-- Preenchido dinamicamente por JS -->
+      </div>
+    </div>
   </div>
 
   <nav>
@@ -527,6 +630,29 @@
     }
     function toggleAccordion(header) {
       header.parentElement.classList.toggle('open');
+    }
+
+    /* Funções do Sistema de Modais Internos de Associações */
+    function openAssocModal(name, category, description, address, phone, email, social) {
+      document.getElementById('assocModalTitle').innerText = name;
+      const body = document.getElementById('assocModalBody');
+      body.innerHTML = `
+        <div class="assoc-detail-item"><i class="fa-solid fa-tag"></i><span><strong>Categoria:</strong> ${category}</span></div>
+        <div class="assoc-detail-item"><i class="fa-solid fa-circle-info"></i><span><strong>Sobre:</strong> ${description}</span></div>
+        <div class="assoc-detail-item"><i class="fa-solid fa-location-dot"></i><span><strong>Morada:</strong> ${address}</span></div>
+        <div class="assoc-detail-item"><i class="fa-solid fa-phone"></i><span><strong>Telefone:</strong> ${phone}</span></div>
+        <div class="assoc-detail-item"><i class="fa-solid fa-envelope"></i><span><strong>E-mail:</strong> ${email}</span></div>
+        <div class="assoc-detail-item"><i class="fa-solid fa-share-nodes"></i><span><strong>Redes Sociais:</strong> ${social}</span></div>
+      `;
+      document.getElementById('assocModal').classList.add('active');
+    }
+    function closeAssocModal() {
+      document.getElementById('assocModal').classList.remove('active');
+    }
+    function closeAssocModalOutside(event) {
+      if (event.target.id === 'assocModal') {
+        closeAssocModal();
+      }
     }
   </script>
 </body>
