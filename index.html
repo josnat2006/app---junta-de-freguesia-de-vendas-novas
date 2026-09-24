@@ -7,8 +7,8 @@
   <meta name="theme-color" content="#0056b3">
   
   <!-- Ícones PWA e iOS -->
-  <link rel="apple-touch-icon" href="icon.png">
-  <link rel="manifest" href="data:application/json,{%22name%22:%22JF%20Vendas%22,%22short_name%22:%22JFVendasNovas%22,%22start_url%22:%22.%22,%22display%22:%22standalone%22,%22background_color%22:%22#ffffff%22,%22theme_color%22:%22#0056b3%22,%22icons%22:[{%22src%22:%22icon.png%22,%22sizes%22:%22512x512%22,%22type%22:%22image/png%22}]}">
+  <link rel="apple-touch-icon" href="logo.png">
+  <link rel="manifest" href="data:application/json,{%22name%22:%22JF%20Vendas%20Novas%22,%22short_name%22:%22JFVendasNovas%22,%22start_url%22:%22.%22,%22display%22:%22standalone%22,%22background_color%22:%22#ffffff%22,%22theme_color%22:%22#0056b3%22,%22icons%22:[{%22src%22:%22logo.png%22,%22sizes%22:%22512x512%22,%22type%22:%22image/png%22}]}">
   
   <!-- Fonte Google Inter e FontAwesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -245,7 +245,7 @@
 <body>
 
   <header>
-    <img src="icon.png" alt="Brasão JF Vendas Novas" onerror="this.style.display='none'">
+    <img src="logo.png" alt="Brasão JF Vendas Novas" onerror="this.style.display='none'">
     <h1>Junta de Freguesia de Vendas Novas</h1>
     <p>Serviços e Informação ao Cidadão</p>
   </header>
@@ -255,16 +255,31 @@
     <!-- NOTÍCIAS COM IMAGENS -->
     <div id="noticias" class="tab-content active">
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?w=600&auto=format&fit=crop" alt="Acordo STAL" class="card-img" onclick="openModal(this.src)">
+        <img src="stalset26.jpg" alt="Acordo STAL" class="card-img" onclick="openModal(this.src)">
         <span class="badge">Institucional</span>
         <h3>Acordo de Trabalho com o STAL</h3>
         <p>A Junta de Freguesia de Vendas Novas assinou um novo acordo de valorização dos recursos humanos e melhoria das condições de trabalho.</p>
       </div>
+
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&auto=format&fit=crop" alt="Ação Social" class="card-img" onclick="openModal(this.src)">
+        <img src="35anosdadores.jpg" alt="35 Anos Dadores de Sangue" class="card-img" onclick="openModal(this.src)">
         <span class="badge">Ação Social</span>
-        <h3>Programa de Apoio à Comunidade</h3>
-        <p>Abertas as inscrições para apoio a famílias da freguesia em situação de vulnerabilidade e incentivos sociais.</p>
+        <h3>35 Anos do Núcleo de Dadores de Sangue</h3>
+        <p>Comemoração e reconhecimento do papel fundamental dos dadores de sangue na nossa comunidade.</p>
+      </div>
+
+      <div class="card">
+        <img src="passeioidosos.jpg" alt="Passeio dos Idosos" class="card-img" onclick="openModal(this.src)">
+        <span class="badge">Comunidade</span>
+        <h3>Passeio de Confraternização dos Séniores</h3>
+        <p>Iniciativa dedicada à população sénior da freguesia com momentos de lazer e convivência.</p>
+      </div>
+
+      <div class="card">
+        <img src="arraialfreg.jpg" alt="Arraial da Freguesia" class="card-img" onclick="openModal(this.src)">
+        <span class="badge">Eventos</span>
+        <h3>Arraial da Freguesia</h3>
+        <p>Festejos populares com música, gastronomia e animação para toda a família.</p>
       </div>
     </div>
 
@@ -280,25 +295,56 @@
         <button class="filter-btn active" onclick="filterGallery('todos', this)">Todos</button>
         <button class="filter-btn" onclick="filterGallery('eventos', this)">Eventos</button>
         <button class="filter-btn" onclick="filterGallery('espacos', this)">Espaços</button>
-        <button class="filter-btn" onclick="filterGallery('obras', this)">Obras</button>
       </div>
 
       <div class="gallery-grid">
-        <div class="gallery-item" data-category="eventos" onclick="openModal('https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=800&auto=format&fit=crop')">
-          <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=500&auto=format&fit=crop" alt="Eventos Culturais">
-          <span>Eventos Culturais</span>
+        <div class="gallery-item" data-category="espacos" onclick="openModal('chafarizreal.jpg')">
+          <img src="chafarizreal.jpg" alt="Chafariz Real">
+          <span>Chafariz Real</span>
         </div>
-        <div class="gallery-item" data-category="espacos" onclick="openModal('https://images.unsplash.com/photo-1584467735871-8e85353a8413?w=800&auto=format&fit=crop')">
-          <img src="https://images.unsplash.com/photo-1584467735871-8e85353a8413?w=500&auto=format&fit=crop" alt="Espaços Verdes">
-          <span>Espaços Verdes</span>
+        <div class="gallery-item" data-category="espacos" onclick="openModal('vendasnovas.jpg')">
+          <img src="vendasnovas.jpg" alt="Vendas Novas">
+          <span>Vendas Novas</span>
         </div>
-        <div class="gallery-item" data-category="obras" onclick="openModal('https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?w=800&auto=format&fit=crop')">
-          <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?w=500&auto=format&fit=crop" alt="Manutenção e Obras">
-          <span>Manutenção Urbana</span>
+        <div class="gallery-item" data-category="espacos" onclick="openModal('vendasnovas2.jpg')">
+          <img src="vendasnovas2.jpg" alt="Vendas Novas Panorama">
+          <span>Vista da Freguesia</span>
         </div>
-        <div class="gallery-item" data-category="eventos" onclick="openModal('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&auto=format&fit=crop')">
-          <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=500&auto=format&fit=crop" alt="Reuniões de Executivo">
-          <span>Órgãos Autárquicos</span>
+        <div class="gallery-item" data-category="eventos" onclick="openModal('phoca_thumb_m_0712_1.jpg')">
+          <img src="phoca_thumb_m_0712_1.jpg" alt="Evento Comunitário">
+          <span>Evento Comunitário</span>
+        </div>
+        <div class="gallery-item" data-category="eventos" onclick="openModal('phoca_thumb_m_0712_2.jpg')">
+          <img src="phoca_thumb_m_0712_2.jpg" alt="Iniciativa Local">
+          <span>Iniciativa Local</span>
+        </div>
+        <div class="gallery-item" data-category="eventos" onclick="openModal('phoca_thumb_m_0712_3.jpg')">
+          <img src="phoca_thumb_m_0712_3.jpg" alt="Atividades e Reuniões">
+          <span>Atividades e Reuniões</span>
+        </div>
+        <div class="gallery-item" data-category="eventos" onclick="openModal('phoca_thumb_m_0712_4.jpg')">
+          <img src="phoca_thumb_m_0712_4.jpg" alt="Ação de Freguesia">
+          <span>Ação de Freguesia</span>
+        </div>
+        <div class="gallery-item" data-category="eventos" onclick="openModal('phoca_thumb_m_0712_5.jpg')">
+          <img src="phoca_thumb_m_0712_5.jpg" alt="Momentos Culturais">
+          <span>Momentos Culturais</span>
+        </div>
+        <div class="gallery-item" data-category="eventos" onclick="openModal('phoca_thumb_m_0712_6.jpg')">
+          <img src="phoca_thumb_m_0712_6.jpg" alt="Registo de Atividade">
+          <span>Registo de Atividade</span>
+        </div>
+        <div class="gallery-item" data-category="eventos" onclick="openModal('phoca_thumb_m_594959106_1227964139367655_2553334937536102817_n.jpg')">
+          <img src="phoca_thumb_m_594959106_1227964139367655_2553334937536102817_n.jpg" alt="Galeria Foto 1">
+          <span>Atividade Local</span>
+        </div>
+        <div class="gallery-item" data-category="eventos" onclick="openModal('phoca_thumb_m_594976796_1227963962701006_2604940161655019373_n.jpg')">
+          <img src="phoca_thumb_m_594976796_1227963962701006_2604940161655019373_n.jpg" alt="Galeria Foto 2">
+          <span>Encontro Cultural</span>
+        </div>
+        <div class="gallery-item" data-category="eventos" onclick="openModal('phoca_thumb_m_595057429_1227964182700984_4492115934277158445_n.jpg')">
+          <img src="phoca_thumb_m_595057429_1227964182700984_4492115934277158445_n.jpg" alt="Galeria Foto 3">
+          <span>Ação Comunitária</span>
         </div>
       </div>
     </div>
