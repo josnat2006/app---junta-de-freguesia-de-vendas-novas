@@ -7,8 +7,8 @@
   <meta name="theme-color" content="#0056b3">
   
   <!-- Ícones PWA e iOS -->
-  <link rel="apple-touch-icon" href="logo.png">
-  <link rel="manifest" href="data:application/json,{%22name%22:%22JF%20Vendas%20Novas%22,%22short_name%22:%22JFVendasNovas%22,%22start_url%22:%22.%22,%22display%22:%22standalone%22,%22background_color%22:%22#ffffff%22,%22theme_color%22:%22#0056b3%22,%22icons%22:[{%22src%22:%22logo.png%22,%22sizes%22:%22512x512%22,%22type%22:%22image/png%22}]}">
+  <link rel="apple-touch-icon" href="brasaoFVN.png">
+  <link rel="manifest" href="data:application/json,{%22name%22:%22JF%20Vendas%22,%22short_name%22:%22JFVendasNovas%22,%22start_url%22:%22.%22,%22display%22:%22standalone%22,%22background_color%22:%22#ffffff%22,%22theme_color%22:%22#0056b3%22,%22icons%22:[{%22src%22:%22brasaoFVN.png%22,%22sizes%22:%22512x512%22,%22type%22:%22image/png%22}]}">
   
   <!-- Fonte Google Inter e FontAwesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -29,11 +29,11 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', -apple-system, sans-serif; }
     body { background-color: var(--bg-color); color: var(--text-main); padding-bottom: 90px; -webkit-tap-highlight-color: transparent; }
     
-    /* Cabeçalho Elegante */
+    /* Cabeçalho Elegante com Logos */
     header { 
       background: linear-gradient(135deg, #0056b3 0%, #002e66 100%); 
       color: white; 
-      padding: 24px 20px 20px; 
+      padding: 20px 16px; 
       text-align: center; 
       position: sticky; 
       top: 0; 
@@ -42,7 +42,28 @@
       border-bottom-left-radius: 20px;
       border-bottom-right-radius: 20px;
     }
-    header img { width: 52px; height: 52px; margin-bottom: 8px; border-radius: 10px; background: white; padding: 2px; object-fit: contain; }
+    .header-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+    .header-logos .img-brasao {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
+    .header-logos .img-logo {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 4px 8px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
     header h1 { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.3px; }
     header p { font-size: 0.8rem; opacity: 0.85; margin-top: 2px; }
 
@@ -245,7 +266,10 @@
 <body>
 
   <header>
-    <img src="logo.png" alt="Brasão JF Vendas Novas" onerror="this.style.display='none'">
+    <div class="header-logos">
+      <img src="brasaoFVN.png" alt="Brasão Freguesia de Vendas Novas" class="img-brasao">
+      <img src="logoFVN.png" alt="Logótipo Freguesia de Vendas Novas" class="img-logo">
+    </div>
     <h1>Junta de Freguesia de Vendas Novas</h1>
     <p>Serviços e Informação ao Cidadão</p>
   </header>
