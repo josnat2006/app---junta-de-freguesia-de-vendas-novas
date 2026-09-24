@@ -8,10 +8,11 @@
   
   <!-- Ícones PWA e iOS -->
   <link rel="apple-touch-icon" href="icon.png">
-  <link rel="manifest" href="data:application/json,{%22name%22:%22JF%20Vendas%20Novas%22,%22short_name%22:%22JFVendasNovas%22,%22start_url%22:%22.%22,%22display%22:%22standalone%22,%22background_color%22:%22#ffffff%22,%22theme_color%22:%22#0056b3%22,%22icons%22:[{%22src%22:%22icon.png%22,%22sizes%22:%22512x512%22,%22type%22:%22image/png%22}]}">
+  <link rel="manifest" href="data:application/json,{%22name%22:%22JF%20Vendas%22,%22short_name%22:%22JFVendasNovas%22,%22start_url%22:%22.%22,%22display%22:%22standalone%22,%22background_color%22:%22#ffffff%22,%22theme_color%22:%22#0056b3%22,%22icons%22:[{%22src%22:%22icon.png%22,%22sizes%22:%22512x512%22,%22type%22:%22image/png%22}]}">
   
-  <!-- Fonte Google Inter -->
+  <!-- Fonte Google Inter e FontAwesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root {
@@ -26,7 +27,7 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', -apple-system, sans-serif; }
-    body { background-color: var(--bg-color); color: var(--text-main); padding-bottom: 80px; -webkit-tap-highlight-color: transparent; }
+    body { background-color: var(--bg-color); color: var(--text-main); padding-bottom: 90px; -webkit-tap-highlight-color: transparent; }
     
     /* Cabeçalho Elegante */
     header { 
@@ -41,7 +42,7 @@
       border-bottom-left-radius: 20px;
       border-bottom-right-radius: 20px;
     }
-    header img { width: 50px; height: 50px; margin-bottom: 8px; border-radius: 10px; background: white; padding: 2px; }
+    header img { width: 52px; height: 52px; margin-bottom: 8px; border-radius: 10px; background: white; padding: 2px; object-fit: contain; }
     header h1 { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.3px; }
     header p { font-size: 0.8rem; opacity: 0.85; margin-top: 2px; }
 
@@ -50,13 +51,13 @@
       position: fixed; 
       bottom: 0; 
       width: 100%; 
-      background: rgba(255, 255, 255, 0.95); 
+      background: rgba(255, 255, 255, 0.96); 
       backdrop-filter: blur(10px);
       display: flex; 
       justify-content: space-around; 
       padding: 10px 0 14px; 
       border-top: 1px solid rgba(0,0,0,0.06); 
-      box-shadow: 0 -4px 25px rgba(0,0,0,0.06);
+      box-shadow: 0 -4px 25px rgba(0,0,0,0.08);
       z-index: 1000;
     }
     nav button { 
@@ -67,14 +68,14 @@
       display: flex; 
       flex-direction: column; 
       align-items: center; 
-      gap: 5px; 
+      gap: 4px; 
       cursor: pointer; 
       flex: 1; 
       font-weight: 500;
       transition: all 0.2s ease;
     }
     nav button.active { color: var(--primary); font-weight: 700; transform: translateY(-1px); }
-    nav button .icon { font-size: 1.3rem; }
+    nav button i { font-size: 1.25rem; }
 
     /* Conteúdo Principal */
     .container { padding: 20px 16px; max-width: 500px; margin: 0 auto; }
@@ -90,11 +91,23 @@
     .card { 
       background: var(--card-bg); 
       border-radius: var(--border-radius); 
-      padding: 20px; 
+      padding: 18px; 
       margin-bottom: 16px; 
       box-shadow: 0 4px 15px rgba(0,0,0,0.03); 
       border: 1px solid rgba(0,0,0,0.04);
+      overflow: hidden;
     }
+    .card-img { 
+      width: 100%; 
+      height: 180px; 
+      object-fit: cover; 
+      border-radius: 12px; 
+      margin-bottom: 12px; 
+      display: block;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .card-img:hover { transform: scale(1.02); }
     .card h3 { font-size: 1.05rem; color: var(--primary-dark); margin-bottom: 8px; font-weight: 600; }
     .card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px; }
     
@@ -107,6 +120,82 @@
       border-radius: 20px; 
       font-weight: 600; 
       margin-bottom: 10px; 
+    }
+
+    /* Filtros da Galeria */
+    .gallery-filter {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .filter-btn {
+      background: #eef2f7;
+      color: var(--text-muted);
+      border: none;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-btn.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Grelha da Galeria de Fotos */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .gallery-item {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .gallery-item:hover { transform: translateY(-3px); }
+    .gallery-item img {
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-item span {
+      display: block;
+      padding: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-main);
+      text-align: center;
+    }
+
+    /* Visualizador de Imagem (Lightbox/Modal) */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .modal.active { display: flex; }
+    .modal img { max-width: 100%; max-height: 80vh; border-radius: 12px; box-shadow: 0 5px 25px rgba(0,0,0,0.5); }
+    .modal-close {
+      position: absolute;
+      top: 20px; right: 20px;
+      color: white; font-size: 2rem;
+      cursor: pointer; background: none; border: none;
     }
 
     /* Estilos dos Formulários */
@@ -150,6 +239,7 @@
     .btn:hover, .btn:active { background: var(--primary-dark); }
     
     .contact-item { margin-bottom: 12px; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; color: var(--text-main); }
+    .contact-item i { color: var(--primary); font-size: 1.1rem; width: 20px; text-align: center; }
   </style>
 </head>
 <body>
@@ -162,17 +252,54 @@
 
   <div class="container">
     
-    <!-- NOTÍCIAS -->
+    <!-- NOTÍCIAS COM IMAGENS -->
     <div id="noticias" class="tab-content active">
       <div class="card">
+        <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?w=600&auto=format&fit=crop" alt="Acordo STAL" class="card-img" onclick="openModal(this.src)">
         <span class="badge">Institucional</span>
         <h3>Acordo de Trabalho com o STAL</h3>
         <p>A Junta de Freguesia de Vendas Novas assinou um novo acordo de valorização dos recursos humanos e melhoria das condições de trabalho.</p>
       </div>
       <div class="card">
+        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&auto=format&fit=crop" alt="Ação Social" class="card-img" onclick="openModal(this.src)">
         <span class="badge">Ação Social</span>
         <h3>Programa de Apoio à Comunidade</h3>
-        <p>Abertas as inscrições para apoio a famílias da freguesia em situação de vulnerabilidade.</p>
+        <p>Abertas as inscrições para apoio a famílias da freguesia em situação de vulnerabilidade e incentivos sociais.</p>
+      </div>
+    </div>
+
+    <!-- GALERIA DE FOTOS INTERATIVA -->
+    <div id="galeria" class="tab-content">
+      <div class="card">
+        <h3>🖼️ Galeria da Freguesia</h3>
+        <p>Acompanhe em imagens as atividades, espaços e eventos de Vendas Novas.</p>
+      </div>
+
+      <!-- Filtros -->
+      <div class="gallery-filter">
+        <button class="filter-btn active" onclick="filterGallery('todos', this)">Todos</button>
+        <button class="filter-btn" onclick="filterGallery('eventos', this)">Eventos</button>
+        <button class="filter-btn" onclick="filterGallery('espacos', this)">Espaços</button>
+        <button class="filter-btn" onclick="filterGallery('obras', this)">Obras</button>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item" data-category="eventos" onclick="openModal('https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=800&auto=format&fit=crop')">
+          <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=500&auto=format&fit=crop" alt="Eventos Culturais">
+          <span>Eventos Culturais</span>
+        </div>
+        <div class="gallery-item" data-category="espacos" onclick="openModal('https://images.unsplash.com/photo-1584467735871-8e85353a8413?w=800&auto=format&fit=crop')">
+          <img src="https://images.unsplash.com/photo-1584467735871-8e85353a8413?w=500&auto=format&fit=crop" alt="Espaços Verdes">
+          <span>Espaços Verdes</span>
+        </div>
+        <div class="gallery-item" data-category="obras" onclick="openModal('https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?w=800&auto=format&fit=crop')">
+          <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?w=500&auto=format&fit=crop" alt="Manutenção e Obras">
+          <span>Manutenção Urbana</span>
+        </div>
+        <div class="gallery-item" data-category="eventos" onclick="openModal('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&auto=format&fit=crop')">
+          <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=500&auto=format&fit=crop" alt="Reuniões de Executivo">
+          <span>Órgãos Autárquicos</span>
+        </div>
       </div>
     </div>
 
@@ -182,7 +309,6 @@
         <h3>📄 Pedido de Atestado Online</h3>
         <p>Preencha os seus dados para submeter um pedido de atestado de residência ou prova de vida.</p>
         
-        <!-- Formulário integrado (substitua o action pelo seu Formspree ID se pretender) -->
         <form action="https://formspree.io/f/xdekdnoj" method="POST">
           <div class="form-group">
             <label for="nome">Nome Completo</label>
@@ -214,7 +340,7 @@
             <textarea id="observacoes" name="observacoes" placeholder="Indique o motivo ou dados adicionais"></textarea>
           </div>
 
-          <button type="submit" class="btn">Submeter Pedido</button>
+          <button type="submit" class="btn"><i class="fa-solid fa-paper-plane" style="margin-right: 8px;"></i> Submeter Pedido</button>
         </form>
       </div>
     </div>
@@ -225,7 +351,7 @@
         <h3>⚠️ Reportar Ocorrência</h3>
         <p>Ajude-nos a manter a freguesia limpa e segura. Reporte avarias na iluminação, vias de trânsito ou limpeza urbana.</p>
         
-        <form action="https://formspree.io/f/xbjnqpyv" method="POST">
+        <form action="https://formspree.io/f/xdekdnoj" method="POST">
           <div class="form-group">
             <label for="assunto">Assunto / Categoria</label>
             <select id="assunto" name="categoria" required>
@@ -246,7 +372,7 @@
             <textarea id="descricao" name="descricao" placeholder="Descreva brevemente a situação..." required></textarea>
           </div>
 
-          <button type="submit" class="btn">Enviar Ocorrência</button>
+          <button type="submit" class="btn"><i class="fa-solid fa-triangle-exclamation" style="margin-right: 8px;"></i> Enviar Ocorrência</button>
         </form>
       </div>
     </div>
@@ -255,42 +381,77 @@
     <div id="contactos" class="tab-content">
       <div class="card">
         <h3>Junta de Freguesia</h3>
-        <div class="contact-item">📍 Av. da República, 7080-099 Vendas Novas</div>
-        <div class="contact-item">📞 +351 265 809 580</div>
-        <div class="contact-item">✉️ geral@jf-vendasnovas.pt</div>
-        <div class="contact-item">🕒 2ª a 6ª feira: 09:00 - 12:30 | 14:00 - 17:00</div>
-        <a href="tel:265809580" class="btn" style="margin-top: 10px;">Ligar para a Secretaria</a>
+        <div class="contact-item"><i class="fa-solid fa-location-dot"></i> Av. da República, 7080-099 Vendas Novas</div>
+        <div class="contact-item"><i class="fa-solid fa-phone"></i> +351 265 809 580</div>
+        <div class="contact-item"><i class="fa-solid fa-envelope"></i> geral@jf-vendasnovas.pt</div>
+        <div class="contact-item"><i class="fa-solid fa-clock"></i> 2ª a 6ª feira: 09:00 - 12:30 | 14:00 - 17:00</div>
+        <a href="tel:265809580" class="btn" style="margin-top: 14px;"><i class="fa-solid fa-phone" style="margin-right: 8px;"></i> Ligar para a Secretaria</a>
       </div>
     </div>
 
   </div>
 
+  <!-- Modal para Zoom de Imagens -->
+  <div id="imageModal" class="modal" onclick="closeModal()">
+    <button class="modal-close">&times;</button>
+    <img id="modalImg" src="" alt="Imagem Ampliada">
+  </div>
+
+  <!-- Barra de Navegação Inferior -->
   <nav>
     <button class="active" onclick="switchTab('noticias', this)">
-      <span class="icon">📰</span>
+      <i class="fa-regular fa-newspaper"></i>
       <span>Notícias</span>
     </button>
+    <button onclick="switchTab('galeria', this)">
+      <i class="fa-regular fa-images"></i>
+      <span>Galeria</span>
+    </button>
     <button onclick="switchTab('atestados', this)">
-      <span class="icon">📄</span>
+      <i class="fa-regular fa-file-lines"></i>
       <span>Atestados</span>
     </button>
     <button onclick="switchTab('ocorrencias', this)">
-      <span class="icon">⚠️</span>
+      <i class="fa-solid fa-triangle-exclamation"></i>
       <span>Ocorrências</span>
     </button>
     <button onclick="switchTab('contactos', this)">
-      <span class="icon">📞</span>
+      <i class="fa-solid fa-address-book"></i>
       <span>Contactos</span>
     </button>
   </nav>
 
   <script>
+    // Alternar entre Separadores
     function switchTab(tabId, btn) {
       document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
       document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
       document.getElementById(tabId).classList.add('active');
       btn.classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Modal de Imagem (Lightbox)
+    function openModal(src) {
+      document.getElementById('modalImg').src = src;
+      document.getElementById('imageModal').classList.add('active');
+    }
+    function closeModal() {
+      document.getElementById('imageModal').classList.remove('active');
+    }
+
+    // Filtrar Galeria de Fotos
+    function filterGallery(category, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        if (category === 'todos' || item.getAttribute('data-category') === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
     }
   </script>
 </body>
