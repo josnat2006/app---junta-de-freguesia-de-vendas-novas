@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Junta de Freguesia de Vendas Novas</title>
+  <meta name="theme-color" content="#0056b3">
+  <link rel="manifest" href="data:application/json,{%22name%22:%22JF%20Vendas%20Novas%22,%22short_name%22:%22JFVendasNovas%22,%22start_url%22:%22.%22,%22display%22:%22standalone%22,%22background_color%22:%22#ffffff%22,%22theme_color%22:%22#0056b3%22}">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: #f4f6f9; color: #333; padding-bottom: 70px; }
+    header { background: #0056b3; color: white; padding: 16px; text-align: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+    header h1 { font-size: 1.2rem; font-weight: 700; }
+    header p { font-size: 0.8rem; opacity: 0.9; }
+    nav { position: fixed; bottom: 0; width: 100%; background: white; display: flex; justify-content: space-around; padding: 10px 0; border-top: 1px solid #e0e0e0; box-shadow: 0 -2px 10px rgba(0,0,0,0.05); }
+    nav button { border: none; background: none; font-size: 0.75rem; color: #666; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; flex: 1; }
+    nav button.active { color: #0056b3; font-weight: bold; }
+    .container { padding: 16px; max-width: 600px; margin: 0 auto; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    .card { background: white; border-radius: 12px; padding: 16px; margin-bottom: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border-left: 4px solid #0056b3; }
+    .card h3 { font-size: 1rem; color: #0056b3; margin-bottom: 6px; }
+    .card p { font-size: 0.85rem; color: #555; line-height: 1.4; }
+    .badge { display: inline-block; background: #e3f2fd; color: #0d47a1; font-size: 0.7rem; padding: 3px 8px; border-radius: 12px; font-weight: 600; margin-bottom: 8px; }
+    .btn { display: inline-block; background: #0056b3; color: white; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; border: none; font-weight: 600; margin-top: 8px; text-align: center; width: 100%; }
+    .contact-item { margin-bottom: 12px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Junta de Freguesia de Vendas Novas</h1>
+    <p>Serviços e Informação ao Cidadão</p>
+  </header>
+
+  <div class="container">
+    <!-- NOTÍCIAS -->
+    <div id="noticias" class="tab-content active">
+      <div class="card">
+        <span class="badge">Institucional</span>
+        <h3>Acordo de Trabalho com o STAL</h3>
+        <p>A Junta de Freguesia de Vendas Novas assinou um novo acordo de valorização dos recursos humanos e melhoria das condições de trabalho.</p>
+      </div>
+      <div class="card">
+        <span class="badge">Desporto</span>
+        <h3>Apoios Excepcionais às Coletividades</h3>
+        <p>Atribuição de apoios financeiros destinados às associações desportivas locais para reparação dos danos provocados pelas recentes tempestades.</p>
+      </div>
+      <div class="card">
+        <span class="badge">Ação Social</span>
+        <h3>Programa de Emergência Social</h3>
+        <p>Abertas as inscrições e renovações para apoio a famílias da freguesia em situação de vulnerabilidade.</p>
+      </div>
+      <div class="card">
+        <span class="badge">Educação</span>
+        <h3>Apoio Escolar 2026/2027</h3>
+        <p>Candidaturas abertas para atribuição de bolsas e apoios a estudantes residentes na freguesia.</p>
+      </div>
+    </div>
+
+    <!-- AGENDA -->
+    <div id="agenda" class="tab-content">
+      <div class="card">
+        <span class="badge">15 Outubro 2026</span>
+        <h3>Aniversário do Rancho Folclórico das Piçarras</h3>
+        <p>Celebração do aniversário com atuações culturais na sede da associação.</p>
+      </div>
+      <div class="card">
+        <span class="badge">22 Outubro 2026</span>
+        <h3>Aniversário do Clube Columbófilo</h3>
+        <p>Sessão solene e convívio comemorativo.</p>
+      </div>
+      <div class="card">
+        <span class="badge">30 Outubro 2026</span>
+        <h3>Aniversário Kirugui Clube Taekwondo</h3>
+        <p>Demonstração pública de artes marciais e entrega de medalhas.</p>
+      </div>
+    </div>
+
+    <!-- SERVIÇOS / BALCÃO VIRTUAL -->
+    <div id="servicos" class="tab-content">
+      <div class="card">
+        <h3>Atestados e Certidões</h3>
+        <p>Requira atestados de residência, agregado familiar e prova de vida sem ter de se deslocar à Junta.</p>
+        <a href="mailto:geral@jf-vendasnovas.pt?subject=Pedido%20de%20Atestado" class="btn">Pedir Documento</a>
+      </div>
+      <div class="card">
+        <h3>Licenciamento de Canídeos</h3>
+        <p>Consulte a documentação necessária para o registo e licenciamento de animais de companhia.</p>
+      </div>
+      <div class="card">
+        <h3>Documentos e Editais</h3>
+        <p>Aceda às Atas das reuniões de Junta, Editais e Relatórios de Contas públicos.</p>
+      </div>
+    </div>
+
+    <!-- CONTACTOS -->
+    <div id="contactos" class="tab-content">
+      <div class="card">
+        <h3>Junta de Freguesia</h3>
+        <div class="contact-item">📍 Av. da República, 7080-099 Vendas Novas</div>
+        <div class="contact-item">📞 +351 265 809 580</div>
+        <div class="contact-item">✉️ geral@jf-vendasnovas.pt</div>
+        <div class="contact-item">🕒 2ª a 6ª feira: 09:00 - 12:30 | 14:00 - 17:00</div>
+        <a href="tel:265809580" class="btn">Ligar para a Junta</a>
+      </div>
+    </div>
+  </div>
+
+  <nav>
+    <button class="active" onclick="switchTab('noticias', this)">📰 Notícias</button>
+    <button onclick="switchTab('agenda', this)">📅 Agenda</button>
+    <button onclick="switchTab('servicos', this)">💻 Balcão</button>
+    <button onclick="switchTab('contactos', this)">📞 Contactos</button>
+  </nav>
+
+  <script>
+    function switchTab(tabId, btn) {
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    if ('serviceWorker' in navigator) {
+      const swCode = `self.addEventListener('fetch', function(e) {});`;
+      const blob = new Blob([swCode], { type: 'text/javascript' });
+      navigator.serviceWorker.register(URL.createObjectURL(blob));
+    }
+  </script>
+</body>
+</html>
