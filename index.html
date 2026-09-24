@@ -130,11 +130,51 @@
       font-size: 0.72rem; padding: 4px 10px; border-radius: 20px; font-weight: 700; margin-bottom: 10px; 
     }
 
-    .executivo-member {
-      background: #f8faf9; padding: 10px 12px; border-radius: 10px; margin-bottom: 8px; border: 1px solid rgba(0,0,0,0.04);
+    /* Estilos do Executivo com Foto */
+    .executivo-card-item {
+      background: #f8faf9;
+      border: 1px solid rgba(0,0,0,0.05);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 10px;
+      display: flex;
+      gap: 14px;
+      align-items: center;
     }
-    .executivo-member strong { color: var(--primary-dark); font-size: 0.9rem; display: block; }
-    .executivo-member span { font-size: 0.78rem; color: var(--text-muted); }
+    .executivo-card-item img {
+      width: 75px;
+      height: 75px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,0.08);
+      flex-shrink: 0;
+    }
+    .executivo-info {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .executivo-info strong {
+      color: var(--primary-dark);
+      font-size: 0.92rem;
+    }
+    .executivo-info span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .executivo-info small {
+      font-size: 0.73rem;
+      color: #555;
+      line-height: 1.3;
+      margin-top: 2px;
+    }
+    .party-logo-small {
+      height: 14px;
+      width: auto;
+      vertical-align: middle;
+      margin-left: 4px;
+    }
 
     .assembleia-grid {
       display: grid;
@@ -167,12 +207,6 @@
       font-weight: 500;
     }
 
-    .doc-item {
-      display: flex; align-items: center; justify-content: space-between; padding: 10px 12px;
-      background: #f9fbf9; border-radius: 10px; margin-bottom: 8px; font-size: 0.85rem; border: 1px solid rgba(0,0,0,0.04);
-    }
-    .doc-item i { color: var(--primary); }
-
     .territorio-list { display: flex; flex-direction: column; gap: 10px; }
     .territorio-item {
       background: var(--card-bg); border-radius: 12px; border: 1px solid rgba(0,0,0,0.06); overflow: hidden;
@@ -187,12 +221,6 @@
     .territorio-item.open .territorio-content { display: block; }
     .territorio-item.open .territorio-header i { transform: rotate(180deg); }
     .territorio-header i { transition: transform 0.2s ease; color: var(--primary); }
-
-    .gallery-filter { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 10px; margin-bottom: 14px; }
-    .filter-btn {
-      background: #E8ECEF; color: var(--text-muted); border: none; padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; cursor: pointer;
-    }
-    .filter-btn.active { background: var(--primary); color: white; }
 
     .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .gallery-item { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); cursor: pointer; border: 1px solid rgba(0,0,0,0.04); }
@@ -261,60 +289,92 @@
       </div>
     </div>
 
-    <!-- SEPARADOR 2: A JUNTA (Institucional Completa + Composição da Assembleia) -->
+    <!-- SEPARADOR 2: A JUNTA (Mensagem do Presidente, Executivo com Fotos e Assembleia) -->
     <div id="ajunta" class="tab-content">
       <div class="card">
         <h3><i class="fa-solid fa-landmark"></i> Instituição & Órgãos</h3>
-        <p>Conheça a mensagem, executivo, serviços e a composição completa da Assembleia de Freguesia.</p>
+        <p>Mensagem oficial, executivo com fotos e composição da Assembleia de Freguesia.</p>
       </div>
 
       <div class="territorio-list">
         
-        <!-- Mensagem do Presidente -->
-        <div class="territorio-item">
+        <!-- Mensagem do Presidente na Íntegra (Cerimónia Tomada de Posse) -->
+        <div class="territorio-item open">
           <div class="territorio-header" onclick="toggleAccordion(this)">
             <span><i class="fa-solid fa-comment-dots" style="margin-right: 8px;"></i> Mensagem do Presidente</span>
             <i class="fa-solid fa-chevron-down"></i>
           </div>
           <div class="territorio-content">
-            <p>Caros Fregueses e Visitantes,</p>
-            <p style="margin-top: 8px;">É com enorme sentido de responsabilidade e proximidade que vos dou as boas-vindas ao portal digital da Junta de Freguesia de Vendas Novas, um canal aberto e transparente ao serviço da comunidade.</p>
+            <p style="font-style: italic; margin-bottom: 10px;">Mensagem do Presidente Fernando Chaveiro na cerimónia de Tomada de Posse dos órgãos autárquicos da Freguesia de Vendas Novas, realizada a 29 de outubro:</p>
+            <p><strong>"Caras e caros Vendasnovenses,</strong></p>
+            <p style="margin-top: 8px;">É com grande honra e sentido de responsabilidade que hoje tomo posse como Presidente da Junta de Freguesia da nossa cidade.</p>
+            <p style="margin-top: 8px;">É um momento que simboliza não apenas o início de um novo mandato, mas também o assumir de um novo compromisso perante a nossa comunidade.</p>
+            <p style="margin-top: 8px;">A confiança que os cidadãos depositaram em nós, através do seu voto, é motivo de orgulho, mas sobretudo um apelo à dedicação, ao diálogo e ao trabalho em conjunto.</p>
+            <p style="margin-top: 8px;">Cabe-nos agora transformar essa confiança em ações concretas, em decisões equilibradas e em políticas que sirvam verdadeiramente o interesse público.</p>
+            <p style="margin-top: 8px;">Hoje não celebramos apenas resultados eleitorais – celebramos a força da democracia local, onde os cidadãos se fazem ouvir mais de perto e onde o poder está mais próximo das pessoas.</p>
+            <p style="margin-top: 8px;">É nossa intenção trabalhar com todos e para todos.</p>
+            <p style="margin-top: 8px;">É com o sentido de entrega, honestidade e dedicação que pretendemos construir uma Freguesia mais justa, mais solidária e mais viva.</p>
+            <p style="margin-top: 8px;">Sinto-me profundamente honrado por esta oportunidade.</p>
+            <p style="margin-top: 8px;">Pretendo ser um presidente de proximidade, de escuta, de diálogo e que age em nome de todos, sem exceção.</p>
+            <p style="margin-top: 8px;">A Junta de Freguesia será uma instituição ao serviço do bem comum.</p>
+            <p style="margin-top: 8px;"><strong>Muito obrigada"</strong></p>
           </div>
         </div>
 
-        <!-- Executivo -->
+        <!-- Executivo da Junta (Com Ficheiros de Imagem e Logótipo PSD) -->
         <div class="territorio-item">
           <div class="territorio-header" onclick="toggleAccordion(this)">
-            <span><i class="fa-solid fa-users-gear" style="margin-right: 8px;"></i> Executivo da Junta</span>
+            <span><i class="fa-solid fa-users-gear" style="margin-right: 8px;"></i> Executivo da Junta de Freguesia</span>
             <i class="fa-solid fa-chevron-down"></i>
           </div>
           <div class="territorio-content">
-            <div class="executivo-member">
-              <strong>Fernando Jorge Travessa Chaveiro</strong>
-              <span>Presidente da Junta de Freguesia</span>
-              <br><small style="color: var(--primary);">Atendimento: Terças, 16h00 - 17h30</small>
+            
+            <div class="executivo-card-item">
+              <img src="fernandochaveiro.jpg" alt="Fernando Chaveiro" onclick="openModal(this.src)">
+              <div class="executivo-info">
+                <strong>Fernando Jorge Travessa Chaveiro</strong>
+                <span>Presidente <img src="logopsd.jpg" alt="PSD" class="party-logo-small"></span>
+                <small>Atendimento: Terças, das 16h00 às 17h30, na sede. Atendimento descentralizado na última semana do mês.</small>
+              </div>
             </div>
-            <div class="executivo-member">
-              <strong>Maria Manuel Gaspar Alexandre</strong>
-              <span>Secretária</span>
+
+            <div class="executivo-card-item">
+              <img src="mariaalexandre.jpg" alt="Maria Alexandre" onclick="openModal(this.src)">
+              <div class="executivo-info">
+                <strong>Maria Manuel Gaspar Alexandre</strong>
+                <span>Secretária <img src="logopsd.jpg" alt="PSD" class="party-logo-small"></span>
+              </div>
             </div>
-            <div class="executivo-member">
-              <strong>José Luís Coruche Pereira</strong>
-              <span>Tesoureiro</span>
+
+            <div class="executivo-card-item">
+              <img src="josepereira.jpg" alt="José Pereira" onclick="openModal(this.src)">
+              <div class="executivo-info">
+                <strong>José Luís Coruche Pereira</strong>
+                <span>Tesoureiro <img src="logopsd.jpg" alt="PSD" class="party-logo-small"></span>
+              </div>
             </div>
-            <div class="executivo-member">
-              <strong>Margarida Casimiro Ferreira Laranjo</strong>
-              <span>Vogal</span>
+
+            <div class="executivo-card-item">
+              <img src="margaridalaranjo.jpg" alt="Margarida Laranjo" onclick="openModal(this.src)">
+              <div class="executivo-info">
+                <strong>Margarida Casimiro Ferreira Laranjo</strong>
+                <span>Vogal <img src="logopsd.jpg" alt="PSD" class="party-logo-small"></span>
+              </div>
             </div>
-            <div class="executivo-member">
-              <strong>Heitor Urbano Calhau Dias</strong>
-              <span>Vogal</span>
+
+            <div class="executivo-card-item">
+              <img src="heitordias.jpg" alt="Heitor Dias" onclick="openModal(this.src)">
+              <div class="executivo-info">
+                <strong>Heitor Urbano Calhau Dias</strong>
+                <span>Vogal <img src="logopsd.jpg" alt="PSD" class="party-logo-small"></span>
+              </div>
             </div>
+
           </div>
         </div>
 
-        <!-- COMPOSIÇÃO DA ASSEMBLEIA DE FREGUESIA -->
-        <div class="territorio-item open">
+        <!-- Composição da Assembleia de Freguesia -->
+        <div class="territorio-item">
           <div class="territorio-header" onclick="toggleAccordion(this)">
             <span><i class="fa-solid fa-building-columns" style="margin-right: 8px;"></i> Composição da Assembleia de Freguesia</span>
             <i class="fa-solid fa-chevron-down"></i>
@@ -323,84 +383,20 @@
             <p style="margin-bottom: 10px;">Órgão deliberativo composto pelos representantes eleitos:</p>
             
             <div class="assembleia-grid">
-              <div class="assembleia-card">
-                <span class="party-tag">PSD</span>
-                <strong>Alexandre Carlos Canaria de Almeida</strong>
-                <span>Presidente da Mesa da Assembleia</span>
-              </div>
-              <div class="assembleia-card">
-                <span class="party-tag">PSD</span>
-                <strong>Sónia Isabel Matias de Carvalho Grulha</strong>
-                <span>1ª Secretária</span>
-              </div>
-              <div class="assembleia-card">
-                <span class="party-tag">PSD</span>
-                <strong>Pedro António Fonseca Fradique</strong>
-                <span>2º Secretário</span>
-              </div>
-              <div class="assembleia-card">
-                <span class="party-tag">PSD</span>
-                <strong>Ana Maria Correia Ribeiro Ramalho Romão</strong>
-                <span>Vogal</span>
-              </div>
-              <div class="assembleia-card">
-                <span class="party-tag">PSD</span>
-                <strong>Ângela Inês Dias Machado da Silva Martins</strong>
-                <span>Vogal</span>
-              </div>
-              <div class="assembleia-card">
-                <span class="party-tag">PSD</span>
-                <strong>Nuno Miguel Monte Pereira</strong>
-                <span>Vogal</span>
-              </div>
-              <div class="assembleia-card">
-                <span class="party-tag">PSD</span>
-                <strong>Madalena da Conceição Marques Barreiros</strong>
-                <span>Vogal</span>
-              </div>
-              <div class="assembleia-card">
-                <span class="party-tag">PS</span>
-                <strong>Hermínia Maria Viegas Henriques</strong>
-                <span>Vogal</span>
-              </div>
-              <div class="assembleia-card">
-                <span class="party-tag">PS</span>
-                <strong>Luís Carlos Damásio Ferreira</strong>
-                <span>Vogal</span>
-              </div>
-              <div class="assembleia-card">
-                <span class="party-tag">PS</span>
-                <strong>João António Mirones Frade</strong>
-                <span>Vogal</span>
-              </div>
-              <div class="assembleia-card">
-                <span class="party-tag">PS</span>
-                <strong>Alexandra Pedro da Silva</strong>
-                <span>Vogal</span>
-              </div>
-              <div class="assembleia-card">
-                <span class="party-tag">CDU</span>
-                <strong>Rui Jorge Felício Palminha</strong>
-                <span>Vogal</span>
-              </div>
-              <div class="assembleia-card">
-                <span class="party-tag">CHEGA</span>
-                <strong>Vanda do Carmo Rebocho Mendes</strong>
-                <span>Vogal</span>
-              </div>
+              <div class="assembleia-card"><span class="party-tag">PSD</span><strong>Alexandre Carlos Canaria de Almeida</strong><span>Presidente da Mesa da Assembleia</span></div>
+              <div class="assembleia-card"><span class="party-tag">PSD</span><strong>Sónia Isabel Matias de Carvalho Grulha</strong><span>1ª Secretária</span></div>
+              <div class="assembleia-card"><span class="party-tag">PSD</span><strong>Pedro António Fonseca Fradique</strong><span>2º Secretário</span></div>
+              <div class="assembleia-card"><span class="party-tag">PSD</span><strong>Ana Maria Correia Ribeiro Ramalho Romão</strong><span>Vogal</span></div>
+              <div class="assembleia-card"><span class="party-tag">PSD</span><strong>Ângela Inês Dias Machado da Silva Martins</strong><span>Vogal</span></div>
+              <div class="assembleia-card"><span class="party-tag">PSD</span><strong>Nuno Miguel Monte Pereira</strong><span>Vogal</span></div>
+              <div class="assembleia-card"><span class="party-tag">PSD</span><strong>Madalena da Conceição Marques Barreiros</strong><span>Vogal</span></div>
+              <div class="assembleia-card"><span class="party-tag">PS</span><strong>Hermínia Maria Viegas Henriques</strong><span>Vogal</span></div>
+              <div class="assembleia-card"><span class="party-tag">PS</span><strong>Luís Carlos Damásio Ferreira</strong><span>Vogal</span></div>
+              <div class="assembleia-card"><span class="party-tag">PS</span><strong>João António Mirones Frade</strong><span>Vogal</span></div>
+              <div class="assembleia-card"><span class="party-tag">PS</span><strong>Alexandra Pedro da Silva</strong><span>Vogal</span></div>
+              <div class="assembleia-card"><span class="party-tag">CDU</span><strong>Rui Jorge Felício Palminha</strong><span>Vogal</span></div>
+              <div class="assembleia-card"><span class="party-tag">CHEGA</span><strong>Vanda do Carmo Rebocho Mendes</strong><span>Vogal</span></div>
             </div>
-          </div>
-        </div>
-
-        <!-- Serviços e Licenciamentos -->
-        <div class="territorio-item">
-          <div class="territorio-header" onclick="toggleAccordion(this)">
-            <span><i class="fa-solid fa-concierge-bell" style="margin-right: 8px;"></i> Serviços aos Cidadãos</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="territorio-content">
-            <p><strong>Atestados e Certificações:</strong> Residência, idoneidade e prova de vida.</p>
-            <p style="margin-top: 6px;"><strong>Canídeos:</strong> Registo inicial e licenças SIAC.</p>
           </div>
         </div>
 
