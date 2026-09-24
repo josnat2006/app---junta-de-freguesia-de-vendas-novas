@@ -177,6 +177,55 @@
     .territorio-item.open .territorio-header i { transform: rotate(180deg); }
     .territorio-header i { transition: transform 0.2s ease; color: var(--primary); }
 
+    .assoc-subgroup {
+      margin-bottom: 14px;
+    }
+    .assoc-subgroup h4 {
+      font-size: 0.85rem;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      border-bottom: 1px solid rgba(0,107,63,0.15);
+      padding-bottom: 4px;
+    }
+    .assoc-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+    .assoc-card {
+      background: #f8faf9;
+      border: 1px solid rgba(0,0,0,0.04);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .patrimonio-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .patrimonio-card {
+      background: #f8faf9;
+      border: 1px solid rgba(0,0,0,0.05);
+      border-radius: 10px;
+      padding: 10px;
+    }
+    .patrimonio-card strong {
+      display: block;
+      color: var(--primary-dark);
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+    }
+
     /* Filtros da Galeria */
     .gallery-filter {
       display: flex;
@@ -342,7 +391,7 @@
       </div>
     </div>
 
-    <!-- SECTOR TERRITÓRIO (NOVO) -->
+    <!-- SECTOR TERRITÓRIO -->
     <div id="territorio" class="tab-content">
       <div class="card">
         <h3><i class="fa-solid fa-map-location-dot"></i> O Nosso Território</h3>
@@ -375,37 +424,118 @@
           </div>
         </div>
 
-        <!-- Património -->
+        <!-- Património Histórico e Natural -->
         <div class="territorio-item">
           <div class="territorio-header" onclick="toggleAccordion(this)">
-            <span><i class="fa-solid fa-monument" style="margin-right: 8px;"></i> Património</span>
+            <span><i class="fa-solid fa-monument" style="margin-right: 8px;"></i> Património Histórico e Natural</span>
             <i class="fa-solid fa-chevron-down"></i>
           </div>
           <div class="territorio-content">
-            <p>Vendas Novas guarda um património histórico e monumental rico:</p>
-            <ul style="padding-left: 18px; margin-top: 6px;">
-              <li><strong>Chafariz Real:</strong> Monumento icónico mandado construir por D. João V.</li>
-              <li><strong>Palácio Real / Regimento de Artilharia:</strong> Antiga residência real em Vendas Novas.</li>
-              <li><strong>Capela Real:</strong> Elemento histórico do centro urbano.</li>
-              <li><strong>Moinhos de Vento:</strong> Testemunhos do passado agrícola da região.</li>
-            </ul>
+            <p>Conheça os principais monumentos, edifícios históricos e espaços verdes de Vendas Novas:</p>
+            <div class="patrimonio-grid">
+              <div class="patrimonio-card">
+                <strong>🏛️ Capela Real do Palácio das Passagens</strong>
+                <p>Monumento de elevado valor histórico ligado à antiga presença real.</p>
+              </div>
+              <div class="patrimonio-card">
+                <strong>⛲ Chafariz Real</strong>
+                <p>Ex-líbris da freguesia mandado construir por D. João V.</p>
+              </div>
+              <div class="patrimonio-card">
+                <strong>🎭 Espaço Etnográfico do Grupo de Danças e Cantares Pioneiros</strong>
+                <p>Preservação da memória e tradição folclórica de Vendas Novas.</p>
+              </div>
+              <div class="patrimonio-card">
+                <strong>🌳 Espaço Verde da Entrada Poente de Vendas Novas</strong>
+                <p>Zona de acolhimento e enquadramento paisagístico do concelho.</p>
+              </div>
+              <div class="patrimonio-card">
+                <strong>🏡 Jardim do Bairro José Saramago</strong>
+                <p>Espaço de lazer e convivência para a comunidade local.</p>
+              </div>
+              <div class="patrimonio-card">
+                <strong>🌸 Jardim Público de Vendas Novas</strong>
+                <p>O principal parque verde central para passeios e atividades de lazer.</p>
+              </div>
+              <div class="patrimonio-card">
+                <strong>🎖️ Museu da Escola Prática de Artilharia</strong>
+                <p>Espaço museológico com a memória militar da unidade histórica de Vendas Novas.</p>
+              </div>
+              <div class="patrimonio-card">
+                <strong>🏰 Palácio das Passagens</strong>
+                <p>Edifício emblemático associado às antigas passagens reais no Alentejo.</p>
+              </div>
+              <div class="patrimonio-card">
+                <strong>🏛️ Palácio do Vidigal</strong>
+                <p>Património arquitetónico marcante no território da freguesia.</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Associativismo -->
-        <div class="territorio-item">
+        <!-- Associativismo Atualizado -->
+        <div class="territorio-item open">
           <div class="territorio-header" onclick="toggleAccordion(this)">
-            <span><i class="fa-solid fa-people-group" style="margin-right: 8px;"></i> Associativismo</span>
+            <span><i class="fa-solid fa-people-group" style="margin-right: 8px;"></i> Associativismo Local</span>
             <i class="fa-solid fa-chevron-down"></i>
           </div>
           <div class="territorio-content">
-            <p>O movimento associativo é o coração cultural e social da freguesia:</p>
-            <ul style="padding-left: 18px; margin-top: 6px;">
-              <li>Associação de Dadores Benévolos de Sangue de Vendas Novas</li>
-              <li>Associação Apolo Vendas Novas</li>
-              <li>Associação de Caçadores e Pescadores de Vendas Novas</li>
-              <li>Clubes desportivos, juvenis e grupos folclóricos locais.</li>
-            </ul>
+            <p style="margin-bottom: 12px;">Conheça as associações e clubes ativas no concelho de Vendas Novas:</p>
+            
+            <!-- Desportivas -->
+            <div class="assoc-subgroup">
+              <h4>⚽ Associação Desportiva</h4>
+              <div class="assoc-grid">
+                <div class="assoc-card"><i class="fa-solid fa-trophy"></i> Associação Apolo Vendas Novas</div>
+                <div class="assoc-card"><i class="fa-solid fa-crosshairs"></i> Associação de Caçadores e Pescadores</div>
+                <div class="assoc-card"><i class="fa-solid fa-hand-fist"></i> Associação de Taekwondo de Vendas Novas</div>
+                <div class="assoc-card"><i class="fa-solid fa-person-hiking"></i> Associação Desportiva Natura Trilhos</div>
+                <div class="assoc-card"><i class="fa-solid fa-plane"></i> Clube de Aeromodelismo de Vendas Novas</div>
+                <div class="assoc-card"><i class="fa-solid fa-bullseye"></i> Clube de Tiro de Vendas Novas</div>
+                <div class="assoc-card"><i class="fa-solid fa-futbol"></i> Clube Desportivo "Os Aliados"</div>
+                <div class="assoc-card"><i class="fa-solid fa-train"></i> Clube Ferroviário de Vendas Novas</div>
+                <div class="assoc-card"><i class="fa-solid fa-dove"></i> Clube Columbófilo de Vendas Novas</div>
+                <div class="assoc-card"><i class="fa-solid fa-volleyball"></i> Desportivo Clube das Piçarras</div>
+                <div class="assoc-card"><i class="fa-solid fa-star"></i> Estrela Futebol Clube</div>
+                <div class="assoc-card"><i class="fa-solid fa-shirt"></i> Grupo Desportivo e Recreativo da Afeiteira</div>
+                <div class="assoc-card"><i class="fa-solid fa-building-user"></i> Grupo Desportivo do Pessoal da C.M.V.N</div>
+                <div class="assoc-card"><i class="fa-solid fa-kicking-field"></i> Kirugui Clube Taekwondo</div>
+                <div class="assoc-card"><i class="fa-solid fa-table-tennis-paddle-ball"></i> Raquete Clube de Vendas Novas</div>
+              </div>
+            </div>
+
+            <!-- Social -->
+            <div class="assoc-subgroup">
+              <h4>🤝 Associação Social</h4>
+              <div class="assoc-grid">
+                <div class="assoc-card"><i class="fa-solid fa-heart-pulse"></i> Associação de Dadores Benévolos de Sangue</div>
+                <div class="assoc-card"><i class="fa-solid fa-hand-holding-heart"></i> Associação de Intervenção Comunitária (AICVN)</div>
+                <div class="assoc-card"><i class="fa-solid fa-house-chimney-heart"></i> Associação Solidariedade Social "Renascer de Bombel"</div>
+                <div class="assoc-card"><i class="fa-solid fa-child-reaching"></i> Associação Solidariedade Social Creche 25 de Abril</div>
+                <div class="assoc-card"><i class="fa-solid fa-fire-extinguisher"></i> Bombeiros Voluntários de Vendas Novas</div>
+                <div class="assoc-card"><i class="fa-solid fa-people-roof"></i> Casa do Benfica de Vendas Novas</div>
+                <div class="assoc-card"><i class="fa-solid fa-users"></i> Casa do Povo de Vendas Novas</div>
+                <div class="assoc-card"><i class="fa-solid fa-campground"></i> Corpo Nacional de Escutas - Agrupamento 34</div>
+                <div class="assoc-card"><i class="fa-solid fa-hands-holding-child"></i> Lar Betânia - Filial de Vendas Novas</div>
+                <div class="assoc-card"><i class="fa-solid fa-award"></i> Núcleo da Liga dos Combatentes</div>
+                <div class="assoc-card"><i class="fa-solid fa-shield-cat"></i> Núcleo do Sporting Clube de Portugal</div>
+                <div class="assoc-card"><i class="fa-solid fa-cross"></i> Santa Casa da Misericórdia de Vendas Novas</div>
+              </div>
+            </div>
+
+            <!-- Cultural -->
+            <div class="assoc-subgroup">
+              <h4>🎭 Associação Cultural</h4>
+              <div class="assoc-grid">
+                <div class="assoc-card"><i class="fa-solid fa-music"></i> Coral Notas Livres - Associação Arte dos Sons</div>
+                <div class="assoc-card"><i class="fa-solid fa-guitar"></i> Era uma Vez "O Cante"</div>
+                <div class="assoc-card"><i class="fa-solid fa-icons"></i> Grupo de Cantares e Música Popular Reformados</div>
+                <div class="assoc-card"><i class="fa-solid fa-fan"></i> Grupo de Danças e Cantares Pioneiros de Vendas Novas</div>
+                <div class="assoc-card"><i class="fa-solid fa-drum"></i> Rancho Folclórico das Piçarras</div>
+                <div class="assoc-card"><i class="fa-solid fa-masks-theater"></i> Teatro das Artes</div>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -419,7 +549,7 @@
             <p>A Freguesia dispõe de estabelecimentos de ensino de excelência integrados no Agrupamento de Escolas de Vendas Novas:</p>
             <ul style="padding-left: 18px; margin-top: 6px;">
               <li>Escola Básico e Secundária de Vendas Novas</li>
-              <li>Escolas Básicas do 1º Cordo (EB1 nº 1 e nº 2)</li>
+              <li>Escolas Básicas do 1º Ciclo (EB1 nº 1 e nº 2)</li>
               <li>Jardins de Infância da Freguesia</li>
             </ul>
           </div>
@@ -626,7 +756,7 @@
     <img id="modalImg" src="" alt="Imagem Ampliada">
   </div>
 
-  <!-- Barra de Navegação Inferior Atualizada -->
+  <!-- Barra de Navegação Inferior -->
   <nav>
     <button class="active" onclick="switchTab('noticias', this)">
       <i class="fa-regular fa-newspaper"></i>
