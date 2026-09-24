@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Junta de Freguesia de Vendas Novas</title>
-  <meta name="theme-color" content="#0056b3">
+  <meta name="theme-color" content="#006B3F">
   
   <!-- Ícones PWA e iOS -->
   <link rel="apple-touch-icon" href="brasaoFVN.png">
-  <link rel="manifest" href="data:application/json,{%22name%22:%22JF%20Vendas%22,%22short_name%22:%22JFVendasNovas%22,%22start_url%22:%22.%22,%22display%22:%22standalone%22,%22background_color%22:%22#ffffff%22,%22theme_color%22:%22#0056b3%22,%22icons%22:[{%22src%22:%22brasaoFVN.png%22,%22sizes%22:%22512x512%22,%22type%22:%22image/png%22}]}">
+  <link rel="manifest" href="data:application/json,{%22name%22:%22JF%20Vendas%22,%22short_name%22:%22JFVendasNovas%22,%22start_url%22:%22.%22,%22display%22:%22standalone%22,%22background_color%22:%22#ffffff%22,%22theme_color%22:%22#006B3F%22,%22icons%22:[{%22src%22:%22brasaoFVN.png%22,%22sizes%22:%22512x512%22,%22type%22:%22image/png%22}]}">
   
   <!-- Fonte Google Inter e FontAwesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -16,29 +16,31 @@
 
   <style>
     :root {
-      --primary: #0056b3;
-      --primary-dark: #003d80;
-      --accent: #28a745;
-      --bg-color: #f4f6f9;
-      --card-bg: #ffffff;
-      --text-main: #2c3e50;
-      --text-muted: #6c757d;
+      /* Palette inspirada no Brasão Oficial de Vendas Novas */
+      --primary: #006B3F;         /* Verde do Escudo */
+      --primary-dark: #004D2D;    /* Verde Escuro */
+      --accent: #E5A912;          /* Ouro / Amarelo da Banda Central */
+      --accent-light: #FFF8E7;    /* Fundo Amarelo Suave para Badges */
+      --bg-color: #F2F5F3;        /* Fundo Neutro Ligeiramente Esverdeado */
+      --card-bg: #FFFFFF;         /* Branco puro */
+      --text-main: #222222;       /* Texto Principal */
+      --text-muted: #55605A;     /* Texto Secundário */
       --border-radius: 16px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', -apple-system, sans-serif; }
     body { background-color: var(--bg-color); color: var(--text-main); padding-bottom: 90px; -webkit-tap-highlight-color: transparent; }
     
-    /* Cabeçalho Elegante com Logos */
+    /* Cabeçalho com o Verde do Brasão */
     header { 
-      background: linear-gradient(135deg, #0056b3 0%, #002e66 100%); 
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); 
       color: white; 
       padding: 20px 16px; 
       text-align: center; 
       position: sticky; 
       top: 0; 
       z-index: 100; 
-      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
       border-bottom-left-radius: 20px;
       border-bottom-right-radius: 20px;
     }
@@ -53,7 +55,7 @@
       height: 60px;
       width: auto;
       object-fit: contain;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
     }
     .header-logos .img-logo {
       height: 48px;
@@ -65,7 +67,7 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
     header h1 { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.3px; }
-    header p { font-size: 0.8rem; opacity: 0.85; margin-top: 2px; }
+    header p { font-size: 0.8rem; opacity: 0.9; margin-top: 2px; color: var(--accent); font-weight: 600; }
 
     /* Navegação Inferior */
     nav { 
@@ -114,8 +116,8 @@
       border-radius: var(--border-radius); 
       padding: 18px; 
       margin-bottom: 16px; 
-      box-shadow: 0 4px 15px rgba(0,0,0,0.03); 
-      border: 1px solid rgba(0,0,0,0.04);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.04); 
+      border: 1px solid rgba(0,0,0,0.05);
       overflow: hidden;
     }
     .card-img { 
@@ -134,12 +136,13 @@
     
     .badge { 
       display: inline-block; 
-      background: #e8f1ec; 
-      color: var(--primary); 
+      background: var(--accent-light); 
+      color: #9A6E00; 
+      border: 1px solid rgba(229, 169, 18, 0.3);
       font-size: 0.72rem; 
       padding: 4px 10px; 
       border-radius: 20px; 
-      font-weight: 600; 
+      font-weight: 700; 
       margin-bottom: 10px; 
     }
 
@@ -153,7 +156,7 @@
       -webkit-overflow-scrolling: touch;
     }
     .filter-btn {
-      background: #eef2f7;
+      background: #E8ECEF;
       color: var(--text-muted);
       border: none;
       padding: 6px 14px;
@@ -182,6 +185,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       cursor: pointer;
       transition: transform 0.2s ease;
+      border: 1px solid rgba(0,0,0,0.04);
     }
     .gallery-item:hover { transform: translateY(-3px); }
     .gallery-item img {
@@ -204,7 +208,7 @@
       display: none;
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.85);
+      background: rgba(0,0,0,0.88);
       z-index: 2000;
       justify-content: center;
       align-items: center;
@@ -227,9 +231,9 @@
       width: 100%; 
       padding: 12px 14px; 
       border-radius: 10px; 
-      border: 1px solid #dcdfe6; 
+      border: 1px solid #D1D8D4; 
       font-size: 0.9rem; 
-      background: #fafafa;
+      background: #FAFAFA;
       transition: border-color 0.2s ease;
     }
     .form-group input:focus, .form-group select:focus, .form-group textarea:focus { 
@@ -239,7 +243,7 @@
     }
     .form-group textarea { resize: vertical; min-height: 90px; }
 
-    /* Botões */
+    /* Botões Otimizados com as Cores Oficiais */
     .btn { 
       display: inline-flex; 
       align-items: center; 
@@ -255,7 +259,7 @@
       cursor: pointer; 
       width: 100%; 
       transition: background 0.2s ease;
-      box-shadow: 0 4px 12px rgba(0,86,179,0.2);
+      box-shadow: 0 4px 12px rgba(0, 107, 63, 0.25);
     }
     .btn:hover, .btn:active { background: var(--primary-dark); }
     
