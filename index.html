@@ -110,6 +110,33 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Indicadores Territoriais da Página Principal */
+    .freguesia-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .stat-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 12px 8px;
+      text-align: center;
+      border: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .stat-card strong {
+      display: block;
+      font-size: 1.1rem;
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+    .stat-card span {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
     /* Cartões Modernos */
     .card { 
       background: var(--card-bg); 
@@ -144,6 +171,40 @@
       border-radius: 20px; 
       font-weight: 700; 
       margin-bottom: 10px; 
+    }
+
+    /* Executivo e Reuniões */
+    .executivo-member {
+      background: #f8faf9;
+      padding: 10px 12px;
+      border-radius: 10px;
+      margin-bottom: 8px;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+    .executivo-member strong {
+      color: var(--primary-dark);
+      font-size: 0.9rem;
+      display: block;
+    }
+    .executivo-member span {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* Documentos e Editais */
+    .doc-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px;
+      background: #f9fbf9;
+      border-radius: 10px;
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+    .doc-item i {
+      color: var(--primary);
     }
 
     /* Secção Território */
@@ -440,35 +501,140 @@
 
   <div class="container">
     
-    <!-- NOTÍCIAS COM IMAGENS -->
+    <!-- PÁGINA PRINCIPAL / NOTÍCIAS & INFORMAÇÃO INSTITUCIONAL DO SITE -->
     <div id="noticias" class="tab-content active">
+
+      <!-- Indicadores do Território -->
+      <div class="freguesia-stats-grid">
+        <div class="stat-card">
+          <strong>1633</strong>
+          <span>Ano de Criação</span>
+        </div>
+        <div class="stat-card">
+          <strong>152 km²</strong>
+          <span>Área Territorial</span>
+        </div>
+        <div class="stat-card">
+          <strong>10 625</strong>
+          <span>Habitantes (2021)</span>
+        </div>
+      </div>
+
+      <!-- Destaques Principais da Homepage -->
       <div class="card">
         <img src="stalset26.jpg" alt="Acordo STAL" class="card-img" onclick="openModal(this.src)">
-        <span class="badge">Institucional</span>
+        <span class="badge">Institucional • 18 Setembro 2026</span>
         <h3>Acordo de Trabalho com o STAL</h3>
-        <p>A Junta de Freguesia de Vendas Novas assinou um novo acordo de valorização dos recursos humanos e melhoria das condições de trabalho.</p>
+        <p>A Junta de Freguesia de Vendas Novas assinou um novo Acordo Coletivo de Trabalho de Empregador Público, garantindo a valorização dos recursos humanos e a melhoria contínua das condições de trabalho.</p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Desporto • 11 Setembro 2026</span>
+        <h3>Atribuição de Apoios Excecionais às Coletividades Desportivas</h3>
+        <p>Publicado o Despacho do Processo de Atribuição de apoios extraordinários de emergência para a recuperação das infraestruturas afetadas pelas tempestades na Freguesia.</p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Ação Social • 01 Setembro 2026</span>
+        <h3>Abertura de Inscrições no Programa de Emergência Social (PES)</h3>
+        <p>Estão abertas as candidaturas para o PES da Freguesia de Vendas Novas, destinado a famílias e cidadãos em situação de carência económica ou vulnerabilidade temporária.</p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Educação • 14 Agosto 2026</span>
+        <h3>Apoios Escolares para o Ano Letivo 2026/2027</h3>
+        <p>Início do processo de candidatura a vales de material escolar e manuais para os alunos residentes no território da Freguesia de Vendas Novas.</p>
       </div>
 
       <div class="card">
         <img src="35anosdadores.jpg" alt="35 Anos Dadores de Sangue" class="card-img" onclick="openModal(this.src)">
-        <span class="badge">Ação Social</span>
-        <h3>35 Anos do Núcleo de Dadores de Sangue</h3>
-        <p>Comemoração e reconhecimento do papel fundamental dos dadores de sangue na nossa comunidade.</p>
+        <span class="badge">Comunidade • 17 Junho 2026</span>
+        <h3>35.º Aniversário da Associação de Dadores Benévolos de Sangue</h3>
+        <p>Homenagem pública e reconhecimento do papel essencial desempenhado pelo núcleo de dadores de Vendas Novas em prol da saúde pública e solidariedade.</p>
       </div>
 
+      <!-- Executivo da Junta de Freguesia -->
       <div class="card">
-        <img src="passeioidosos.jpg" alt="Passeio dos Idosos" class="card-img" onclick="openModal(this.src)">
-        <span class="badge">Comunidade</span>
-        <h3>Passeio de Confraternização dos Séniores</h3>
-        <p>Iniciativa dedicada à população sénior da freguesia com momentos de lazer e convivência.</p>
+        <h3><i class="fa-solid fa-users-gear"></i> Executivo da Junta de Freguesia</h3>
+        <p style="margin-bottom: 10px;">Composição do órgão executivo da Freguesia de Vendas Novas:</p>
+        
+        <div class="executivo-member">
+          <strong>Fernando Jorge Travessa Chaveiro</strong>
+          <span>Presidente da Junta de Freguesia</span>
+          <br><small style="color: var(--primary); font-weight: 600;">Atendimento: Terças-feiras, 16h00 às 17h30 (Sede)</small>
+        </div>
+
+        <div class="executivo-member">
+          <strong>Maria Manuel Gaspar Alexandre</strong>
+          <span>Secretária</span>
+        </div>
+
+        <div class="executivo-member">
+          <strong>José Luís Coruche Pereira</strong>
+          <span>Tesoureiro</span>
+        </div>
+
+        <div class="executivo-member">
+          <strong>Margarida Casimiro Ferreira Laranjo</strong>
+          <span>Vogal</span>
+        </div>
+
+        <div class="executivo-member">
+          <strong>Heitor Urbano Calhau Dias</strong>
+          <span>Vogal</span>
+        </div>
       </div>
 
+      <!-- Agenda de Próximos Aniversários e Eventos do Portal -->
       <div class="card">
-        <img src="arraialfreg.jpg" alt="Arraial da Freguesia" class="card-img" onclick="openModal(this.src)">
-        <span class="badge">Eventos</span>
-        <h3>Arraial da Freguesia</h3>
-        <p>Festejos populares com música, gastronomia e animação para toda a família.</p>
+        <h3><i class="fa-solid fa-calendar-star"></i> Próximos Aniversários & Agenda</h3>
+        <p style="margin-bottom: 10px;">Datas festivas e eventos das coletividades da freguesia:</p>
+
+        <div class="doc-item">
+          <span><strong>15 Outubro 2026</strong> — Aniversário do Rancho Folclórico das Piçarras</span>
+          <i class="fa-solid fa-cake-candles"></i>
+        </div>
+        <div class="doc-item">
+          <span><strong>22 Outubro 2026</strong> — Aniversário do Clube Columbófilo</span>
+          <i class="fa-solid fa-cake-candles"></i>
+        </div>
+        <div class="doc-item">
+          <span><strong>30 Outubro 2026</strong> — Aniversário do Kirugui Clube Taeckwondo</span>
+          <i class="fa-solid fa-cake-candles"></i>
+        </div>
+        <div class="doc-item">
+          <span><strong>05 Novembro 2026</strong> — Aniversário do Grupo Cantares Reformados</span>
+          <i class="fa-solid fa-cake-candles"></i>
+        </div>
+        <div class="doc-item">
+          <span><strong>05 Dezembro 2026</strong> — Aniversário da Assoc. Intervenção Comunitária</span>
+          <i class="fa-solid fa-cake-candles"></i>
+        </div>
       </div>
+
+      <!-- Área de Transparência e Documentos -->
+      <div class="card">
+        <h3><i class="fa-solid fa-folder-open"></i> Documentos e Transparência</h3>
+        <p style="margin-bottom: 10px;">Últimas deliberações e avisos públicos emitidos:</p>
+
+        <div class="doc-item">
+          <span>Ata Nº 06 de 2026 — Reunião Ordinária</span>
+          <i class="fa-solid fa-file-pdf"></i>
+        </div>
+        <div class="doc-item">
+          <span>Edital de 28 de Agosto — Ordem de Trabalhos</span>
+          <i class="fa-solid fa-file-lines"></i>
+        </div>
+        <div class="doc-item">
+          <span>Despacho Nº 01 — Atribuição de Apoios Excecionais</span>
+          <i class="fa-solid fa-file-circle-check"></i>
+        </div>
+        <div class="doc-item">
+          <span>Edital — Renúncia e Substituição de Membro da Assembleia</span>
+          <i class="fa-solid fa-file-signature"></i>
+        </div>
+      </div>
+
     </div>
 
     <!-- SECTOR TERRITÓRIO -->
@@ -744,28 +910,6 @@
           </div>
         </div>
 
-        <!-- Agenda & Eventos -->
-        <div class="territorio-item">
-          <div class="territorio-header" onclick="toggleAccordion(this)">
-            <span><i class="fa-solid fa-calendar-days" style="margin-right: 8px;"></i> Agenda de Eventos</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="territorio-content">
-            <p>Acompanhe os eventos culturais, desportivos e comunitários em Vendas Novas ao longo de todo o ano.</p>
-          </div>
-        </div>
-
-        <!-- Mapa de Localizações -->
-        <div class="territorio-item">
-          <div class="territorio-header" onclick="toggleAccordion(this)">
-            <span><i class="fa-solid fa-map-pin" style="margin-right: 8px;"></i> Mapa e Pontos de Interesse</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="territorio-content">
-            <p>Encontre equipamentos públicos, monumentos, parques e serviços na freguesia.</p>
-          </div>
-        </div>
-
       </div>
     </div>
 
@@ -986,7 +1130,7 @@
   <nav>
     <button class="active" onclick="switchTab('noticias', this)">
       <i class="fa-regular fa-newspaper"></i>
-      <span>Notícias</span>
+      <span>Início</span>
     </button>
     <button onclick="switchTab('territorio', this)">
       <i class="fa-solid fa-landmark"></i>
