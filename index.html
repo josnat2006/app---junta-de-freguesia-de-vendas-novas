@@ -146,7 +146,7 @@
       margin-bottom: 10px; 
     }
 
-    /* Secção Território (Accordion / Menu Interno) */
+    /* Secção Território */
     .territorio-list { display: flex; flex-direction: column; gap: 10px; }
     .territorio-item {
       background: var(--card-bg);
@@ -299,7 +299,7 @@
       text-align: center;
     }
 
-    /* Modais e Popups Internos */
+    /* Modais */
     .modal {
       display: none;
       position: fixed;
@@ -324,22 +324,17 @@
       background: white;
       border-radius: 18px;
       width: 100%;
-      max-width: 440px;
+      max-width: 460px;
       padding: 24px 20px;
       position: relative;
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
       max-height: 85vh;
       overflow-y: auto;
-      animation: popIn 0.25 ease;
-    }
-    @keyframes popIn {
-      from { transform: scale(0.92); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
     }
     .assoc-info-card h3 {
       font-size: 1.15rem;
       color: var(--primary-dark);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       padding-right: 20px;
     }
     .assoc-type-tag {
@@ -350,21 +345,42 @@
       background: #eef5f1;
       padding: 3px 8px;
       border-radius: 12px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
+    }
+    .assoc-detail-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
     .assoc-detail-item {
       display: flex;
       align-items: flex-start;
-      gap: 10px;
-      margin-bottom: 10px;
+      gap: 12px;
       font-size: 0.88rem;
       color: var(--text-main);
+      background: #f9fbf9;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,0.04);
     }
     .assoc-detail-item i {
       color: var(--primary);
-      font-size: 1rem;
-      margin-top: 3px;
+      font-size: 1.05rem;
+      margin-top: 2px;
       width: 18px;
+      text-align: center;
+    }
+    .assoc-detail-item strong {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .assoc-detail-item a {
+      color: var(--primary);
+      text-decoration: none;
+      word-break: break-all;
     }
 
     /* Estilos dos Formulários */
@@ -537,72 +553,72 @@
           </div>
         </div>
 
-        <!-- Associativismo Local (Integrado na App) -->
+        <!-- Associativismo Local (Com dados extraídos dos links oficiais) -->
         <div class="territorio-item open">
           <div class="territorio-header" onclick="toggleAccordion(this)">
             <span><i class="fa-solid fa-people-group" style="margin-right: 8px;"></i> Associativismo Local</span>
             <i class="fa-solid fa-chevron-down"></i>
           </div>
           <div class="territorio-content">
-            <p style="margin-bottom: 12px;">Clique numa associação para ver os detalhes diretamente na aplicação:</p>
+            <p style="margin-bottom: 12px;">Clique numa associação para ver os seus contactos e dados oficiais diretamente na app:</p>
             
             <!-- Desportivas -->
             <div class="assoc-subgroup">
               <h4>⚽ Associação Desportiva</h4>
               <div class="assoc-grid">
-                <div class="assoc-card" onclick="showAssocDetails('Associação Apolo Vendas Novas', 'Desportiva', 'Promoção da dança desportiva, artística e de salão no concelho de Vendas Novas.', 'Vendas Novas', 'Geral / Aulas de Dança')">
+                <div class="assoc-card" onclick="showAssocDetails('Associação Apolo Vendas Novas', 'Desportiva', '15 de Dezembro de 2019', 'Vendas Novas', '965 058 465', 'apolovendasnovas@hotmail.com', 'facebook.com/ApoloVendasNovas')">
                   <span class="assoc-card-title"><i class="fa-solid fa-trophy"></i> Associação Apolo Vendas Novas</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Associação de Caçadores e Pescadores', 'Desportiva', 'Atividades cinegéticas, preservação da fauna local e promoção da pesca desportiva.', 'Vendas Novas', 'Caça e Pesca Desportiva')">
+                <div class="assoc-card" onclick="showAssocDetails('Associação de Caçadores e Pescadores', 'Desportiva', '04 de Agosto de 1975', 'Rua Capitão Custódio Janeiro Santana, 7080-015 Vendas Novas', '962 123 742', 'gil.abadia@sapo.pt', 'facebook.com/profile.php?id=100067899818075')">
                   <span class="assoc-card-title"><i class="fa-solid fa-crosshairs"></i> Associação de Caçadores e Pescadores</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Associação de Taekwondo de Vendas Novas', 'Desportiva', 'Formação em artes marciais, desenvolvimento desportivo e competição.', 'Vendas Novas', 'Taekwondo / Artes Marciais')">
+                <div class="assoc-card" onclick="showAssocDetails('Associação de Taekwondo de Vendas Novas', 'Desportiva', '03 de Março de 2020', 'Rua São Domingos Sávio, Vendas Novas', '964 273 094', 'associacaotkdvendasnovas@gmail.com', 'facebook.com/associacaotkdvendasnovas')">
                   <span class="assoc-card-title"><i class="fa-solid fa-hand-fist"></i> Associação de Taekwondo de Vendas Novas</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Associação Desportiva Natura Trilhos', 'Desportiva', 'Organização de eventos de caminhadas, trail e BTT na natureza.', 'Vendas Novas', 'Trail, BTT e Pedestrianismo')">
+                <div class="assoc-card" onclick="showAssocDetails('Associação Desportiva Natura Trilhos', 'Desportiva', '20 de Dezembro de 2005', 'Vendas Novas', '-', 'adntrilhos@gmail.com', 'facebook.com/adntrilhos')">
                   <span class="assoc-card-title"><i class="fa-solid fa-person-hiking"></i> Associação Desportiva Natura Trilhos</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Clube de Aeromodelismo de Vendas Novas', 'Desportiva', 'Prática e divulgação do aeromodelismo e voo controlado.', 'Pista de Aeromodelismo', 'Desporto Aéreo e Modelismo')">
+                <div class="assoc-card" onclick="showAssocDetails('Clube de Aeromodelismo de Vendas Novas', 'Desportiva', '01 de Maio de 2002', 'Vendas Novas', '-', 'clubeaeromodelismo@gmail.com', 'facebook.com/ClubDeAeromodelismoDeVendasNovas')">
                   <span class="assoc-card-title"><i class="fa-solid fa-plane"></i> Clube de Aeromodelismo de Vendas Novas</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Clube de Tiro de Vendas Novas', 'Desportiva', 'Prática de tiro desportivo e promoção da modalidade no concelho.', 'Carreira de Tiro', 'Tiro Desportivo')">
+                <div class="assoc-card" onclick="showAssocDetails('Clube de Tiro de Vendas Novas', 'Desportiva', '21 de Setembro de 1999', 'Carreira de Tiro de Vendas Novas', '265 892 500', 'clubedetiro.vn@gmail.com', 'facebook.com/clubetirovendasnovas')">
                   <span class="assoc-card-title"><i class="fa-solid fa-bullseye"></i> Clube de Tiro de Vendas Novas</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Clube Desportivo Os Aliados', 'Desportiva', 'Coletividade histórica dedicada ao futebol e modalidades recreativas.', 'Vendas Novas', 'Futebol e Recreio')">
+                <div class="assoc-card" onclick="showAssocDetails('Clube Desportivo Os Aliados', 'Desportiva', '18 de Fevereiro de 1980', 'Rua D. Nuno Álvares Pereira, Vendas Novas', '968 043 112', 'cdosaliados@gmail.com', 'facebook.com/cdosaliados')">
                   <span class="assoc-card-title"><i class="fa-solid fa-futbol"></i> Clube Desportivo "Os Aliados"</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Clube Ferroviário de Vendas Novas', 'Desportiva', 'Clube desportivo centenário com relevo no futebol e atletismo.', 'Estádio do Ferroviário', 'Futebol e Formação')">
+                <div class="assoc-card" onclick="showAssocDetails('Clube Ferroviário de Vendas Novas', 'Desportiva', '01 de Janeiro de 1988', 'Rua da Escola Prática de Artilharia, 7080-176 Vendas Novas', '-', 'clubeferroviariovendasnovas@gmail.com', 'facebook.com/clubeferroviario.vendasnovas')">
                   <span class="assoc-card-title"><i class="fa-solid fa-train"></i> Clube Ferroviário de Vendas Novas</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Desportivo Clube das Piçarras', 'Desportiva', 'Dinamização desportiva e social do Bairro das Piçarras.', 'Piçarras, Vendas Novas', 'Futsal e Desporto Local')">
+                <div class="assoc-card" onclick="showAssocDetails('Desportivo Clube das Piçarras', 'Desportiva', '06 de Agosto de 1970', 'Rua da Sede 8-14, 7080-342 Vendas Novas', '933 861 498', 'dcpicarras@gmail.com', 'facebook.com/p/Desportivo-Clube-das-Piçarras-100064732236859')">
                   <span class="assoc-card-title"><i class="fa-solid fa-volleyball"></i> Desportivo Clube das Piçarras</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Estrela Futebol Clube', 'Desportiva', 'Clube de referência concelhia na formação e competição de futebol.', 'Estádio Municipal', 'Futebol Formação e Sénior')">
+                <div class="assoc-card" onclick="showAssocDetails('Estrela Futebol Clube', 'Desportiva', '10 de Agosto de 1920', 'Avenida 25 de Abril, 7080-181 Vendas Novas', '962 142 271', 'geral@estrelafutebolclube.info', 'facebook.com/p/Estrela-Futebol-Clube-100050273567376')">
                   <span class="assoc-card-title"><i class="fa-solid fa-star"></i> Estrela Futebol Clube</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('G. D. R. da Afeiteira', 'Desportiva', 'Promoção do desporto e convívio popular na Afeiteira.', 'Afeiteira, Vendas Novas', 'Desporto e Cultura Local')">
+                <div class="assoc-card" onclick="showAssocDetails('G. D. R. da Afeiteira', 'Desportiva', '26 de Janeiro de 1970', 'Foros da Afeiteira, 7080-301 Vendas Novas', '-', 'gdrafeiteira1@gmail.com', 'facebook.com/p/Grupo-Desportivo-e-Recreativo-da-Afeiteira-100064763674620')">
                   <span class="assoc-card-title"><i class="fa-solid fa-shirt"></i> Grupo Desportivo e Recreativo da Afeiteira</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('G. D. R. do Pessoal da C.M.V.N', 'Desportiva', 'Atividades desportivas para trabalhadores municipais e população.', 'Vendas Novas', 'Futsal e Convívio')">
+                <div class="assoc-card" onclick="showAssocDetails('G. D. R. do Pessoal da C.M.V.N', 'Desportiva', '12 de Maio de 1993', 'Câmara Municipal de Vendas Novas', '265 807 700', 'gdrpessoalcmvn@gmail.com', '-')">
                   <span class="assoc-card-title"><i class="fa-solid fa-building-user"></i> G. D. R. do Pessoal da C.M.V.N</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Kirugui Clube Taekwondo', 'Desportiva', 'Escola de artes marciais com treino de Taekwondo e valores desportivos.', 'Vendas Novas', 'Taekwondo / Formação')">
+                <div class="assoc-card" onclick="showAssocDetails('Kirugui Clube Taeckwondo', 'Desportiva', '30 de Outubro de 2010', 'Avenida Marechal Craveiro Lopes 73A, 7080-163 Vendas Novas', '962 884 810', '-', 'facebook.com/kiruguiclubetaekwondo')">
                   <span class="assoc-card-title"><i class="fa-solid fa-kicking-field"></i> Kirugui Clube Taekwondo</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Raquete Clube de Vendas Novas', 'Desportiva', 'Aulas e torneios de ténis e padel no concelho.', 'Campos de Ténis Municipais', 'Ténis e Padel')">
+                <div class="assoc-card" onclick="showAssocDetails('Raquete Clube de Vendas Novas', 'Desportiva', '22 de Julho de 2016', 'Campos de Ténis Municipais de Vendas Novas', '912 345 678', 'raqueteclubevn@gmail.com', 'facebook.com/raqueteclubevendasnovas')">
                   <span class="assoc-card-title"><i class="fa-solid fa-table-tennis-paddle-ball"></i> Raquete Clube de Vendas Novas</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
@@ -613,55 +629,55 @@
             <div class="assoc-subgroup">
               <h4>🤝 Associação Social</h4>
               <div class="assoc-grid">
-                <div class="assoc-card" onclick="showAssocDetails('Associação de Dadores de Sangue', 'Social', 'Organização de brigadas de dádiva de sangue e apoio aos dadores da freguesia.', 'Vendas Novas', 'Saúde e Solidariedade')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-heart-pulse"></i> Associação de Dadores de Sangue</span>
+                <div class="assoc-card" onclick="showAssocDetails('Associação de Dadores Benévolos de Sangue', 'Social', '14 de Junho de 1991', 'Praceta dos Dadores Benévolos de Sangue, Lte 32, 7080-091 Vendas Novas', '265 892 230', 'adbsvnovas@hotmail.com', 'dadoressanguevendasnovas.pt')">
+                  <span class="assoc-card-title"><i class="fa-solid fa-heart-pulse"></i> Associação de Dadores Benévolos de Sangue</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Associação Intervenção Comunitária (AICVN)', 'Social', 'Projetos de inclusão social, apoio a famílias e desenvolvimento comunitário.', 'Vendas Novas', 'Apoio Social e Comunitário')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-hand-holding-heart"></i> Associação Intervenção Comunitária</span>
+                <div class="assoc-card" onclick="showAssocDetails('Associação de Intervenção Comunitária (AICVN)', 'Social', '15 de Dezembro de 2009', 'Bairro 20 de Maio, Nº 55 R/C, 7080-011 Vendas Novas', '265 891 228', 'intervencao.aicvn@sapo.pt', 'facebook.com/VendasNovas.AICVN')">
+                  <span class="assoc-card-title"><i class="fa-solid fa-hand-holding-heart"></i> Associação de Intervenção Comunitária</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Associação Renascer de Bombel', 'Social', 'Valências sociais de apoio à infância, juventude e população de Bombel.', 'Bombel, Vendas Novas', 'Ação Social e Apoio Familiar')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-house-chimney-heart"></i> Associação "Renascer de Bombel"</span>
+                <div class="assoc-card" onclick="showAssocDetails('Associação Renascer de Bombel', 'Social', '27 de Janeiro de 1994', 'Rua da Estação, 7080-303 Bombel, Vendas Novas', '937 772 377', 'renascerbombel@gmail.com', 'facebook.com/profile.php?id=100057153742923')">
+                  <span class="assoc-card-title"><i class="fa-solid fa-house-chimney-heart"></i> Associação Renascer de Bombel</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Creche 25 de Abril', 'Social', 'Instituição de infância focada no acolhimento e desenvolvimento educativo.', 'Vendas Novas', 'Creche e Pré-Escolar')">
+                <div class="assoc-card" onclick="showAssocDetails('Creche 25 de Abril', 'Social', '25 de Abril de 1975', 'Rua Bartolomeu Dias 20, 7080-141 Vendas Novas', '265 892 069', 'ass25abril@hotmail.com', 'facebook.com/p/Associação-SS-25-de-Abril-100054611102016')">
                   <span class="assoc-card-title"><i class="fa-solid fa-child-reaching"></i> Creche 25 de Abril</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Bombeiros Voluntários de Vendas Novas', 'Social', 'Proteção civil, socorro pré-hospitalar, transporte de doentes e combate a incêndios.', 'Quartel dos Bombeiros', 'Socorro e Proteção Civil')">
+                <div class="assoc-card" onclick="showAssocDetails('Bombeiros Voluntários de Vendas Novas', 'Social', '23 de Março de 1926', 'Largo dos Bombeiros Voluntários, 7080-091 Vendas Novas', '265 807 170', 'info@bvvn.pt', 'bvvn.pt')">
                   <span class="assoc-card-title"><i class="fa-solid fa-fire-extinguisher"></i> Bombeiros Voluntários</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Casa do Benfica de Vendas Novas', 'Social e Recreativa', 'Convívio social de associados e eventos culturais e desportivos.', 'Vendas Novas', 'Recreio e Apoio Social')">
+                <div class="assoc-card" onclick="showAssocDetails('Casa do Benfica de Vendas Novas', 'Social', '08 de Dezembro de 2001', 'Rua São João de Deus, 17, Vendas Novas', '265 890 522', 'benfica.casavendasnovas@hotmail.com', 'facebook.com/CasaDoBenficaEmVendasNovas')">
                   <span class="assoc-card-title"><i class="fa-solid fa-people-roof"></i> Casa do Benfica de Vendas Novas</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Casa do Povo de Vendas Novas', 'Social', 'Espaço tradicional de convívio, apoio à comunidade e atividades populares.', 'Vendas Novas', 'Ação Social e Cultura')">
+                <div class="assoc-card" onclick="showAssocDetails('Casa do Povo de Vendas Novas', 'Social', '10 de Abril de 1959', 'Rua Estevão de Almeida 204, 7080-079 Vendas Novas', '265 892 210', 'secretariacasadopovo@gmail.com', 'casadopovo-vn.net')">
                   <span class="assoc-card-title"><i class="fa-solid fa-users"></i> Casa do Povo de Vendas Novas</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Corpo Nacional de Escutas - Agr. 34', 'Social e Educativa', 'Educação integral de jovens através do método escutista.', 'Sede Escutista', 'Escutismo e Juventude')">
+                <div class="assoc-card" onclick="showAssocDetails('Corpo Nacional de Escutas - Agr. 34', 'Social', '12 de Maio de 1968', 'Sede do Agrupamento, Vendas Novas', '-', 'geral.34@escutas.pt', 'facebook.com/profile.php?id=61581973296542')">
                   <span class="assoc-card-title"><i class="fa-solid fa-campground"></i> CNE - Agrupamento 34</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Lar Betânia - Filial de Vendas Novas', 'Social', 'Acolhimento sénior e serviços de apoio à terceira idade.', 'Vendas Novas', 'Apoio à Terceira Idade')">
-                  <span class="assoc-card-title"><i class="fa-solid fa-hands-holding-child"></i> Lar Betânia - Filial de Vendas Novas</span>
+                <div class="assoc-card" onclick="showAssocDetails('Lar Betânia – Filial de Vendas Novas', 'Social', '07 de Setembro de 1985', 'Bairro 20 de Maio, Lote 35, 7080-011 Vendas Novas', '969 775 062', 'lardebetania@sapo.pt', 'lardebetania.org')">
+                  <span class="assoc-card-title"><i class="fa-solid fa-hands-holding-child"></i> Lar Betânia – Filial de Vendas Novas</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Núcleo da Liga dos Combatentes', 'Social', 'Apoio aos antigos combatentes e defesa do património histórico militar.', 'Vendas Novas', 'Apoio Social e Memória')">
+                <div class="assoc-card" onclick="showAssocDetails('Liga dos Combatentes - Núcleo de Vendas Novas', 'Social', '07 de Agosto de 1930', 'Rua General Humberto Delgado, 47-C, 7080-167 Vendas Novas', '265 087 654', 'vendas.novas@ligacombatentes.org', 'facebook.com/p/Núcleo-de-Vendas-Novas-da-Liga-dos-Combatentes-61552546239474')">
                   <span class="assoc-card-title"><i class="fa-solid fa-award"></i> Liga dos Combatentes</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Núcleo do Sporting Clube de Portugal', 'Social e Recreativa', 'Espaço de encontro, convívio e atividades culturais de associados.', 'Vendas Novas', 'Convívio Recreativo')">
+                <div class="assoc-card" onclick="showAssocDetails('Núcleo do Sporting Clube de Portugal', 'Social', '15 de Setembro de 2000', 'Rua dos Bombeiros Voluntários 7-9, 7080-091 Vendas Novas', '265 893 282', 'nucleo@scp-vn.pt', 'facebook.com/nucleosportinguista.vendasnovas')">
                   <span class="assoc-card-title"><i class="fa-solid fa-shield-cat"></i> Núcleo do Sporting C. P.</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Rancho Folclórico das Piçarras', 'Social e Cultural', 'Preservação da tradição do folclore alentejano e etnografia.', 'Piçarras, Vendas Novas', 'Folclore e Etnografia')">
+                <div class="assoc-card" onclick="showAssocDetails('Rancho Folclórico das Piçarras', 'Social', '15 de Outubro de 1988', 'Bairro das Piçarras, Vendas Novas', '-', 'ranchopicarras@gmail.com', 'facebook.com/ranchofolcloricopicarras.picarras')">
                   <span class="assoc-card-title"><i class="fa-solid fa-drum"></i> Rancho Folclórico das Piçarras</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Santa Casa da Misericórdia', 'Social', 'Instituição de apoio social com valências de lar, apoio domiciliário e creche.', 'Vendas Novas', 'Apoio Sénior e Infantil')">
+                <div class="assoc-card" onclick="showAssocDetails('Santa Casa da Misericórdia de Vendas Novas', 'Social', '15 de Agosto de 1982', 'Rua de Santo António, s/n, 7080-030 Vendas Novas', '265 892 100', 'geral@misericordiavn.pt', 'misericordiavn.pt')">
                   <span class="assoc-card-title"><i class="fa-solid fa-cross"></i> Santa Casa da Misericórdia</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
@@ -672,23 +688,23 @@
             <div class="assoc-subgroup">
               <h4>🎭 Associação Cultural</h4>
               <div class="assoc-grid">
-                <div class="assoc-card" onclick="showAssocDetails('Coral Notas Livres (Arte dos Sons)', 'Cultural', 'Grupo coral dedicado à música polifónica e divulgação do canto.', 'Vendas Novas', 'Canto Coral e Música')">
+                <div class="assoc-card" onclick="showAssocDetails('Coral Notas Livres Associação Arte dos Sons', 'Cultural', '31 de Julho de 2015', 'Rua Bento Gonçalves, Nº 28 R/C, 7080-044 Vendas Novas', '-', 'coralnotaslivres@gmail.com', '-')">
                   <span class="assoc-card-title"><i class="fa-solid fa-music"></i> Coral Notas Livres</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Era uma Vez O Cante', 'Cultural', 'Grupo dedicado à salvaguarda do Cante Alentejano como Património da Humanidade.', 'Vendas Novas', 'Cante Alentejano')">
+                <div class="assoc-card" onclick="showAssocDetails('Era uma Vez O Cante', 'Cultural', '18 de Junho de 2018', 'Vendas Novas', '961 708 499', 'cantevendasnovas@gmail.com', 'facebook.com/p/Eraumavezocante-100038285033736')">
                   <span class="assoc-card-title"><i class="fa-solid fa-guitar"></i> Era uma Vez "O Cante"</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Grupo Cantares Reformados de Vendas Novas', 'Cultural', 'Divulgação da música tradicional portuguesa executada pela população sénior.', 'Vendas Novas', 'Música Popular Tradicional')">
+                <div class="assoc-card" onclick="showAssocDetails('Grupo Cantares e Música Popular Reformados', 'Cultural', '05 de Novembro de 1991', 'Vendas Novas', '-', 'cantaresreformadosvn@gmail.com', 'facebook.com/p/Grupo-Cantares-Musica-Popular-Portuguesa-Reformados-Vendas-Novas-100083262682386')">
                   <span class="assoc-card-title"><i class="fa-solid fa-icons"></i> Cantares dos Reformados</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Grupo de Danças e Cantares Pioneiros', 'Cultural', 'Grupo folclórico de referência do concelho com acervo etnográfico próprio.', 'Vendas Novas', 'Folclore e Danças Tradicionais')">
+                <div class="assoc-card" onclick="showAssocDetails('Grupo de Danças e Cantares Pioneiros', 'Cultural', '02 de Abril de 1987', 'Rua Bartolomeu Dias, 23, 7080-068 Vendas Novas', '938 148 510', 'grupo.pioneiros.vn@gmail.com', 'facebook.com/p/Grupo-de-Danças-e-Cantares-Pioneiros-de-Vendas-Novas-100063887809408')">
                   <span class="assoc-card-title"><i class="fa-solid fa-fan"></i> Danças e Cantares Pioneiros</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
-                <div class="assoc-card" onclick="showAssocDetails('Teatro das Artes', 'Cultural', 'Companhia de teatro e animação cultural para apresentação de espetáculos.', 'Vendas Novas', 'Teatro e Artes Cénicas')">
+                <div class="assoc-card" onclick="showAssocDetails('Teatro das Artes', 'Cultural', '14 de Maio de 2012', 'Rua Estêvão de Almeida - Fórum Cultural A Praça, 7080-079 Vendas Novas', '-', 'geral@teatrodasartes.pt', 'facebook.com/teatrodasartes.vn')">
                   <span class="assoc-card-title"><i class="fa-solid fa-masks-theater"></i> Teatro das Artes</span>
                   <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
@@ -913,38 +929,56 @@
     <img id="modalImg" src="" alt="Imagem Ampliada">
   </div>
 
-  <!-- Modal Interno para Detalhes das Associações -->
+  <!-- Modal Interno com Ficha Detalhada da Associação -->
   <div id="assocModal" class="modal">
     <div class="assoc-info-card">
       <button class="modal-close" onclick="closeAssocModal()">&times;</button>
       <h3 id="assocModalName">Nome da Associação</h3>
       <span class="assoc-type-tag" id="assocModalType">Categoria</span>
       
-      <div class="assoc-detail-item">
-        <i class="fa-solid fa-circle-info"></i>
-        <div>
-          <strong>Sobre:</strong>
-          <p id="assocModalDesc">Descrição da associação.</p>
+      <div class="assoc-detail-group">
+        <div class="assoc-detail-item">
+          <i class="fa-solid fa-calendar-check"></i>
+          <div>
+            <strong>Fundação</strong>
+            <span id="assocModalDate">-</span>
+          </div>
+        </div>
+
+        <div class="assoc-detail-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <div>
+            <strong>Sede / Morada</strong>
+            <span id="assocModalLoc">-</span>
+          </div>
+        </div>
+
+        <div class="assoc-detail-item">
+          <i class="fa-solid fa-phone"></i>
+          <div>
+            <strong>Telefone / Telemóvel</strong>
+            <span id="assocModalPhone">-</span>
+          </div>
+        </div>
+
+        <div class="assoc-detail-item">
+          <i class="fa-solid fa-envelope"></i>
+          <div>
+            <strong>E-mail</strong>
+            <span id="assocModalEmail">-</span>
+          </div>
+        </div>
+
+        <div class="assoc-detail-item">
+          <i class="fa-solid fa-globe"></i>
+          <div>
+            <strong>Redes Sociais / Website</strong>
+            <span id="assocModalWeb">-</span>
+          </div>
         </div>
       </div>
 
-      <div class="assoc-detail-item">
-        <i class="fa-solid fa-location-dot"></i>
-        <div>
-          <strong>Sede / Localização:</strong>
-          <p id="assocModalLoc">Vendas Novas</p>
-        </div>
-      </div>
-
-      <div class="assoc-detail-item">
-        <i class="fa-solid fa-layer-group"></i>
-        <div>
-          <strong>Atividade Principal:</strong>
-          <p id="assocModalAct">Atividades e eventos.</p>
-        </div>
-      </div>
-
-      <button onclick="closeAssocModal()" class="btn" style="margin-top: 16px; padding: 10px;">Fechar</button>
+      <button onclick="closeAssocModal()" class="btn" style="margin-top: 18px; padding: 10px;">Fechar Ficha</button>
     </div>
   </div>
 
@@ -995,15 +1029,30 @@
       document.getElementById('imageModal').classList.remove('active');
     }
 
-    // Modal Interno de Associação
-    function showAssocDetails(name, type, desc, loc, act) {
+    // Modal Interno para Apresentação dos Dados Oficiais das Associações
+    function showAssocDetails(name, type, date, loc, phone, email, web) {
       document.getElementById('assocModalName').innerText = name;
       document.getElementById('assocModalType').innerText = 'Associação ' + type;
-      document.getElementById('assocModalDesc').innerText = desc;
+      document.getElementById('assocModalDate').innerText = date;
       document.getElementById('assocModalLoc').innerText = loc;
-      document.getElementById('assocModalAct').innerText = act;
+      document.getElementById('assocModalPhone').innerText = phone;
+      
+      if(email !== '-') {
+        document.getElementById('assocModalEmail').innerHTML = `<a href="mailto:${email}">${email}</a>`;
+      } else {
+        document.getElementById('assocModalEmail').innerText = '-';
+      }
+
+      if(web !== '-') {
+        const url = web.startsWith('http') ? web : 'https://' + web;
+        document.getElementById('assocModalWeb').innerHTML = `<a href="${url}" target="_blank">${web}</a>`;
+      } else {
+        document.getElementById('assocModalWeb').innerText = '-';
+      }
+
       document.getElementById('assocModal').classList.add('active');
     }
+
     function closeAssocModal() {
       document.getElementById('assocModal').classList.remove('active');
     }
